@@ -1,123 +1,130 @@
 body {
-    background-color: #FAFAFA;
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-  }
+  background-color: #fafafa;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
 
 .sidebar {
-    width: 15rem;
-    height: 100%;
-    background-color: #FFFFFF;
-    color: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 1.25rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
+  width: 15rem;
+  height: 100%;
+  background-color: #ffffff;
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1.25rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
 
-  .logo{
-    padding-bottom: 2rem;
-    font-weight: bold;
-  }
+.sidebar ul {
+  list-style: none;
+  text-align: left;
+}
 
-  .titles{
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    cursor: pointer;
-  }
+.title-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 3rem;
+}
 
-  .titles:hover {
-    background-color: #00a26d;
-  }
-  
-  .sidebar-footer{
-    font-size: 1.5rem;
-    position: fixed;
-    bottom: 1rem;
-  }
+.titles {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+}
 
-  /* expenses */
+.titles:hover {
+  width: 12rem;
+  background-color: #1ea87b;
+  color: white;
+}
 
-  .content-expenses {
-    position: fixed;
-    left: 20rem;
-    bottom: 2rem;
-    background-color: #FFFFFF;
-    border-radius: 1rem;
-    width: 75%;
-    height: 80%;
-    box-shadow: -5px 8px 34px -6px rgba(0,0,0,0.34);
-  }
+.titles-logout {
+  font-size: 1.5rem;
+  position: fixed;
+  bottom: 2rem;
+}
 
-  .container-expenses{
-    padding: 2rem;
-  }
+.titles-logout:hover {
+  color: #1ea87b;
+}
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav h1 {
-    color: gray;
-    font-size: 2.5rem;
-  }
-  .nav button {
-    width: 10rem;
-    height: 3rem;
-    background-color: #00a26d;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-  }
-  .nav button:hover {
-    background-color: #1ea87b;
-    cursor: pointer;
-  }
+/* expenses */
 
-  .balance-number {
-    text-decoration: none;
-    display: flex;
-    justify-content: space-around;
-    line-height: 0.5rem;
-  }
-  .balance-number li {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-  }
-  .balance-number li .number {
-    font-size: 2.2rem;
-    font-weight: bold;
-  }
+.content-expenses {
+  position: fixed;
+  left: 20rem;
+  bottom: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  width: 75%;
+  height: 80%;
+  box-shadow: -5px 8px 34px -6px rgba(0, 0, 0, 0.34);
+}
 
-  hr {
-    border: 1px solid lightgrey;
-    margin: 1rem 0;
-  }
-  
-  .content-bottom {
-    display: flex;
-    justify-content: space-around;
-    background-color: lightgray;
-    padding: 0.5rem;
-    margin-top: 2rem;
-    font-weight: bold;
-    color: gray;
-    font-size: 1.2rem;
-  }
+.container-expenses {
+  padding: 2rem;
+}
 
-  .user{
-    position: fixed;
-    top: 2rem;
-    right: 5rem;
-  }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav h1 {
+  color: gray;
+  font-size: 2.5rem;
+}
+.nav button {
+  width: 10rem;
+  height: 3rem;
+  background-color: #00a26d;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.nav button:hover {
+  background-color: #1ea87b;
+  cursor: pointer;
+}
+
+.balance-number {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  line-height: 0.5rem;
+}
+.balance-number li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.balance-number li .number {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+hr {
+  border: 1px solid lightgrey;
+  margin: 1rem 0;
+}
+
+.content-bottom {
+  display: flex;
+  justify-content: space-around;
+  background-color: lightgray;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  font-weight: bold;
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: fixed;
+  top: 2rem;
+  right: 5rem;
+}

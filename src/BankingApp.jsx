@@ -4,19 +4,15 @@ import "./Sidebar.css";
 function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="logo">
-        <h1>Iron Bank of Avion</h1>
-      </div>
       <ul>
+        <li className="title-logo">The Iron Bank of Avion</li>
         <li className="titles">Overview</li>
         <li className="titles">Send Money</li>
         <li className="titles">Withdraw</li>
         <li className="titles">Budget</li>
         <li className="titles">Buy Load</li>
+        <li className="titles-logout">Logout</li>
       </ul>
-      <div className="sidebar-footer">
-        <p>Logout</p>
-      </div>
       <Expenses />
     </div>
   );
