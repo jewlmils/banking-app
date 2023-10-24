@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Transfer</title>
+    <link rel="stylesheet" href="send.css">
+</head>
+<body>
+    <div class="fund-transfer">
+        <h1>Send Money</h1>
+        <div class="form">
+            <label for="sender">Sender:</label>
+            <select id="sender" name="sender">
+                <option value="SENDER">Select Sender</option>
+            </select>
+
+            <label for="current-balance">Current Balance:</label>
+            <input type="text" id="current-balance" name="current-balance" readonly>
+
+            <label for="receiver">Receiver:</label>
+            <select id="receiver" name="receiver">
+                <option value="RECEIVER">Select Recipient</option>
+            </select>
+
+            <label for="receiver-balance">Receiver Current Balance:</label>
+            <input type="text" id="receiver-balance" name="receiver-balance" readonly>
+
+            <label for="amount-to-transfer">Amount to Transfer:</label>
+            <input type="text" id="amount-to-transfer" name="amount-to-transfer">
+
+            <button type="submit">Transfer Fund</button>
+        </div>
+    </div>
+</body>
+</html>
