@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import { Sidebar,Header,Content } from './Components.jsx'
+import {Sidebar} from './components/Sidebar.jsx'
+import {Header} from './components/Header.jsx'
+import {Content} from './components/Content.jsx'
 
 function App() {
   return (
