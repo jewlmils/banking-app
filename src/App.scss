@@ -1,0 +1,76 @@
+@use 'stylesheets/reset';
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+$pageColor:#FAFAFA;
+$sideBarColor:#FFFFFF;
+$contentColor: #FFFFFF;
+
+
+$fontStyle:'Poppins', sans-serif;
+
+$largeFont:2rem;
+$mediumFont:1.5rem;
+$smallFont:1rem;
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+main{
+    width: 80vw;
+    height: 100vh;
+}
+
+.body{
+    background-color: $pageColor;
+    font-family: $fontStyle;
+    height:100vh;
+    width: 100vw;
+    display:flex;
+    flex-direction: row;
+}
+
+@import 'stylesheets/Sidebar';
+
+.header{
+    // border: 1px solid black;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+//header
+.header__user-container{
+    padding-right: 2rem;
+}
+
+//content
+.content{
+    // border: 1px solid red;
+    height: 90vh;
+    width: 80vw;
+    @include center;
+}
+.content-container{
+    // border: 1px solid blue;
+    height: 85vh;
+    width: 70vw;
+    border-radius: 1rem;
+    background-color: $contentColor;
+    @include center;
+}
+.content-title{
+    font-size: $largeFont;
+    padding:1rem;
+}
+.content-amount{
+    font-size: $mediumFont;
+}
+
+

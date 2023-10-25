@@ -1,42 +1,149 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url("https://fonts.cdnfonts.com/css/poppins");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  line-height: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+ol, ul {
+  list-style: none;
 }
 
-.card {
-  padding: 2em;
+blockquote, q {
+  quotes: none;
 }
 
-.read-the-docs {
-  color: #888;
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+main {
+  width: 80vw;
+  height: 100vh;
+}
+
+.body {
+  background-color: #FAFAFA;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  font-family: "Poppins", sans-serif;
+  background-color: #FFFFFF;
+  width: 20vw;
+  height: 100vh;
+}
+
+.sidebar__header {
+  width: 20vw;
+  height: 20vh;
+  padding-left: 1rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar__main {
+  width: 20vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
+.sidebar__main .sidebar__option {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem 2rem;
+}
+
+.sidebar__footer {
+  width: 20vw;
+  height: 20vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sidebar__footer-container {
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+}
+
+.header {
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__user-container {
+  padding-right: 2rem;
+}
+
+.content {
+  height: 90vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-container {
+  height: 85vh;
+  width: 70vw;
+  border-radius: 1rem;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-title {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.content-amount {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=App.css.map */

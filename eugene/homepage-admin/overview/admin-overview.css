@@ -105,7 +105,8 @@ main {
   height: 60vh;
   display: flex;
   flex-direction: column;
-  font-family: 1.5rem;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
 }
 .sidebar__main .sidebar__option {
   height: -moz-fit-content;

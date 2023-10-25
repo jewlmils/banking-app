@@ -73,7 +73,8 @@ main{
     height: 60vh; 
     display: flex;
     flex-direction: column;
-    font-family: $mediumFont;
+    font-size: $mediumFont;
+    font-family: $fontStyle;
     .sidebar__option{
         height: fit-content;
         width: fit-content;
