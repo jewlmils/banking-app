@@ -5,7 +5,7 @@ export function Sidebar() {
         <img className="sidebar__logo" src="" alt="" />
         <h1 className="sidebar__logo-text">The Iron Bank of Avion</h1>
       </div>
-      <AdminSidebar />
+      <UserSidebar />
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
           <span>Logout</span>
@@ -30,7 +30,7 @@ export function Content() {
   return (
     <section class="content">
       <div class="content-container">
-        <AdminOverview />
+        <UserOverview />
       </div>
     </section>
   );
@@ -68,6 +68,10 @@ function AdminSidebar() {
         <img className="sidebar__icon" src="" alt="" />
         <span>Withdraw</span>
       </li>
+      <li class="sidebar__option">
+        <img class="sidebar__icon" src="" alt="" />
+        <span>Send Money</span>
+      </li>
     </ul>
   );
 }
@@ -82,14 +86,6 @@ function UserSidebar() {
       <li class="sidebar__option">
         <img class="sidebar__icon" src="" alt="" />
         <span>Send Money</span>
-      </li>
-      <li class="sidebar__option">
-        <img class="sidebar__icon" src="" alt="" />
-        <span>Deposit</span>
-      </li>
-      <li class="sidebar__option">
-        <img class="sidebar__icon" src="" alt="" />
-        <span>Withdraw</span>
       </li>
       <li class="sidebar__option">
         <img class="sidebar__icon" src="" alt="" />
