@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./App.css";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { Header } from "./components/Header.jsx";
@@ -10,31 +11,10 @@ import { Withdraw } from "./components/pages/Withdraw.jsx";
 import { SendMoney } from "./components/pages/SendMoney.jsx";
 import { Currency } from "./components/pages/Currency.jsx";
 
+import {Route, Routes} from "react-router-dom"
+
 function App() {
-  let Component;
-  switch (window.location.pathname) {
-    case "/":
-      Component = Overview;
-      break;
-    case "/create-new-user":
-      Component = CreateUser;
-      break;
-    case "/accounts":
-      Component = Accounts;
-      break;
-    case "/deposit":
-      Component = Deposit;
-      break;
-    case "/withdraw":
-      Component = Withdraw;
-      break;
-    case "/send-money":
-      Component = SendMoney;
-      break;
-    case "currency":
-      Component = Currency;
-      break;
-  }
+  
   return (
     <div className="body">
       <Sidebar />
@@ -42,7 +22,16 @@ function App() {
         <Header />
         <section className="content">
           <div className="content-container">
-            <Component />
+            <Routes>
+              <Route path='/' element={<Overview/>}/>
+              <Route path='/create-new-user' element={<CreateUser/>}/>
+              <Route path='/accounts' element={<Accounts/>}/>
+              <Route path='/deposit' element={<Deposit/>}/>
+              <Route path='/withdraw' element={<Withdraw/>}/>
+              <Route path='/send-money' element={<SendMoney/>}/>
+              <Route path='/currency' element={<Currency/>}/>
+            </Routes>
+
           </div>
         </section>
       </main>

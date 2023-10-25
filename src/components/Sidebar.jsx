@@ -1,3 +1,5 @@
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
+
 export function Sidebar() {
   const sidebarDisplay = <AdminSidebar />;
   return (
@@ -9,7 +11,7 @@ export function Sidebar() {
       {sidebarDisplay}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="">Logout</a>
+          <Link to="">Logout</Link>
         </div>
       </div>
     </nav>
@@ -19,58 +21,41 @@ export function Sidebar() {
 function AdminSidebar() {
   return (
     <ul className="sidebar__main">
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/">Overview</a>
-      </li>
-      <CustomLink href="/create-new-user">Create New User</CustomLink>
-      <CustomLink href="/accounts">Accounts</CustomLink>
-      <CustomLink href="/deposit">Deposit</CustomLink>
-      <CustomLink href="/withdraw">Withdraw</CustomLink>
-      <CustomLink href="/send-money">Send Money</CustomLink>
-      <CustomLink href="/currency">Currency</CustomLink>
+      <CustomLink to="/">Overview</CustomLink>
+      <CustomLink to="/create-new-user">Create New User</CustomLink>
+      <CustomLink to="/accounts">Accounts</CustomLink>
+      <CustomLink to="/deposit">Deposit</CustomLink>
+      <CustomLink to="/withdraw">Withdraw</CustomLink>
+      <CustomLink to="/send-money">Send Money</CustomLink>
+      <CustomLink to="/currency">Currency</CustomLink>
     </ul>
   );
-}
-
-function CustomLink({href, children, ...props}){
-  const path = window.location.pathname
-  if (path)
-  return (
-    <li className={path === href ? "active" : ""}>
-      {/* <img className="sidebar__icon" src="" alt="" /> */}
-      <a href={href}{...props}>{children}</a>
-    </li>
-  )
 }
 
 function UserSidebar() {
   return (
     <ul className="sidebar__main">
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/">Overview</a>
-      </li>
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/send-money">Send Money</a>
-      </li>
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/buy-load">Buy Load</a>
-      </li>
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/budget">Budget</a>
-      </li>
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/goals">Goals</a>
-      </li>
-      <li>
-        <img className="sidebar__icon" src="" alt="" />
-        <a href="/currency">Currency</a>
-      </li>
+      <CustomLink to="/">Overview</CustomLink>
+      <CustomLink to="/send-money">Send Money</CustomLink>
+      <CustomLink to="/buy-load">Buy Load</CustomLink>
+      <CustomLink to="/budget">Budget</CustomLink>
+      <CustomLink to="/goals">Goals</CustomLink>
+      <CustomLink to="/currency">Currency</CustomLink>
     </ul>
   );
 }
+
+
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true})
+    return (
+      <li className={isActive ? "active" : ""}>
+        <img className="sidebar__icon" src="" alt="" />
+        <Link to={to} {...props}>
+          {children}
+        </Link>
+      </li>
+    );
+}
+
