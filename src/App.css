@@ -87,12 +87,14 @@ main {
   flex-direction: column;
   font-size: 1.5rem;
 }
-.sidebar__main .sidebar__option {
+
+.sidebar__option {
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1rem 2rem;
+  cursor: pointer;
 }
 
 .sidebar__footer {
@@ -133,10 +135,6 @@ main {
   width: 70vw;
   border-radius: 1rem;
   background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .content-title {
@@ -146,4 +144,41 @@ main {
 
 .content-amount {
   font-size: 1.5rem;
+}
+
+.card-container {
+  padding: 0.5rem;
+  height: 16rem;
+  width: 27rem;
+  background-image: url("image/card.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left: 2.2rem;
+}
+
+.card-account-number {
+  padding-top: 6rem;
+  padding-bottom: 0.5rem;
+}
+
+.card-balance {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.transaction-container {
+  padding: 2rem;
+}
+
+.transaction-title {
+  padding: 2rem;
 }/*# sourceMappingURL=App.css.map */

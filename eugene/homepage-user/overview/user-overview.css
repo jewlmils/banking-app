@@ -107,7 +107,8 @@ main {
   flex-direction: column;
   font-family: 1.5rem;
 }
-.sidebar__main .sidebar__option {
+
+.sidebar__option {
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
@@ -136,6 +137,7 @@ main {
   width: 70vw;
   border-radius: 1rem;
   background-color: #FFFFFF;
+  display: flex;
 }
 
 .card-container {
@@ -165,4 +167,12 @@ main {
 .card-name {
   font-size: 1.5rem;
   padding-bottom: 0.25rem;
+}
+
+.transaction-container {
+  padding: 2rem;
+}
+
+.transaction-title {
+  padding: 2rem;
 }/*# sourceMappingURL=user-overview.css.map */
