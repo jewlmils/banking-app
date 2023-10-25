@@ -1,9 +1,9 @@
-import {AdminOverview,UserOverview} from './pages/Overview.jsx'
+
 export function Content() {
     return (
-      <section class="content">
-        <div class="content-container">
-          <UserOverview />
+      <section className="content">
+        <div className="content-container">
+          <Overview/>
         </div>
       </section>
     );

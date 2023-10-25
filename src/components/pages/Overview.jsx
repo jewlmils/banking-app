@@ -1,4 +1,11 @@
-export function AdminOverview() {
+export function Overview(){
+  const overviewDisplay = <AdminOverview/>;
+  return (
+    overviewDisplay
+  )
+}
+
+function AdminOverview() {
     return (
       <>
         <h1 className="content-title">Total Money</h1>
@@ -7,7 +14,7 @@ export function AdminOverview() {
     );
   }
   
-export function UserOverview() {
+function UserOverview() {
     return (
       <>
         <div className="card-container">
@@ -22,5 +29,5 @@ export function UserOverview() {
         </div>
       </>
     );
-  }
+}
   
