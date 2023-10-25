@@ -59,14 +59,25 @@ main{
     display: flex;
     flex-direction: column;
     font-size: $mediumFont;
+    li{
+        height: fit-content;
+        width: fit-content;
+        padding:1rem 2rem;
+        cursor: pointer;
+    }
+    li.active{
+        color: red;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover{
+        color: red;
+    }
 }
 
-.sidebar__option{
-    height: fit-content;
-    width: fit-content;
-    padding:1rem 2rem;
-    cursor: pointer;
-}
+
 
 .sidebar__footer{
     // border: 1px solid yellow;

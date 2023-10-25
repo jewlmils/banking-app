@@ -87,14 +87,23 @@ main {
   flex-direction: column;
   font-size: 1.5rem;
 }
-
-.sidebar__option {
+.sidebar__main li {
   height: -moz-fit-content;
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 1rem 2rem;
   cursor: pointer;
+}
+.sidebar__main li.active {
+  color: red;
+}
+.sidebar__main a {
+  text-decoration: none;
+  color: inherit;
+}
+.sidebar__main a:hover {
+  color: red;
 }
 
 .sidebar__footer {
