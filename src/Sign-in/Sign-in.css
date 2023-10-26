@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  button {
+    width: clamp(15rem, 7.857rem + 19.048vw, 25rem);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #00a26d;
+  }
+  
+  button:hover {
+    background-color: #1ea87b;
+    cursor: pointer;
+  }
+  
+  input {
+    width: clamp(15rem, 7.857rem + 19.048vw, 25rem);
+    background-color: white;
+    color: black;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 1px solid #00a26d;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .split-screen {
+    display: flex;
+    height: 100vh;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .left,
+  .right {
+    width: 50%;
+    height: auto;
+  }
+  
+  .right {
+    background: url("images/green_login_right_Mesa\ de\ trabajo\ 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .left {
+    display: grid;
+    place-items: center;
+  }
+  
+  .welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+    font-weight: 700;
+  }
+
+  p{
+    font-size: clamp(1rem, 0.857rem + 0.381vw, 1.2rem);
+  }
+
+  /* BUDGET */
+
+  .sidebar {
+    width: 15rem;
+    height: 100%;
+    background-color: #ffffff;
+    color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.25rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    text-align: left;
+  }
+  
+  .title-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
+  }
+  
+  .titles {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .titles:hover {
+    width: 12rem;
+    background-color: #1ea87b;
+    color: white;
+  }
+  
+  .titles-logout {
+    font-size: 1.5rem;
+    position: fixed;
+    bottom: 2rem;
+  }
+  
+  .titles-logout:hover {
+    color: #1ea87b;
+  }
+  
+  /* expenses */
+  
+  .content-expenses {
+    position: fixed;
+    left: 20rem;
+    bottom: 2rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    width: 75%;
+    height: 80%;
+    box-shadow: -5px 8px 34px -6px rgba(0, 0, 0, 0.34);
+  }
+  
+  .container-expenses {
+    padding: 2rem;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 4rem;
+
+  }
+  .nav h1 {
+    color: gray;
+    font-size: 2.5rem;
+  }
+  .nav button {
+    width: 10rem;
+    height: 3rem;
+    background-color: #00a26d;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+
+  }
+  .nav button:hover {
+    background-color: #1ea87b;
+    cursor: pointer;
+  }
+  
+  .balance-number {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  .balance-number li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  .balance-number li .number {
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+  
+  hr {
+    border: 1px solid lightgrey;
+    margin: 1rem 0;
+  }
+  
+  .content-bottom {
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgray;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    font-weight: bold;
+    color: gray;
+    font-size: 1rem;
+  }
+  
+  .user {
+    position: fixed;
+    top: 2rem;
+    right: 5rem;
+  }
+  
+  
+  @media only screen and (max-width: 851px) {
+    .split-screen {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .container {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  

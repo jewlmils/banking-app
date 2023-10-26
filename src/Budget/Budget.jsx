@@ -1,7 +1,7 @@
 import React from "react";
-import "./Sidebar.css";
+import "../Budget/Budget.css";
 
-function Sidebar() {
+function Budget() {
   return (
     <div className="sidebar">
       <ul>
@@ -60,4 +60,4 @@ function Expenses() {
   );
 }
 
-export { Sidebar, Expenses };
+export { Budget };
