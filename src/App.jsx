@@ -3,20 +3,19 @@ import { useState } from "react";
 import "./App.css";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { Header } from "./components/Header.jsx";
-import { Overview } from "./components/pages/Overview.jsx";
-import { CreateUser } from "./components/pages/CreateUser.jsx";
-import { Accounts } from "./components/pages/Accounts.jsx";
-import { Deposit } from "./components/pages/Deposit.jsx";
-import { Withdraw } from "./components/pages/Withdraw.jsx";
-import { SendMoney } from "./components/pages/SendMoney.jsx";
-import { Currency } from "./components/pages/Currency.jsx";
-import { Budget} from "./components/pages/Budget.jsx";
-import { BuyLoad} from "./components/pages/BuyLoad.jsx";
-import { Goals} from "./components/pages/Goals.jsx";
+import { Overview } from "./pages/Overview.jsx";
+import { CreateUser } from "./pages/CreateUser.jsx";
+import { Accounts } from "./pages/Accounts.jsx";
+import { Deposit } from "./pages/Deposit.jsx";
+import { Withdraw } from "./pages/Withdraw.jsx";
+import { SendMoney } from "./pages/SendMoney.jsx";
+import { Currency } from "./pages/Currency.jsx";
+import { Budget } from "./pages/Budget.jsx";
+import { BuyLoad } from "./pages/BuyLoad.jsx";
+import { Goals } from "./pages/Goals.jsx";
 import { Route, Routes } from "react-router-dom";
 
-
-export const userRole = "user"; 
+export const userRole = "user";
 const adminRouter = (
   <Routes>
     <Route path="/" element={<Overview />} />
@@ -54,6 +53,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

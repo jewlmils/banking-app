@@ -1,11 +1,7 @@
-import { userRole } from '../../App.jsx';
+import { userRole } from "../App.jsx";
 
 export function Overview() {
-  return (
-    <>
-      {userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}
-    </>
-  );
+  return <>{userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}</>;
 }
 
 function AdminOverview() {
