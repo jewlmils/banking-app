@@ -53,6 +53,11 @@ main {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .body {
   background-color: #FAFAFA;
   font-family: "Poppins", sans-serif;
@@ -112,8 +117,7 @@ main {
   display: flex;
   align-items: flex-end;
 }
-
-.sidebar__footer-container {
+.sidebar__footer div {
   padding-left: 1rem;
   padding-bottom: 2rem;
 }

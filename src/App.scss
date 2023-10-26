@@ -25,6 +25,12 @@ main{
     height: 100vh;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
 .body{
     background-color: $pageColor;
     font-family: $fontStyle;
@@ -85,11 +91,10 @@ main{
     height: 20vh; 
     display: flex;
     align-items: flex-end;
-}
-
-.sidebar__footer-container{
-    padding-left: 1rem;
-    padding-bottom: 2rem;
+    div{
+        padding-left: 1rem;
+        padding-bottom: 2rem;
+    }
 }
 
 
