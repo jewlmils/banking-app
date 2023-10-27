@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "../Sign-in/Sign-in.css";
-import { Budget } from "../Budget/Budget";
+import Content from "../Components/Content";
 
 export default function Signin() {
   const emailRef = useRef();
@@ -31,11 +31,11 @@ export default function Signin() {
   return (
     <div>
       {showHome ? (
-        <Budget />
+        <Content />
       ) : (
         <div className="split-screen">
           <div className="left">
-            <div className="container">
+            <div className="signin-container">
               <div className="welcome">
                 <h1>Welcome Back!</h1>
                 <p>Fueling Your Financial Future</p>

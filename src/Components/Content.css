@@ -1,0 +1,144 @@
+.budget-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.budget-title {
+  font-size: 1.8rem;
+  color: gray;
+}
+
+.budget-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 13rem;
+  margin-bottom: 2rem;
+}
+
+.btn-expense {
+  width: 10rem;
+  font-size: 0.8rem;
+}
+
+.budget-top {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  width: 50rem;
+}
+
+.BalanceAndIncomeExpenses div {
+  gap: 10rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.BalInExp {
+  font-size: 1rem;
+  color: gray;
+}
+
+.BalInExp-p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem 0;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2.5rem;
+}
+
+.list li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: lightgray;
+  border-radius: 1rem;
+}
+
+.delete-btn {
+  width: 5rem;
+  cursor: pointer;
+  border: 0;
+  font-size: 1.2rem;
+  padding: 2px 5px;
+}
+
+.tran-input{
+    width: 15rem;
+}
+
+.btn-trans{
+    width: 10rem;
+    font-size: 0.8rem;
+}
+
+.btn-form{
+    padding-bottom: 1rem;
+}
+
+.add-trans-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding-top: 1rem;
+    gap: 5rem;
+}
+
+.add-trans{
+    padding: 0.5rem 0 1rem 0;
+}
+
+.tl-list{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: lightgray;
+}
+
+.tl-list li{
+    font-weight: bold;
+}
+
+hr{
+    border: 2px solid lightgrey;
+}
+
+.htr-title{
+    background-color: lightgrey;
+    color: grey;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.add-title{
+    padding-top: 1rem;
+}
