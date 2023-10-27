@@ -1,0 +1,105 @@
+@import url(https://fonts.cdnfonts.com/css/poppins);
+
+*, *:before, *:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", san-serif;
+}
+
+body{
+    height: 100vh;
+    background: white;
+}
+
+#main-content{
+    background-color: white;
+    padding: 20px 35px;
+    width: 70%;
+    min-width: 360px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    box-shadow: 20px, 30px, 50px 25px #333333;
+}
+
+h1{
+    font-size: 30px;
+    color: #000001;
+}
+
+.notif{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: #000001;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.failed {
+    color: red;
+    background-color: rgba(255, 0, 0, .1);
+  }
+  
+.success {
+    color: green;
+    background-color: rgba(0, 128, 0, .1);
+}
+
+.account_errorNotif{
+    font-size: 10px;
+    color: red;
+}
+
+.row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-gap: 20px 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.debit_amount{
+    margin-bottom: 20px;
+}
+
+label{
+    color: #333333;
+    font-size: 14px;
+}
+
+input{
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1.5px solid #000001;
+    margin-top: 5px;
+}
+
+input:focus{
+    outline: none;
+    border-color: #00a26d;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button{
+    border: none;
+    padding: 10px 20px;
+    background: #00a26d;
+    border-radius: 3px;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+}
