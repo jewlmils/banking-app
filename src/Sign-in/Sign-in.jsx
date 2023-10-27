@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "../Sign-in/Sign-in.css";
-import Content from "../Components/Content";
+import Content from "../Budget/Content";
 
 export default function Signin() {
   const emailRef = useRef();
