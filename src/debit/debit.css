@@ -28,6 +28,7 @@ body{
 h1{
     font-size: 30px;
     color: #000001;
+    text-transform: uppercase;
 }
 
 .notif{
