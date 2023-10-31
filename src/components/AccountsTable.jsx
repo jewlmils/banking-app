@@ -1,15 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { userData } from "./Data";
 
-function AccountsTable({ data }) {
+function AccountsTable() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [userData, setUserData] = useState([]);
+
+  function getUsersFromLocalStorage() {
+    const userData = localStorage.getItem("userData");
+    return JSON.parse(userData) || [];
+  }
+
+  useEffect(() => {
+    setUserData(getUsersFromLocalStorage());
+  }, []);
+
+  function addUserToLocalStorage(newUser) {
+    const existingUsers = getUsersFromLocalStorage();
+    const updatedUsers = [...existingUsers, newUser];
+    localStorage.setItem("userData", JSON.stringify(updatedUsers));
+    setUserData(updatedUsers);
+  }
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  const filteredRows = data.filter((row) =>
-    row.fullname.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter the userData array based on the search query
+  const filteredData = userData.filter((user) => {
+    const fullName = user.fullName ? user.fullName.toLowerCase() : ""; // Check if fullName is defined
+    return fullName.includes(searchQuery.toLowerCase());
+  });
 
   return (
     <div className="wrapper">
@@ -44,13 +64,13 @@ function AccountsTable({ data }) {
             </tr>
           </thead>
           <tbody>
-            {filteredRows.map((row) => (
-              <tr key={row.fullname}>
-                <td>{row.accountnumber}</td>
-                <td>{row.fullname}</td>
-                <td>{row.accountType}</td>
-                <td>{row.balance}</td>
-                <td>{row.email}</td>
+            {filteredData.map((user, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{user.fullName}</td>
+                <td>{user.accountType}</td>
+                <td>{user.balance}</td>
+                <td>{user.email}</td>
               </tr>
             ))}
           </tbody>

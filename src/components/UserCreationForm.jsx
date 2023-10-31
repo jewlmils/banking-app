@@ -1,16 +1,24 @@
 import React, { useState } from "react";
+import { userData } from "./Data";
 
-function UserCreationForm({ onFormSubmit }) {
+function UserCreationForm({ userData, setUserData }) {
   const [formData, setFormData] = useState({
-    accountnumber: 0,
     fullname: "",
     accountType: "Checking Account",
-    balance: "0",
+    balance: "",
     email: "",
     password: "",
   });
 
   const [formErrors, setFormErrors] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const validateForm = () => {
     const errors = {};
@@ -33,14 +41,11 @@ function UserCreationForm({ onFormSubmit }) {
       errors.password = "Password must be at least 6 characters long.";
     }
 
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
+    return errors;
   };
 
-  const saveUserDataToLocalstorage = (userData) => {
-    const adminList = JSON.parse(localStorage.getItem("adminList")) || [];
-    adminList.push(userData);
-    localStorage.setItem("adminList", JSON.stringify(adminList));
+  const addNewUser = (newUser) => {
+    setUserData([...userData, newUser]);
   };
 
   const isValidEmail = (email) => {
@@ -50,32 +55,36 @@ function UserCreationForm({ onFormSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const errors = validateForm();
 
-    if (validateForm()) {
-      onFormSubmit(formData);
+    if (Object.keys(errors).length === 0) {
+      const newUser = {
+        email: formData.email,
+        password: formData.password,
+        fullName: formData.fullname,
+        isAdmin: false,
+        balance: formData.balance,
+        accountType: formData.accountType,
+      };
 
-      saveUserDataToLocalstorage(formData);
+      addNewUser(newUser);
 
+      localStorage.setItem("userData", JSON.stringify([...userData, newUser]));
       setFormData({
-        accountnumber: 0,
         fullname: "",
         accountType: "Checking Account",
-        balance: "0",
+        balance: "",
         email: "",
         password: "",
       });
+    } else {
+      setFormErrors(errors);
     }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
   };
 
   return (
     <div>
-      <form id="survey-form" onSubmit={handleSubmit}>
+      <form id="survey-form">
         <div className="title-container">
           <h1 id="title">Create Account</h1>
           <p id="description">Account Creation for the Users</p>
@@ -146,7 +155,12 @@ function UserCreationForm({ onFormSubmit }) {
           )}
         </div>
         <div className="input-wrapper">
-          <input className="btn" type="submit" value="Create Account" />
+          <input
+            className="btn"
+            type="submit"
+            value="Create Account"
+            onClick={handleSubmit}
+          />
         </div>
       </form>
     </div>

@@ -4,22 +4,18 @@ import UserCreationForm from "./components/UserCreationForm";
 import AccountsTable from "./components/AccountsTable";
 import "./components/AccountsTable.css";
 import "./components/UserCreationForm.css";
+import { userData } from "./components/Data";
 
 function App() {
-  const [userData, setUserData] = useState([]);
-
-  const handleFormSubmit = (newUser) => {
-    const accountNumber = userData.length + 1;
-
-    const userWithAccountNumber = { ...newUser, accountnumber: accountNumber };
-
-    setUserData([...userData, userWithAccountNumber]);
-  };
+  const [userDataState, setUserDataState] = useState(userData);
 
   return (
     <div>
-      <UserCreationForm onFormSubmit={handleFormSubmit} />
-      <AccountsTable data={userData} />
+      <UserCreationForm
+        userData={userDataState}
+        setUserData={setUserDataState}
+      />
+      <AccountsTable data={userDataState} />
     </div>
   );
 }
