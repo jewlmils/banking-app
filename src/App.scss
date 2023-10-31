@@ -4,6 +4,7 @@
 $pageColor:#FAFAFA;
 $sideBarColor:#FFFFFF;
 $contentColor: #FFFFFF;
+$primaryColor: #00a26d;
 
 
 $fontStyle:'Poppins', sans-serif;
@@ -188,7 +189,7 @@ a{
         margin-bottom:2rem;
     }
     .currency-input{
-        border: 0.2rem solid green;
+        border: 0.2rem solid $primaryColor;
         border-radius: 1rem;
         font-size: $xlargeFont;
         padding:1rem;
@@ -201,7 +202,7 @@ a{
         font-family: inherit;
         font-size: $xlargeFont;
         border-radius: 1rem;
-        background-color: green;
+        background-color: $primaryColor;
         color: white;
         text-align: center;
         border: none;

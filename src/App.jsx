@@ -17,8 +17,8 @@ import { Goals } from "./pages/Goals.jsx";
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoutes } from "./utils/PrivateRoutes";
 
-export const userRole = "user";
-export const login  = true;
+export const userRole = "admin";
+export const login = true;
 
 const adminRouter = (
   <Routes>
@@ -46,25 +46,24 @@ const customerRouter = (
   </Routes>
 );
 
-
-function Homepage(){
+function Homepage() {
   const routes = userRole === "admin" ? adminRouter : customerRouter;
-  return(<div className="body">
-<Sidebar />
-<main>
-  <Header />
-  <section className="content">
-    <div className="content-container">{routes}</div>
-  </section>
-</main>
-</div>)
-} 
+  return (
+    <div className="body">
+      <Sidebar />
+      <main>
+        <Header />
+        <section className="content">
+          <div className="content-container">{routes}</div>
+        </section>
+      </main>
+    </div>
+  );
+}
 
 function App() {
-  const pageDisplay = login ?  <Homepage/>: <Login/>;
-  return (
-    pageDisplay
-  );
+  const pageDisplay = login ? <Homepage /> : <Login />;
+  return pageDisplay;
 }
 
 export default App;

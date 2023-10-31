@@ -215,7 +215,7 @@ a {
   margin-bottom: 2rem;
 }
 .currency-container .currency-input {
-  border: 0.2rem solid green;
+  border: 0.2rem solid #00a26d;
   border-radius: 1rem;
   font-size: 3rem;
   padding: 1rem;
@@ -228,7 +228,7 @@ a {
   font-family: inherit;
   font-size: 3rem;
   border-radius: 1rem;
-  background-color: green;
+  background-color: #00a26d;
   color: white;
   text-align: center;
   border: none;

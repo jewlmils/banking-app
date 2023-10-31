@@ -18,7 +18,7 @@ function CustomerOverview() {
     <>
       <div className="card-container">
         <span className="card-account-number">123-456-7890</span>
-        <span className="card-balance">$10,000.00</span>
+        <span className="card-balance">₱10,000.00</span>
         <span className="card-name">Daenerys Targaryen</span>
         <span className="card-expiration">10/28</span>
       </div>
