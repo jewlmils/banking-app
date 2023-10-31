@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Signin from './Sign-in/Sign-in'
+
+import { Authenticate } from "./components/Authenticate";
 
 function App() {
   return (
-    <div>
-      <Signin />
-     </div>
-  );
+    <>
+      <Authenticate />
+    </>
+  )
 }
 
 export default App;
