@@ -10,7 +10,7 @@ import { Accounts } from "./pages/Accounts.jsx";
 import { Deposit } from "./pages/Deposit.jsx";
 import { Withdraw } from "./pages/Withdraw.jsx";
 import { SendMoney } from "./pages/SendMoney.jsx";
-import { Currency } from "./pages/Currency.jsx";
+import { Currency } from "./pages/currency/Currency.jsx";
 import { Budget } from "./pages/Budget.jsx";
 import { BuyLoad } from "./pages/BuyLoad.jsx";
 import { Goals } from "./pages/Goals.jsx";

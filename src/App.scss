@@ -8,6 +8,8 @@ $contentColor: #FFFFFF;
 
 $fontStyle:'Poppins', sans-serif;
 
+$xxlargeFont:4rem;
+$xlargeFont:3rem;
 $largeFont:2rem;
 $mediumFont:1.5rem;
 $smallFont:1rem;
@@ -169,4 +171,41 @@ a{
     padding: 2rem;
 }
 
+// currency
 
+.currency-container{
+    height: 85vh;
+    width: 70vw;
+    margin:0;
+    @include center;
+    text-align: center;
+    .currency__equals{
+        font-size: $xlargeFont;
+    }
+    h1{
+        font-size: $xxlargeFont;
+        margin:0;
+        margin-bottom:2rem;
+    }
+    .currency-input{
+        border: 0.2rem solid green;
+        border-radius: 1rem;
+        font-size: $xlargeFont;
+        padding:1rem;
+        width: 20rem;
+        height:3rem;
+        text-align: center;
+    }
+    select{
+        margin:1rem;
+        font-family: inherit;
+        font-size: $xlargeFont;
+        border-radius: 1rem;
+        background-color: green;
+        color: white;
+        text-align: center;
+        border: none;
+    }
+
+    
+}

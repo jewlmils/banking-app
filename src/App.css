@@ -194,4 +194,42 @@ a {
 
 .transaction-title {
   padding: 2rem;
+}
+
+.currency-container {
+  height: 85vh;
+  width: 70vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.currency-container .currency__equals {
+  font-size: 3rem;
+}
+.currency-container h1 {
+  font-size: 4rem;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.currency-container .currency-input {
+  border: 0.2rem solid green;
+  border-radius: 1rem;
+  font-size: 3rem;
+  padding: 1rem;
+  width: 20rem;
+  height: 3rem;
+  text-align: center;
+}
+.currency-container select {
+  margin: 1rem;
+  font-family: inherit;
+  font-size: 3rem;
+  border-radius: 1rem;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border: none;
 }/*# sourceMappingURL=App.css.map */
