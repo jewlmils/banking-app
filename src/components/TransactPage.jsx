@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Data from './data';
+import { userData } from "./Data";
 
 const TransactPage = (props) =>{
  
-    // const Data = localStorage.getItem("users");
+    const Data = localStorage.getItem("userData");
     const transactionType = props.transactionType;
     const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
     const [isDisabled, setIsDisabled] = useState(true);
@@ -20,8 +20,8 @@ const TransactPage = (props) =>{
             e.preventDefault();            
             if(e.currentTarget.className === "account_name"){
                 for(const data of Data) {
-                    if(data.fullname === e.target.value) {
-                        setAccountName(data.fullname);
+                    if(data.fullName === e.target.value) {
+                        setAccountName(data.fullName);
                         setIsDisabled(false);
                         setIsAccountNameFound(true);
                         return data;
@@ -30,7 +30,7 @@ const TransactPage = (props) =>{
                 setIsAccountNameFound(false);
             } else{
                 for(const data of Data) {
-                    if(accountName === data.fullname && data.number == e.target.value) {
+                    if(accountName === data.fullName && data.number == e.target.value) {
                         setBalance(data.balance);
                         setAddAmountDisabled(false);
                         setIsAccountNumberFound(true);
@@ -57,19 +57,19 @@ const TransactPage = (props) =>{
         e.preventDefault()
         if (props.transactionType === "deposit"){
             for(const data of Data) {
-                if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
+                if(accountName === data.fullName && data.number == accountNumber && inputAmount >= 100) {
                     new_balance = deposit(data, inputAmount);
                     setBalance(new_balance.toFixed(2));
                     setTransactionStatus({msg: "Deposit Confirmed", style: "success"});
                     setInputAmount("");
-                    localStorage.setItem("users", JSON.stringify(Data));
+                    localStorage.setItem("userData", JSON.stringify(userData));
                     return new_balance;
                 }
             }
             setTransactionStatus({msg:"Deposit was not successful.", style: "failed"});
         }else{
             for(const data of Data) {
-                if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
+                if(accountName === data.fullName && data.number == accountNumber && inputAmount >= 100) {
                     if(data.balance < parseFloat(inputAmount)){
                         setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
                         return data;
@@ -77,7 +77,7 @@ const TransactPage = (props) =>{
                     new_balance = withdraw(data, inputAmount);
                     setBalance(new_balance.toFixed(2));
                     setTransactionStatus({msg: "Withdrawal Confirmed", style: "success"});
-                    localStorage.setItem("users", JSON.stringify(Data));
+                    localStorage.setItem("userData", JSON.stringify(userData));
                     setInputAmount("");
                     return new_balance;
                 }
@@ -132,7 +132,7 @@ const TransactPage = (props) =>{
 
                 <div class="debit_amount">
                     <label>Current balance</label>
-                    <input type="number" value={balance} class="current_balance" disabled />
+                    <input type="number" value={`PHP ${balance}`} class="current_balance" disabled />
                 </div>
                 
                 <div class="debit_amount">
