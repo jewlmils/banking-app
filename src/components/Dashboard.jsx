@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header.jsx";
 import { Overview } from "../pages/Overview";
@@ -37,7 +36,7 @@ const adminRouter = (
         <Route path="/" element={<Overview />} />
         <Route path="/send-money" element={<SendMoney />} />
         <Route path="/buy-load" element={<BuyLoad />} />
-        {/* <Route path="/budget" element={<Budget />} /> */}
+        <Route path="/budget" element={<BudgetApp />} />
         <Route path="/goals" element={<Goals />} />
         <Route path="/currency" element={<Currency />} />
       </Route>
