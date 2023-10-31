@@ -3,8 +3,8 @@ import Data from './data';
 
 const TransactPage = (props) =>{
  
-    //const Data = localStorage.getItem("users");
-    const transactionType= props.transactionType;
+    // const Data = localStorage.getItem("users");
+    const transactionType = props.transactionType;
     const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
     const [isDisabled, setIsDisabled] = useState(true);
     const [addAmountDisabled, setAddAmountDisabled] = useState(true);
@@ -44,39 +44,12 @@ const TransactPage = (props) =>{
 
     const deposit = (user, amount) => {
         user.balance = parseFloat(amount) + user.balance;
-        // setBalance(user.balance.toFixed(2));
-
-        //Change localstorage key
-        // localStorage.setItem("users", JSON.stringify(Data));
-
-        setInputAmount("");
-
         return user.balance;
     }
 
-
-    const withdraw = (e) =>{
-        e.preventDefault()
-        for(const data of Data) {
-            if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
-                
-                if(data.balance < parseFloat(inputAmount)){
-                    setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
-                    return data;
-                }
-
-                data.balance = data.balance - parseFloat(inputAmount);
-
-                setTransactionStatus({msg: "Withdrawal Confirmed", style: "success"});
-                //Change localstorage key
-                localStorage.setItem("users", JSON.stringify(Data));
-
-                setInputAmount("");
-
-                return data;
-            }
-        }
-        setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
+    const withdraw = (user, amount) =>{
+        user.balance = user.balance - parseFloat(amount);
+        return user.balance;
     }
 
     const transact = (e) => {
@@ -86,15 +59,30 @@ const TransactPage = (props) =>{
             for(const data of Data) {
                 if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
                     new_balance = deposit(data, inputAmount);
-
-                    setTransactionStatus({msg: "Deposit Confirmed", style: "success"});
-
                     setBalance(new_balance.toFixed(2));
+                    setTransactionStatus({msg: "Deposit Confirmed", style: "success"});
+                    setInputAmount("");
                     localStorage.setItem("users", JSON.stringify(Data));
-                    return 0;
+                    return new_balance;
                 }
             }
             setTransactionStatus({msg:"Deposit was not successful.", style: "failed"});
+        }else{
+            for(const data of Data) {
+                if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
+                    if(data.balance < parseFloat(inputAmount)){
+                        setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
+                        return data;
+                    }
+                    new_balance = withdraw(data, inputAmount);
+                    setBalance(new_balance.toFixed(2));
+                    setTransactionStatus({msg: "Withdrawal Confirmed", style: "success"});
+                    localStorage.setItem("users", JSON.stringify(Data));
+                    setInputAmount("");
+                    return new_balance;
+                }
+            }
+            setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
         }
     }
 
@@ -118,6 +106,7 @@ const TransactPage = (props) =>{
 
     const handleChange = (e) => {
         setBalance(0);
+        setInputAmount(0);
         setAccountNumber(e.target.value);
         setAddAmountDisabled(true);
         setTransactionStatus({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});

@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-      <TransactPage transactionType="deposit" />
+      <TransactPage transactionType="withdraw" />
   )
 }
 
