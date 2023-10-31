@@ -5,6 +5,7 @@ const TransactPage = (props) =>{
  
     //const Data = localStorage.getItem("users");
     const transactionType= props.transactionType;
+    const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
     const [isDisabled, setIsDisabled] = useState(true);
     const [addAmountDisabled, setAddAmountDisabled] = useState(true);
     const [accountName, setAccountName] = useState("");
@@ -13,8 +14,7 @@ const TransactPage = (props) =>{
     const [isAccountNameFound, setIsAccountNameFound] = useState(true);
     const [isAccountNumberFound, setIsAccountNumberFound] = useState(true);
     const [inputAmount, setInputAmount] = useState(0);
-    const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
-
+    
     const findAccount = (e) => {
         if(e.key === 'Enter'){
             e.preventDefault();            
@@ -42,26 +42,20 @@ const TransactPage = (props) =>{
         }
     };
 
-    const toDeposit = (e) => {
-        e.preventDefault()
-        for(const data of Data) {
-            if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
-                data.balance = parseFloat(inputAmount) + data.balance;
-                setBalance(data.balance.toFixed(2));
+    const deposit = (user, amount) => {
+        user.balance = parseFloat(amount) + user.balance;
+        // setBalance(user.balance.toFixed(2));
 
-                setTransactionStatus({msg: "Deposit Confirmed", style: "success"});
-                //Change localstorage key
-                localStorage.setItem("users", JSON.stringify(Data));
+        //Change localstorage key
+        // localStorage.setItem("users", JSON.stringify(Data));
 
-                setInputAmount("");
+        setInputAmount("");
 
-                return data;
-            }
-        }
-        setTransactionStatus({msg:"Deposit was not successful.", style: "failed"});
+        return user.balance;
     }
 
-    const toWithdraw = (e) =>{
+
+    const withdraw = (e) =>{
         e.preventDefault()
         for(const data of Data) {
             if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
@@ -73,8 +67,6 @@ const TransactPage = (props) =>{
 
                 data.balance = data.balance - parseFloat(inputAmount);
 
-                setBalance(data.balance.toFixed(2));
-
                 setTransactionStatus({msg: "Withdrawal Confirmed", style: "success"});
                 //Change localstorage key
                 localStorage.setItem("users", JSON.stringify(Data));
@@ -85,6 +77,25 @@ const TransactPage = (props) =>{
             }
         }
         setTransactionStatus({msg:"Withdrawal was not successful.", style: "failed"});
+    }
+
+    const transact = (e) => {
+        let new_balance = 0;
+        e.preventDefault()
+        if (props.transactionType === "deposit"){
+            for(const data of Data) {
+                if(accountName === data.fullname && data.number == accountNumber && inputAmount >= 100) {
+                    new_balance = deposit(data, inputAmount);
+
+                    setTransactionStatus({msg: "Deposit Confirmed", style: "success"});
+
+                    setBalance(new_balance.toFixed(2));
+                    localStorage.setItem("users", JSON.stringify(Data));
+                    return 0;
+                }
+            }
+            setTransactionStatus({msg:"Deposit was not successful.", style: "failed"});
+        }
     }
 
     const setDepositAmount = (e) => {
@@ -114,7 +125,7 @@ const TransactPage = (props) =>{
 
     return(
         <section id="main-content">
-            <form id="form" onSubmit={transactionType === "deposit" ? toDeposit : toWithdraw}>
+            <form id="form" onSubmit={transact}>
                 <h1 class="page">{transactionType}</h1>
                 <span class={`notif ${transactionStatus.style}`}>{transactionStatus.msg}</span>
                 <div class="row">
