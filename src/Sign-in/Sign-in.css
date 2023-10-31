@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    /* outline: 1px solid red; */
+  }
+  
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  button {
+    width: clamp(15rem, 7.857rem + 19.048vw, 25rem);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #00a26d;
+    border: none;
+  }
+  
+  button:hover {
+    background-color: #1ea87b;
+    cursor: pointer;
+  }
+  
+  input {
+    width: clamp(15rem, 7.857rem + 19.048vw, 25rem);
+    background-color: white;
+    color: black;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 1px solid #00a26d;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+    outline: none;
+  }
+  
+  .split-screen {
+    display: flex;
+    height: 100vh;
+  }
+
+  .signin-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .left,
+  .right {
+    width: 50%;
+    height: auto;
+  }
+  
+  .right {
+    background: url("images/green_login_right_Mesa\ de\ trabajo\ 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .left {
+    display: grid;
+    place-items: center;
+  }
+  
+  .welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+    font-weight: 700;
+  }
+
+  p{
+    font-size: clamp(1rem, 0.857rem + 0.381vw, 1.2rem);
+  }
+  
+  @media only screen and (max-width: 851px) {
+    .split-screen {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .signin-container {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  
