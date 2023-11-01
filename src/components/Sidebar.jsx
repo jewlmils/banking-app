@@ -1,7 +1,19 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { userRole } from "./Dashboard";
+import {
+  Layout,
+  UserPlus,
+  Contact,
+  PiggyBank,
+  Banknote,
+  Send,
+  DollarSign,
+  TabletSmartphone,
+  Wallet,
+  Goal,
+} from "lucide-react";
 
-export function Sidebar({handleLogout}) {
+export function Sidebar({ handleLogout }) {
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
@@ -11,25 +23,39 @@ export function Sidebar({handleLogout}) {
       {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="" onclick={handleLogout}>Logout</a>
+          <a href="" onclick={handleLogout}>
+            Logout
+          </a>
         </div>
       </div>
     </nav>
   );
 }
 
-
-
 function AdminSidebar() {
   return (
     <ul className="sidebar__main">
-      <CustomLink to="/">Overview</CustomLink>
-      <CustomLink to="/create-new-user">Create New User</CustomLink>
-      <CustomLink to="/accounts">Accounts</CustomLink>
-      <CustomLink to="/deposit">Deposit</CustomLink>
-      <CustomLink to="/withdraw">Withdraw</CustomLink>
-      <CustomLink to="/send-money">Send Money</CustomLink>
-      <CustomLink to="/currency">Currency</CustomLink>
+      <CustomLink to="/">
+        <Layout /> Overview
+      </CustomLink>
+      <CustomLink to="/create-new-user">
+        <UserPlus /> Create User
+      </CustomLink>
+      <CustomLink to="/accounts">
+        <Contact /> Accounts
+      </CustomLink>
+      <CustomLink to="/deposit">
+        <PiggyBank /> Deposit
+      </CustomLink>
+      <CustomLink to="/withdraw">
+        <Banknote /> Withdraw
+      </CustomLink>
+      <CustomLink to="/send-money">
+        <Send /> Send Money
+      </CustomLink>
+      <CustomLink to="/currency">
+        <DollarSign /> Currency
+      </CustomLink>
     </ul>
   );
 }
@@ -37,12 +63,24 @@ function AdminSidebar() {
 function CustomerSidebar() {
   return (
     <ul className="sidebar__main">
-      <CustomLink to="/">Overview</CustomLink>
-      <CustomLink to="/send-money">Send Money</CustomLink>
-      <CustomLink to="/buy-load">Buy Load</CustomLink>
-      <CustomLink to="/budget">Budget</CustomLink>
-      <CustomLink to="/goals">Goals</CustomLink>
-      <CustomLink to="/currency">Currency</CustomLink>
+      <CustomLink to="/">
+        <Layout /> Overview
+      </CustomLink>
+      <CustomLink to="/send-money">
+        <Send /> Send Money
+      </CustomLink>
+      <CustomLink to="/buy-load">
+        <TabletSmartphone /> Buy Load
+      </CustomLink>
+      <CustomLink to="/budget">
+        <Wallet /> Budget
+      </CustomLink>
+      <CustomLink to="/goals">
+        <Goal /> Goals
+      </CustomLink>
+      <CustomLink to="/currency">
+        <DollarSign /> Currency
+      </CustomLink>
     </ul>
   );
 }
@@ -52,7 +90,6 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true });
   return (
     <li className={isActive ? "active" : ""}>
-      <img className="sidebar__icon" src="" alt="" />
       <Link to={to} {...props}>
         {children}
       </Link>

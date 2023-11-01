@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/budget.css";
+import "../../style/budget.css";
 import BudgetModal from "./BudgetModal";
 import { BudgetWrapper } from "./BudgetWrapper";
 
@@ -83,7 +83,9 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
         <div className="budget-intro">
           <div className="budget-user-logout">
             <h4>Hello, {user.fullName}!</h4>
-            <button className="budget-logout" onClick={handleLogout}>Logout</button>
+            <button className="budget-logout" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
           <h1>Budget App</h1>
           <p>Smart money habits start with our financial app</p>
@@ -114,7 +116,7 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
         isAddBudgetVisible={isAddBudgetVisible}
         toggleAddBudgetVisibility={toggleAddBudgetVisibility}
         dsc={dsc}
-        setDsc={setDsc} 
+        setDsc={setDsc}
         cost={cost}
         setCost={setCost}
         addBudget={addBudget}
@@ -160,4 +162,3 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
     </div>
   );
 }
-
