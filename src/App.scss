@@ -9,8 +9,8 @@ $primaryColor: #00a26d;
 
 $fontStyle:'Poppins', sans-serif;
 
-$xxlargeFont:4rem;
-$xlargeFont:3rem;
+$xxlargeFont:clamp(2rem, 0.571rem + 3.81vw, 4rem);
+$xlargeFont:clamp(1rem, -0.429rem + 3.81vw, 3rem);
 $largeFont:2rem;
 $mediumFont:1.5rem;
 $smallFont:1rem;
@@ -180,6 +180,14 @@ a{
     margin:0;
     @include center;
     text-align: center;
+    .currency-inner-cont{
+        @include center;
+        height:60vh;
+        width:50vw;
+        border: 0.2rem solid $primaryColor ;
+        border-radius: 2rem;
+        background-color: $primaryColor;
+    }
     .currency__equals{
         font-size: $xlargeFont;
     }
@@ -187,25 +195,31 @@ a{
         font-size: $xxlargeFont;
         margin:0;
         margin-bottom:2rem;
+        color: white;
+        font-family: $fontStyle;
+        font-weight:600;
     }
     .currency-input{
         border: 0.2rem solid $primaryColor;
         border-radius: 1rem;
         font-size: $xlargeFont;
+        font-family: $fontStyle;
         padding:1rem;
         width: 20rem;
-        height:3rem;
+        height:4rem;
         text-align: center;
+        
     }
     select{
         margin:1rem;
         font-family: inherit;
         font-size: $xlargeFont;
         border-radius: 1rem;
-        background-color: $primaryColor;
-        color: white;
+        background-color: white;
+        color: black;
         text-align: center;
         border: none;
+        font-family: $fontStyle;
     }
 
     

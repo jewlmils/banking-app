@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CurrencyRow } from "./component/CurrencyRow";
+import { CurrencyRow } from "./CurrencyRow";
 
 export function Currency() {
   const [currencyOptions, setCurrencyOptions] = useState([]);
@@ -36,29 +36,33 @@ export function Currency() {
     setAmountInFromFromCurrency(false);
   }
 
-  const fromAmount = amountInFromCurrency ? amount : amount / exchangeRate;
-  const toAmount = amountInFromCurrency ? amount * exchangeRate : amount;
+  const fromAmount = amountInFromCurrency
+    ? amount
+    : (amount / exchangeRate).toFixed(2);
+  const toAmount = amountInFromCurrency
+    ? (amount * exchangeRate).toFixed(2)
+    : amount;
 
   return (
     <div className="currency-container">
-      <h1>Currency Converter</h1>
-      <CurrencyRow
-        currencyOptions={currencyOptions}
-        selectedCurrency={fromCurrency}
-        onChangeCurrency={(e) => setFromCurrency(e.target.value)}
-        onChangeAmount={handleFromAmountChange}
-        amount={fromAmount}
-      />
-      <div className="currency__equals">=</div>
-      <CurrencyRow
-        currencyOptions={currencyOptions}
-        selectedCurrency={toCurrency}
-        onChangeCurrency={(e) => setToCurrency(e.target.value)}
-        onChangeAmount={handleToAmountChange}
-        amount={toAmount}
-      />
+      <div className="currency-inner-cont">
+        <h1>Currency Converter</h1>
+        <CurrencyRow
+          currencyOptions={currencyOptions}
+          selectedCurrency={fromCurrency}
+          onChangeCurrency={(e) => setFromCurrency(e.target.value)}
+          onChangeAmount={handleFromAmountChange}
+          amount={fromAmount}
+        />
+        <div className="currency__equals">=</div>
+        <CurrencyRow
+          currencyOptions={currencyOptions}
+          selectedCurrency={toCurrency}
+          onChangeCurrency={(e) => setToCurrency(e.target.value)}
+          onChangeAmount={handleToAmountChange}
+          amount={toAmount}
+        />
+      </div>
     </div>
   );
 }
-
-

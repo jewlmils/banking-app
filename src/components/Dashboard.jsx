@@ -8,7 +8,6 @@ import { Deposit } from "../pages/Deposit.jsx";
 import { Withdraw } from "../pages/Withdraw.jsx";
 import { SendMoney } from "../pages/SendMoney.jsx";
 import { Currency } from "../pages/currency/Currency.jsx";
-import {BudgetWrapper} from "../pages/budget/BudgetWrapper.jsx"
 import {BudgetApp} from "../pages/budget/BudgetApp.jsx"
 import { BuyLoad } from "../pages/BuyLoad.jsx";
 import { Goals } from "../pages/Goals.jsx";
@@ -18,7 +17,8 @@ import { PrivateRoutes } from "../utils/PrivateRoutes";
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 export const userRole = currentUser.isAdmin ? "admin" : "customer";
-export const login = true;
+
+export const login = currentUser.isAdmin;
 
 export const adminRouter = (
   <Routes>
@@ -39,7 +39,7 @@ export const customerRouter = (
       <Route path="/" element={<Overview />} />
       <Route path="/send-money" element={<SendMoney />} />
       <Route path="/buy-load" element={<BuyLoad />} />
-      <Route path="/budget" element={<BudgetWrapper />} />
+      <Route path="/budget" element={<BudgetApp />} />
       <Route path="/goals" element={<Goals />} />
       <Route path="/currency" element={<Currency />} />
     </Route>

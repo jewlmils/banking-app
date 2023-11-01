@@ -6,8 +6,6 @@ import "../style/budget.css";
 import { userRole } from "./Dashboard";
 
 
-
-
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -19,6 +17,7 @@ export function Authenticate() {
       (user) => user.email === email && user.password === password
     );
 
+    user.balance
     if (user) {
       setIsAdmin(user.isAdmin);
       setClient(user);
@@ -40,7 +39,9 @@ export function Authenticate() {
   if (isLoggedIn) {
     localStorage.setItem('currentUser', JSON.stringify(client));
     
+  
     if (isAdmin) {
+      
       return <Dashboard user={client} handleLogout={logout} routes={adminRouter}/>;
     } else {
       return <Dashboard routes={customerRouter}/>

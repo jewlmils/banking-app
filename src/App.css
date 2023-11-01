@@ -206,30 +206,46 @@ a {
   flex-direction: column;
   text-align: center;
 }
+.currency-container .currency-inner-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  width: 50vw;
+  border: 0.2rem solid #00a26d;
+  border-radius: 2rem;
+  background-color: #00a26d;
+}
 .currency-container .currency__equals {
-  font-size: 3rem;
+  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
 }
 .currency-container h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 0.571rem + 3.81vw, 4rem);
   margin: 0;
   margin-bottom: 2rem;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 .currency-container .currency-input {
   border: 0.2rem solid #00a26d;
   border-radius: 1rem;
-  font-size: 3rem;
+  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
+  font-family: "Poppins", sans-serif;
   padding: 1rem;
   width: 20rem;
-  height: 3rem;
+  height: 4rem;
   text-align: center;
 }
 .currency-container select {
   margin: 1rem;
   font-family: inherit;
-  font-size: 3rem;
+  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
   border-radius: 1rem;
-  background-color: #00a26d;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: center;
   border: none;
+  font-family: "Poppins", sans-serif;
 }/*# sourceMappingURL=App.css.map */

@@ -1,18 +1,32 @@
-import React, { useState } from "react";
-import "../../style/budget.css";
+import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
-import { BudgetWrapper } from "./BudgetWrapper";
+import "../../style/budget.css";
 
-export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
+function BudgetApp({ handleLogout }) {
+  // State variables for description, cost, budget items, edit mode, and more
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
   const [budget, setBudget] = useState([]);
   const [editId, setEditId] = useState(null);
   const [originalCost, setOriginalCost] = useState(null);
-
   const [isAddBudgetVisible, setIsAddBudgetVisible] = useState(false);
-  const [error, setError] = useState(""); // State variable for error message
+  const [error, setError] = useState("");
+  const [user, setUser] = useState(null);
 
+  // Load the current user's data from local storage when the component mounts
+  //This is where we set the user state variable to the user data retrieved from local storage.
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    setUser(currentUser);
+  }, []);
+
+
+  //This prevents the component from rendering when no user data is available
+  if (!user) {
+    return null;
+  }
+
+  // Function to toggle the visibility of the budget entry modal
   const toggleAddBudgetVisibility = () => {
     setIsAddBudgetVisible(!isAddBudgetVisible);
     setDsc("");
@@ -20,48 +34,54 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
     setError("");
   };
 
+  // Function to add a budget item to the list
   const addBudget = (e) => {
     e.preventDefault();
 
+    // Validate input for description and cost
     if (dsc.trim() === "" || cost.trim() === "") {
       setError("Description and Cost are required.");
       return;
     }
 
     const parsedCost = parseFloat(cost);
+
+    // Ensure cost is not a negative number
     if (parsedCost < 0) {
       setError("Cost cannot be a negative number.");
       return;
     }
 
-    setError(""); // Clear any previous error messages
+    setError("");
 
     if (editId) {
-      // Existing budget item, update it
+      // If in edit mode, update the budget item
       const newBudget = budget.map((b) =>
         b.id === editId ? { id: editId, dsc, cost } : b
       );
       setBudget(newBudget);
       setEditId(null);
 
+      // Update the user's balance
       const difference = originalCost - parsedCost;
       const newBalance = user.balance + difference;
       updateBalance(newBalance);
     } else {
-      // New budget item, add it
+      // New budget item, add it to the list
       const newBudgetItem = { id: Date.now(), dsc, cost: parsedCost };
       setBudget([...budget, newBudgetItem]);
       const newBalance = user.balance - parsedCost;
       updateBalance(newBalance);
     }
 
+    // Clear input fields and hide the modal
     setDsc("");
     setCost("");
     setOriginalCost(null);
-
     setIsAddBudgetVisible(false);
   };
 
+  // Function to handle editing a budget item
   const handleEdit = (b) => {
     setEditId(b.id);
     setDsc(b.dsc);
@@ -70,11 +90,20 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
     setIsAddBudgetVisible(true);
   };
 
+  // Function to handle deleting a budget item
   const handleDelete = (id) => {
     const deletedBudgetItem = budget.find((b) => b.id === id);
     const newBalance = user.balance + parseFloat(deletedBudgetItem.cost);
     updateBalance(newBalance);
     setBudget(budget.filter((b) => b.id !== id));
+  };
+
+  // Function to update the user's balance in local storage and state
+  const updateBalance = (newBalance) => {
+    user.balance = newBalance;
+    const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
+    updatedUser.balance = newBalance;
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
   };
 
   return (
@@ -141,7 +170,7 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
                   maximumFractionDigits: 2,
                 })}
               </td>
-              <td className=".button-container">
+              <td className="button-container">
                 <button
                   onClick={() => handleEdit(b)}
                   className="budget-action-e"
@@ -162,3 +191,4 @@ export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
     </div>
   );
 }
+export { BudgetApp };
