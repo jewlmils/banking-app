@@ -9,15 +9,20 @@ import { Withdraw } from "../pages/Withdraw.jsx";
 import { SendMoney } from "../pages/SendMoney.jsx";
 import { Currency } from "../pages/currency/Currency.jsx";
 import { BudgetApp } from "./BudgetApp";
+import { BudgetWrapper } from "./BudgetWrapper";
 import { BuyLoad } from "../pages/BuyLoad.jsx";
 import { Goals } from "../pages/Goals.jsx";
 import { Route, Routes } from "react-router-dom";
 
 import { PrivateRoutes } from "../utils/PrivateRoutes";
-import { userRole,login } from "../App";
 
 
-const adminRouter = (
+const currentUser =JSON.parse(localStorage.getItem('currentUser'))
+export let  userRole = currentUser.isAdmin? 'admin':'customer';
+console.log(userRole)
+export let login = true;
+
+export const adminRouter = (
     <Routes>
       <Route>
         <Route path="/" element={<Overview />} />
@@ -30,35 +35,23 @@ const adminRouter = (
       </Route>
     </Routes>
   );
-  const customerRouter = (
+export const customerRouter = (
     <Routes>
       <Route>
         <Route path="/" element={<Overview />} />
         <Route path="/send-money" element={<SendMoney />} />
         <Route path="/buy-load" element={<BuyLoad />} />
-        <Route path="/budget" element={<BudgetApp />} />
+        <Route path="/budget" element={<BudgetWrapper />} />
         <Route path="/goals" element={<Goals />} />
         <Route path="/currency" element={<Currency />} />
       </Route>
     </Routes>
-  );
+);
 
-function Dashboard({user, handleLogout}) {
+export function Dashboard({user, handleLogout,routes}) {
   return (
-    <Homepage/>
-  );
-}
-
-export { Dashboard };
-
-
-
-  
-  function Homepage() {
-    const routes = userRole === "admin" ? adminRouter : customerRouter;
-    return (
-      <div className="body">
-        <Sidebar />
+    <div className="body">
+        <Sidebar/>
         <main>
           <Header />
           <section className="content">
@@ -66,5 +59,8 @@ export { Dashboard };
           </section>
         </main>
       </div>
-    );
-  }
+  );
+}
+
+
+

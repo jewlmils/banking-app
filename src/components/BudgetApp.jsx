@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "../style/budget.css";
 import BudgetModal from "./BudgetModal";
+import { BudgetWrapper } from "./BudgetWrapper";
 
-function BudgetApp({ user, balance, handleLogout, updateBalance }) {
+export function BudgetApp({ user, balance, handleLogout, updateBalance }) {
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
   const [budget, setBudget] = useState([]);
@@ -160,4 +161,3 @@ function BudgetApp({ user, balance, handleLogout, updateBalance }) {
   );
 }
 
-export { BudgetApp };

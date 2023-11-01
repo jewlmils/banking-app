@@ -1,8 +1,7 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import {userRole} from '../App.jsx'
+import { userRole } from "./Dashboard";
 
-
-export function Sidebar() {
+export function Sidebar({handleLogout}) {
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
@@ -12,7 +11,7 @@ export function Sidebar() {
       {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="">Logout</a>
+          <a href="" onclick={handleLogout}>Logout</a>
         </div>
       </div>
     </nav>

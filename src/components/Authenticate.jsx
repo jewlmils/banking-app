@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { userData } from "../Data";
 import { Login } from "./Login";
-import { BudgetApp } from "./BudgetApp";
-import { Dashboard } from "./Dashboard";
+import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
+import "../style/budget.css";
+import { userRole } from "./Dashboard";
 
-export const Authenticate = () => {
+
+
+
+export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [client, setClient] = useState(null);
@@ -30,28 +34,18 @@ export const Authenticate = () => {
     setIsAdmin(false);
     setClient(null);
     setError("");
-    localStorage.removeItem("currentUser"); // Remove the user from local storage
-  };
-
-  const updateBalance = (newBalance) => {
-    setClient({ ...client, balance: newBalance });
+    localStorage.removeItem('currentUser');
   };
 
   if (isLoggedIn) {
-    localStorage.setItem("currentUser", JSON.stringify(client));
+    localStorage.setItem('currentUser', JSON.stringify(client));
+    
     if (isAdmin) {
-      return <Dashboard user={client} handleLogout={logout} />;
+      return <Dashboard user={client} handleLogout={logout} routes={adminRouter}/>;
     } else {
-      return (
-        <BudgetApp
-          user={client}
-          balance={client.balance} // Pass the user's balance
-          handleLogout={logout}
-          updateBalance={updateBalance}
-        />
-      );
+      return <Dashboard routes={customerRouter}/>
     }
   } else {
     return <Login loginHandler={isLoginSuccess} error={error} />;
   }
-};
+}

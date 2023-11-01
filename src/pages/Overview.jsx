@@ -1,4 +1,4 @@
-import { userRole } from "../App.jsx";
+import { userRole } from "../components/Dashboard";
 
 export function Overview() {
   return <>{userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}</>;
