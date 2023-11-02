@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Sidebar } from "../components/Sidebar";
-import { Header } from "../components/Header";
+import { Sidebar } from "../../components/Sidebar";
+import { Header } from "../../components/Header";
 
 export function BuyLoad() {
   const [recipient, setRecipient] = useState("");
