@@ -4,10 +4,15 @@ import { userData } from "./Data";
 function AccountsTable() {
   const [searchQuery, setSearchQuery] = useState("");
   const [userData, setUserData] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(-1);
+  const [editedUser, setEditedUser] = useState({});
 
   function getUsersFromLocalStorage() {
-    const userData = localStorage.getItem("userData");
-    return JSON.parse(userData) || [];
+    const userDataJSON = localStorage.getItem("userData");
+    if (userDataJSON) {
+      return JSON.parse(userDataJSON);
+    }
+    return [];
   }
 
   useEffect(() => {
@@ -25,11 +30,40 @@ function AccountsTable() {
     setSearchQuery(e.target.value);
   };
 
-  // Filter the userData array based on the search query
   const filteredData = userData.filter((user) => {
-    const fullName = user.fullName ? user.fullName.toLowerCase() : ""; // Check if fullName is defined
+    const fullName = user.fullName ? user.fullName.toLowerCase() : "";
     return fullName.includes(searchQuery.toLowerCase());
   });
+
+  const handleEditUser = (index) => {
+    setEditingIndex(index);
+    setEditedUser({ ...userData[index] });
+  };
+
+  const handleUpdateUser = (index) => {
+    const updatedUsers = [...userData];
+    updatedUsers[index] = { ...editedUser };
+    localStorage.setItem("userData", JSON.stringify(updatedUsers));
+    setUserData(updatedUsers);
+    setEditingIndex(-1);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingIndex(-1);
+    setEditedUser({});
+  };
+
+  const handleEditInputChange = (key, value) => {
+    setEditedUser((prevEditedUser) => ({ ...prevEditedUser, [key]: value }));
+  };
+
+  const handleDeleteUser = (index) => {
+    const updatedUsers = [...userData];
+    updatedUsers.splice(index, 1);
+    localStorage.setItem("userData", JSON.stringify(updatedUsers));
+    setUserData(updatedUsers);
+    setEditingIndex(-1);
+  };
 
   return (
     <div className="wrapper">
@@ -67,10 +101,75 @@ function AccountsTable() {
             {filteredData.map((user, index) => (
               <tr key={index}>
                 <td>{index + 1}</td>
-                <td>{user.fullName}</td>
-                <td>{user.accountType}</td>
-                <td>{user.balance}</td>
-                <td>{user.email}</td>
+                <td>
+                  {editingIndex === index ? (
+                    <input
+                      type="text"
+                      value={editedUser.fullName}
+                      onChange={(e) =>
+                        handleEditInputChange("fullName", e.target.value)
+                      }
+                    />
+                  ) : (
+                    user.fullName
+                  )}
+                </td>
+                <td>
+                  {editingIndex === index ? (
+                    <input
+                      type="text"
+                      value={editedUser.accountType}
+                      onChange={(e) =>
+                        handleEditInputChange("accountType", e.target.value)
+                      }
+                    />
+                  ) : (
+                    user.accountType
+                  )}
+                </td>
+                <td>
+                  {editingIndex === index ? (
+                    <input
+                      type="number"
+                      value={editedUser.balance}
+                      onChange={(e) =>
+                        handleEditInputChange("balance", e.target.value)
+                      }
+                    />
+                  ) : (
+                    user.balance
+                  )}
+                </td>
+                <td>
+                  {editingIndex === index ? (
+                    <input
+                      type="text"
+                      value={editedUser.email}
+                      onChange={(e) =>
+                        handleEditInputChange("email", e.target.value)
+                      }
+                    />
+                  ) : (
+                    user.email
+                  )}
+                </td>
+                <td>
+                  {editingIndex === index ? (
+                    <>
+                      <button onClick={() => handleUpdateUser(index)}>
+                        Update
+                      </button>
+                      <button onClick={handleCancelEdit}>Cancel</button>
+                    </>
+                  ) : (
+                    <button onClick={() => handleEditUser(index)}>Edit</button>
+                  )}
+                </td>
+                <td>
+                  <button onClick={() => handleDeleteUser(index)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { userData } from "./Data";
 
 function UserCreationForm({ userData, setUserData }) {
   const [formData, setFormData] = useState({
@@ -70,6 +69,7 @@ function UserCreationForm({ userData, setUserData }) {
       addNewUser(newUser);
 
       localStorage.setItem("userData", JSON.stringify([...userData, newUser]));
+
       setFormData({
         fullname: "",
         accountType: "Checking Account",
