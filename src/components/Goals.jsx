@@ -31,7 +31,7 @@ export function Goals() {
     } else {
       setGoal([
         ...goal,
-        { id: Math.floor(Math.random() * 1000000), gName, gAmount },
+        { id: Date.now(), gName, gAmount },
       ]);
     }
     setGName("");

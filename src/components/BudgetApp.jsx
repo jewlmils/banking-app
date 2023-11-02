@@ -1,6 +1,6 @@
 // budgetapp.jsx
 import React, { useState, useEffect } from "react";
-
+import BudgetModal from "./BudgetModal";
 import "../style/budget.css";
 
 function BudgetApp({ handleLogout }) {
@@ -20,6 +20,7 @@ function BudgetApp({ handleLogout }) {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     setUser(currentUser);
   }, []);
+
 
   //This prevents the component from rendering when no user data is available
   if (!user) {

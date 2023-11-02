@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { userData } from "../Data"; // Import user data from an external source (presumably an array of user objects)
 import { Login } from "./Login"; // Import the Login component
 import { Goals } from "./Goals";
+// import { BudgetApp } from "./BudgetApp";
 import { Dashboard } from "./Dashboard"; // Import the Dashboard component
 import "../style/budget.css"; // Import styles for the component
 

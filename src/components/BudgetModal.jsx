@@ -1,6 +1,6 @@
 import React from "react";
 
-export function BudgetModal({
+function BudgetModal({
   isAddBudgetVisible,
   toggleAddBudgetVisibility,
   dsc,
@@ -47,3 +47,5 @@ export function BudgetModal({
     </div>
   );
 }
+
+export default BudgetModal;
