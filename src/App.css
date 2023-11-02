@@ -67,6 +67,18 @@ a {
   flex-direction: row;
 }
 
+.header {
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__user-container {
+  padding-right: 2rem;
+}
+
 .sidebar {
   font-family: "Poppins", sans-serif;
   background-color: #FFFFFF;
@@ -78,7 +90,7 @@ a {
   width: 20vw;
   height: 20vh;
   padding-left: 1rem;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +102,7 @@ a {
   height: 60vh;
   display: flex;
   flex-direction: column;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 }
 .sidebar__main li {
   height: -moz-fit-content;
@@ -101,14 +113,14 @@ a {
   cursor: pointer;
 }
 .sidebar__main li.active {
-  color: red;
+  color: #00a26d;
 }
 .sidebar__main a {
   text-decoration: none;
   color: inherit;
 }
 .sidebar__main a:hover {
-  color: red;
+  color: #00a26d;
 }
 
 .sidebar__footer {
@@ -122,18 +134,6 @@ a {
   padding-bottom: 2rem;
 }
 
-.header {
-  width: 80vw;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.header__user-container {
-  padding-right: 2rem;
-}
-
 .content {
   height: 90vh;
   width: 80vw;
@@ -144,22 +144,18 @@ a {
 }
 
 .content-container {
+  padding: 2rem;
   height: 85vh;
   width: 70vw;
   border-radius: 1rem;
   background-color: #FFFFFF;
 }
 
-.content-title {
-  font-size: 2rem;
-  padding: 1rem;
+.overview-customer {
+  display: flex;
+  flex-direction: row;
 }
-
-.content-amount {
-  font-size: 1.5rem;
-}
-
-.card-container {
+.overview-customer .card-container {
   padding: 0.5rem;
   height: 16rem;
   width: 27rem;
@@ -172,27 +168,22 @@ a {
   color: white;
   padding-left: 2.2rem;
 }
-
-.card-account-number {
+.overview-customer .card-container .card-account-number {
   padding-top: 6rem;
   padding-bottom: 0.5rem;
 }
-
-.card-balance {
+.overview-customer .card-container .card-balance {
   font-size: 3rem;
   padding-bottom: 0.5rem;
 }
-
-.card-name {
+.overview-customer .card-container .card-name {
   font-size: 1.5rem;
   padding-bottom: 0.25rem;
 }
-
-.transaction-container {
+.overview-customer .card-container .transaction-container {
   padding: 2rem;
 }
-
-.transaction-title {
+.overview-customer .transaction-title {
   padding: 2rem;
 }
 
@@ -212,16 +203,15 @@ a {
   align-items: center;
   flex-direction: column;
   height: 60vh;
-  width: 50vw;
-  border: 0.2rem solid #00a26d;
+  width: 40vw;
   border-radius: 2rem;
-  background-color: #00a26d;
+  background-color: #000001;
 }
 .currency-container .currency__equals {
-  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
 }
 .currency-container h1 {
-  font-size: clamp(2rem, 0.571rem + 3.81vw, 4rem);
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   margin: 0;
   margin-bottom: 2rem;
   color: white;
@@ -229,9 +219,9 @@ a {
   font-weight: 600;
 }
 .currency-container .currency-input {
-  border: 0.2rem solid #00a26d;
+  border: none;
   border-radius: 1rem;
-  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   font-family: "Poppins", sans-serif;
   padding: 1rem;
   width: 20rem;
@@ -241,10 +231,10 @@ a {
 .currency-container select {
   margin: 1rem;
   font-family: inherit;
-  font-size: clamp(1rem, -0.429rem + 3.81vw, 3rem);
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   border-radius: 1rem;
-  background-color: white;
-  color: black;
+  background-color: #00a26d;
+  color: white;
   text-align: center;
   border: none;
   font-family: "Poppins", sans-serif;

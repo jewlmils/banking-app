@@ -1,4 +1,4 @@
-const userData = [
+export const userData = [
     {
       email: "admin@gmail.com",
       password: "pass",
@@ -29,5 +29,7 @@ const userData = [
     }
   ];
   
-  export { userData };
+  export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  export const userRole = currentUser.isAdmin ? "admin" : "customer";
+  
   

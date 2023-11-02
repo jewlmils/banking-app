@@ -5,14 +5,15 @@ $pageColor:#FAFAFA;
 $sideBarColor:#FFFFFF;
 $contentColor: #FFFFFF;
 $primaryColor: #00a26d;
+$secondaryColor: #000001;
 
 
 $fontStyle:'Poppins', sans-serif;
 
 $xxlargeFont:clamp(2rem, 0.571rem + 3.81vw, 4rem);
-$xlargeFont:clamp(1rem, -0.429rem + 3.81vw, 3rem);
-$largeFont:2rem;
-$mediumFont:1.5rem;
+$xlargeFont:clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+$largeFont:clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+$mediumFont:clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 $smallFont:1rem;
 
 @mixin center{
@@ -43,77 +44,9 @@ a{
     flex-direction: row;
 }
 
+@import 'partials/header';
+@import 'partials/sidebar';
 
-.sidebar{
-    // border: 1px solid black;
-    font-family: $fontStyle;
-    background-color: $sideBarColor;
-    width: 20vw;
-    height: 100vh;
-}
-
-.sidebar__header{
-    // border: 1px solid red;
-    width: 20vw;
-    height: 20vh;
-    padding-left: 1rem;
-    font-size: $largeFont;
-    @include center;
-}
-
-.sidebar__main{
-    // border: 1px solid blue;
-    width: 20vw;
-    height: 60vh; 
-    display: flex;
-    flex-direction: column;
-    font-size: $mediumFont;
-    li{
-        height: fit-content;
-        width: fit-content;
-        padding:1rem 2rem;
-        cursor: pointer;
-    }
-    li.active{
-        color: red;
-    }
-    a{
-        text-decoration: none;
-        color: inherit;
-    }
-    a:hover{
-        color: red;
-    }
-}
-
-
-
-.sidebar__footer{
-    // border: 1px solid yellow;
-    width: 20vw;
-    height: 20vh; 
-    display: flex;
-    align-items: flex-end;
-    div{
-        padding-left: 1rem;
-        padding-bottom: 2rem;
-    }
-}
-
-
-.header{
-    // border: 1px solid black;
-    width: 80vw;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-//header
-.header__user-container{
-    padding-right: 2rem;
-}
 
 //content
 .content{
@@ -122,105 +55,16 @@ a{
     width: 80vw;
     @include center;
 }
+
 .content-container{
     // border: 1px solid blue;
+    padding: 2rem;
     height: 85vh;
     width: 70vw;
     border-radius: 1rem;
     background-color: $contentColor;
 }
-.content-title{
-    font-size: $largeFont;
-    padding:1rem;
-}
-.content-amount{
-    font-size: $mediumFont;
-}
 
+@import 'partials/client-overview';
 
-//user content
-.card-container{
-    padding:0.5rem;
-    height:16rem;
-    width: 27rem;
-    background-image: url('image/card.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    color:white;
-    padding-left: 2.2rem;
-
-}
-.card-account-number{
-    padding-top: 6rem;
-    padding-bottom: 0.5rem;
-}
-.card-balance{
-    font-size: 3rem;
-    padding-bottom: 0.5rem;
-}
-.card-name{
-    font-size: 1.5rem;
-    padding-bottom: 0.25rem,;
-}
-.transaction-container{
-    padding: 2rem;
-}
-.transaction-title{
-    padding: 2rem;
-}
-
-// currency
-
-.currency-container{
-    height: 85vh;
-    width: 70vw;
-    margin:0;
-    @include center;
-    text-align: center;
-    .currency-inner-cont{
-        @include center;
-        height:60vh;
-        width:50vw;
-        border: 0.2rem solid $primaryColor ;
-        border-radius: 2rem;
-        background-color: $primaryColor;
-    }
-    .currency__equals{
-        font-size: $xlargeFont;
-    }
-    h1{
-        font-size: $xxlargeFont;
-        margin:0;
-        margin-bottom:2rem;
-        color: white;
-        font-family: $fontStyle;
-        font-weight:600;
-    }
-    .currency-input{
-        border: 0.2rem solid $primaryColor;
-        border-radius: 1rem;
-        font-size: $xlargeFont;
-        font-family: $fontStyle;
-        padding:1rem;
-        width: 20rem;
-        height:4rem;
-        text-align: center;
-        
-    }
-    select{
-        margin:1rem;
-        font-family: inherit;
-        font-size: $xlargeFont;
-        border-radius: 1rem;
-        background-color: white;
-        color: black;
-        text-align: center;
-        border: none;
-        font-family: $fontStyle;
-    }
-
-    
-}
+@import 'partials/currency';

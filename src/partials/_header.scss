@@ -1,0 +1,13 @@
+.header{
+    // border: 1px solid black;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+//header
+.header__user-container{
+    padding-right: 2rem;
+}

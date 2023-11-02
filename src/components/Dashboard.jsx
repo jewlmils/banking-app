@@ -12,13 +12,11 @@ import {BudgetApp} from "../pages/budget/BudgetApp.jsx"
 import { BuyLoad } from "../pages/BuyLoad.jsx";
 import { Goals } from "../pages/Goals.jsx";
 import { Route, Routes } from "react-router-dom";
-
+import { userRole } from "../Data";
 import { PrivateRoutes } from "../utils/PrivateRoutes";
 
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-export const userRole = currentUser.isAdmin ? "admin" : "customer";
 
-export const login = currentUser.isAdmin;
+// export const login = currentUser.isAdmin;
 
 export const adminRouter = (
   <Routes>
@@ -48,14 +46,6 @@ export const customerRouter = (
 
 export function Dashboard({ user, handleLogout, routes }) {
   return (
-    <div className="body">
-      <Sidebar />
-      <main>
-        <Header />
-        <section className="content">
-          <div className="content-container">{routes}</div>
-        </section>
-      </main>
-    </div>
+  routes
   );
 }

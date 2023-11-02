@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
 import "../../style/budget.css";
+import { Sidebar } from "../../components/Sidebar";
+import { Header } from "../../components/Header";
 
 function BudgetApp({ handleLogout }) {
   // State variables for description, cost, budget items, edit mode, and more
@@ -107,7 +109,12 @@ function BudgetApp({ handleLogout }) {
   };
 
   return (
-    <div className="admin-page">
+    <div className="body">
+<Sidebar />
+<main>
+  <Header />
+  <section className="content">
+    <div className="content-container">    <div className="admin-page">
       <div className="budget-top">
         <div className="budget-intro">
           <div className="budget-user-logout">
@@ -188,7 +195,11 @@ function BudgetApp({ handleLogout }) {
           ))}
         </tbody>
       </table>
+    </div></div>
+        </section>
+      </main>
     </div>
+
   );
 }
 export { BudgetApp };
