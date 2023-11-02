@@ -3,7 +3,7 @@ import { Sidebar } from "./Sidebar";
 import { Header } from "./Header.jsx";
 import { Overview } from "../pages/Overview";
 import { CreateUser } from "../pages/createuser/CreateUser.jsx";
-import { Accounts } from "../pages/Accounts.jsx";
+import { Accounts } from "../pages/accounts/Accounts.jsx";
 import { Deposit } from "../pages/Deposit.jsx";
 import { Withdraw } from "../pages/Withdraw.jsx";
 import { SendMoney } from "../pages/SendMoney.jsx";

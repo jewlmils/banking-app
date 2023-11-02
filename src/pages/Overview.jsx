@@ -18,7 +18,8 @@ export function Overview() {
   );
 }
 // Calculate the total balance
-const totalBalance = (userData.reduce((total, user) => total + user.balance, 0)).toFixed(2);
+const totalBalance = userData.reduce((total, user) => total + parseFloat(user.balance), 0).toFixed(2);
+
 
 
 function AdminOverview() {
