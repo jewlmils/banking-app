@@ -2,10 +2,10 @@
 
 ## Members
 
-*Eroll
-*Jewel
-*JJ
-*Jyne
-*TJ
+* Eroll
+* Jewel
+* JJ
+* Jyne
+* TJ
 
 
