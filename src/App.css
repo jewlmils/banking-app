@@ -208,6 +208,7 @@ a {
   background-color: #000001;
 }
 .currency-container .currency__equals {
+  color: white;
   font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
 }
 .currency-container h1 {

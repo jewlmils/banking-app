@@ -2,19 +2,18 @@ import React from "react";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header.jsx";
 import { Overview } from "../pages/Overview";
-import { CreateUser } from "../pages/CreateUser.jsx";
+import { CreateUser } from "../pages/createuser/CreateUser.jsx";
 import { Accounts } from "../pages/Accounts.jsx";
 import { Deposit } from "../pages/Deposit.jsx";
 import { Withdraw } from "../pages/Withdraw.jsx";
 import { SendMoney } from "../pages/SendMoney.jsx";
 import { Currency } from "../pages/currency/Currency.jsx";
-import {BudgetApp} from "../pages/budget/BudgetApp.jsx"
+import { BudgetApp } from "../pages/budget/BudgetApp.jsx";
 import { BuyLoad } from "../pages/BuyLoad.jsx";
 import { Goals } from "../pages/Goals.jsx";
 import { Route, Routes } from "react-router-dom";
 import { userRole } from "../Data";
 import { PrivateRoutes } from "../utils/PrivateRoutes";
-
 
 // export const login = currentUser.isAdmin;
 
@@ -45,7 +44,5 @@ export const customerRouter = (
 );
 
 export function Dashboard({ user, handleLogout, routes }) {
-  return (
-  routes
-  );
+  return routes;
 }
