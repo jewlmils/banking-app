@@ -31,6 +31,42 @@ h1{
     text-transform: uppercase;
 }
 
+label{
+    color: #333333;
+    font-size: 14px;
+}
+
+input{
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1.5px solid #000001;
+    margin-top: 5px;
+}
+
+input:focus{
+    outline: none;
+    border-color: #00a26d;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button{
+    border: none;
+    padding: 10px 20px;
+    background: #00a26d;
+    border-radius: 3px;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
 .notif{
     position: relative;
     margin: auto;
@@ -69,38 +105,6 @@ h1{
     margin-bottom: 20px;
 }
 
-label{
-    color: #333333;
-    font-size: 14px;
-}
-
-input{
-    width: 100%;
-    font-weight: 400;
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 1.5px solid #000001;
-    margin-top: 5px;
-}
-
-input:focus{
-    outline: none;
-    border-color: #00a26d;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-button{
-    border: none;
-    padding: 10px 20px;
-    background: #00a26d;
-    border-radius: 3px;
-    width: 100%;
-    color: white;
+.account_name{
     text-transform: uppercase;
-    font-size: 18px;
 }

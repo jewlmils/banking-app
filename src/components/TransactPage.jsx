@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useParams } from 'react-router-dom';
 
 const TransactPage = (props) => {
  
-    const Data = JSON.parse(localStorage.getItem("userData"));
-    const transactionType = props.transactionType;
+    const Data = JSON.parse(localStorage.getItem("userData")); 
+    const { transactionType } = useParams();
     const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
     const [accountName, setAccountName] = useState("");
     const [accountNumber, setAccountNumber] = useState("");
@@ -131,30 +132,30 @@ const TransactPage = (props) => {
     return(
         <section id="main-content">
             <form id="form" onSubmit={transact}>
-                <h1 class="page">{transactionType}</h1>
-                <span class={`notif ${transactionStatus.style}`}>{transactionStatus.msg}</span>
-                <div class="row">
-                    <div class="column">
+                <h1 className="page">{transactionType}</h1>
+                <span className={`notif ${transactionStatus.style}`}>{transactionStatus.msg}</span>
+                <div className="row">
+                    <div className="column">
                         <label>Account Name</label>
                         <input 
                             type="text"
-                            class="account_name"
+                            className="account_name"
                             name="account_name"
                             onKeyDown={findAccount}
                             onChange={Clear}
                             autoComplete="off" 
                             required
                         />
-                        <span class="account_errorNotif" hidden={isAccountNameFound}>
+                        <span className="account_errorNotif" hidden={isAccountNameFound}>
                             No account found. Unable to fetch bank account details.
                         </span>
                     </div>
 
-                    <div class="column">
+                    <div className="column">
                         <label>Account Number</label>
                         <input
                             type="number" 
-                            class="account_number" 
+                            className="account_number" 
                             name="account_number"
                             value={accountNumber} 
                             onChange={handleChange} 
@@ -163,28 +164,28 @@ const TransactPage = (props) => {
                             autoComplete="off" 
                             required
                         />
-                        <span class="account_errorNotif" hidden={isAccountNumberFound}>
+                        <span className="account_errorNotif" hidden={isAccountNumberFound}>
                             The account name and account number provided do not match any existing account in our records.
                         </span>
                     </div>
                 </div>
 
-                <div class="debit_amount">
+                <div className="debit_amount">
                     <label>Current balance</label>
                     <input 
                         type="text" 
-                        class="current_balance" 
+                        className="current_balance" 
                         name="current_balance" 
                         value={`PHP ${balance}`} 
                         disabled 
                     />
                 </div>
                 
-                <div class="debit_amount">
+                <div className="debit_amount">
                     <label>Amount to deposit</label>
                     <input
                         type="number" 
-                        class="input_amount" 
+                        className="input_amount" 
                         name="input_amount" 
                         step=".01" 
                         value={inputAmount} 
@@ -196,8 +197,8 @@ const TransactPage = (props) => {
                     />
                 </div>
                 
-                <div class="debit_button">
-                    <button type="submit" class="btn">{transactionType}</button>
+                <div className="debit_button">
+                    <button type="submit" className="btn">{transactionType}</button>
                 </div>
                 
             </form>
