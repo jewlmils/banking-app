@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UserCreationForm({ userData, setUserData }) {
+function UserCreationForm({ userData }) {
   const [formData, setFormData] = useState({
     fullname: "",
     accountType: "Checking Account",
@@ -43,9 +43,9 @@ function UserCreationForm({ userData, setUserData }) {
     return errors;
   };
 
-  const addNewUser = (newUser) => {
-    setUserData([...userData, newUser]);
-  };
+  // const addNewUser = (newUser) => {
+  //   setUserData([...userData, newUser]);
+  // };
 
   const isValidEmail = (email) => {
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -65,8 +65,6 @@ function UserCreationForm({ userData, setUserData }) {
         balance: formData.balance,
         accountType: formData.accountType,
       };
-
-      addNewUser(newUser);
 
       localStorage.setItem("userData", JSON.stringify([...userData, newUser]));
 

@@ -6,22 +6,9 @@ import "./components/AccountsTable.css";
 import "./components/UserCreationForm.css";
 import { userData } from "./components/Data";
 
-function App() {
-  const [userDataState, setUserDataState] = useState(userData);
-
-  return (
-    <div>
-      <UserCreationForm
-        userData={userDataState}
-        setUserData={setUserDataState}
-      />
-      <AccountsTable data={userDataState} />
-    </div>
-  );
-}
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <UserCreationForm userData={userData} />
+    <AccountsTable />
   </React.StrictMode>
 );

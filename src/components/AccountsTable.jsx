@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { userData } from "./Data";
 
 function AccountsTable() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -7,24 +6,17 @@ function AccountsTable() {
   const [editingIndex, setEditingIndex] = useState(-1);
   const [editedUser, setEditedUser] = useState({});
 
-  function getUsersFromLocalStorage() {
-    const userDataJSON = localStorage.getItem("userData");
-    if (userDataJSON) {
-      return JSON.parse(userDataJSON);
-    }
-    return [];
-  }
-
   useEffect(() => {
+    function getUsersFromLocalStorage() {
+      const userDataJSON = localStorage.getItem("userData");
+      if (userDataJSON) {
+        return JSON.parse(userDataJSON);
+      }
+      return [];
+    }
+
     setUserData(getUsersFromLocalStorage());
   }, []);
-
-  function addUserToLocalStorage(newUser) {
-    const existingUsers = getUsersFromLocalStorage();
-    const updatedUsers = [...existingUsers, newUser];
-    localStorage.setItem("userData", JSON.stringify(updatedUsers));
-    setUserData(updatedUsers);
-  }
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
