@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useParams } from 'react-router-dom';
 
 const TransactPage = (props) => {
- 
-    const Data = JSON.parse(localStorage.getItem("userData")); 
+
+    const Data = JSON.parse(localStorage.getItem("userData"));
     const { transactionType } = useParams();
     const [transactionStatus, setTransactionStatus] = useState({msg: `Provide the designated account to ${transactionType} money.`, style: 'notif'});
     const [accountName, setAccountName] = useState("");
@@ -23,7 +23,6 @@ const TransactPage = (props) => {
 
             if(e.currentTarget.className === "account_name") {
                 for(const data of Data) {
-                    console.log(data);
                     if(data.fullName === e.target.value) {
                         setAccountName(data.fullName);
                         setIsDisabled(false);
@@ -182,7 +181,7 @@ const TransactPage = (props) => {
                 </div>
                 
                 <div className="debit_amount">
-                    <label>Amount to deposit</label>
+                    <label>Amount to {transactionType}</label>
                     <input
                         type="number" 
                         className="input_amount" 
