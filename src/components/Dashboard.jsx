@@ -18,7 +18,7 @@ import { PrivateRoutes } from "../utils/PrivateRoutes";
 // export const login = currentUser.isAdmin;
 
 export const adminRouter = (
-  <Routes>
+  
     <Route>
       <Route path="/" element={<Overview />} />
       <Route path="/create-new-user" element={<CreateUser />} />
@@ -28,10 +28,10 @@ export const adminRouter = (
       <Route path="/send-money" element={<SendMoney />} />
       <Route path="/currency" element={<Currency />} />
     </Route>
-  </Routes>
+ 
 );
 export const customerRouter = (
-  <Routes>
+
     <Route>
       <Route path="/" element={<Overview />} />
       <Route path="/send-money" element={<SendMoney />} />
@@ -40,9 +40,9 @@ export const customerRouter = (
       <Route path="/goals" element={<Goals />} />
       <Route path="/currency" element={<Currency />} />
     </Route>
-  </Routes>
+ 
 );
 
 export function Dashboard({ user, handleLogout, routes }) {
-  return routes;
+  return <Routes>{routes}</Routes>;
 }

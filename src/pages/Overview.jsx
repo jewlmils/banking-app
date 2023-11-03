@@ -19,14 +19,19 @@ export function Overview() {
 }
 // Calculate the total balance
 const totalBalance = userData.reduce((total, user) => total + parseFloat(user.balance), 0).toFixed(2);
+const nonAdminUsers = userData.filter(user => !user.isAdmin);
 
+// Get the number of non-admin users
+const numberOfClients = nonAdminUsers.length;
 
 
 function AdminOverview() {
   return (
     <div className="overview-admin">
-      <h1 className="content-title">Total Money</h1>
+      <h1 className="content-title">Total Income</h1>
       <h1 className="content-amount">₱{totalBalance}</h1>
+      <div><h1>Total Clients</h1>
+      <h2>{numberOfClients}</h2></div>
     </div>
   );
 }

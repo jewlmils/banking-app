@@ -15,31 +15,44 @@
     @include center;
 }
 
-.sidebar__main{
-    // border: 1px solid blue;
+.sidebar__main {
+    display: flex;
+    align-items: flex-end;
     width: 20vw;
-    height: 60vh; 
+    height: 60vh;
     display: flex;
     flex-direction: column;
     font-size: $mediumFont;
-    li{
-        height: fit-content;
-        width: fit-content;
-        padding:1rem 2rem;
-        cursor: pointer;
-    }
-    li.active{
+  
+    .custom-link {
+      height: 2rem;
+      width: 12rem;
+      padding: 1rem 2rem;
+      margin-bottom: 0.1rem;
+      cursor: pointer;
+      color: $pageColor;
+      transition: width 0.5s; /* Smooth transition for the width property */
+  
+      &:hover {
+        background-color: $pageColor;
+        border-radius: 2rem 0 0 2rem;
         color: $primaryColor;
+        width: 13rem; /* Adjust the width on hover */
+      }
     }
-    a{
-        text-decoration: none;
-        color: inherit;
+  
+    .active {
+      height: 2rem;
+      width: 13rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      color: $primaryColor;
+      background-color: $pageColor;
+      border-radius: 2rem 0 0 2rem;
+      transition: width 0.3s; /* Smooth transition for the width property */
     }
-    a:hover{
-        color: $primaryColor;
-    }
-}
-
+  }
+  
 
 
 .sidebar__footer{

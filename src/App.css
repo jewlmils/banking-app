@@ -59,7 +59,7 @@ a {
 }
 
 .body {
-  background-color: #FAFAFA;
+  background-color: #e0fff5;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   width: 100vw;
@@ -73,6 +73,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  background-color: #f5fffc;
 }
 
 .header__user-container {
@@ -81,7 +82,7 @@ a {
 
 .sidebar {
   font-family: "Poppins", sans-serif;
-  background-color: #FFFFFF;
+  background-color: #00a26d;
   width: 20vw;
   height: 100vh;
 }
@@ -98,29 +99,38 @@ a {
 }
 
 .sidebar__main {
+  display: flex;
+  align-items: flex-end;
   width: 20vw;
   height: 60vh;
   display: flex;
   flex-direction: column;
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 }
-.sidebar__main li {
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.sidebar__main .custom-link {
+  height: 2rem;
+  width: 12rem;
+  padding: 1rem 2rem;
+  margin-bottom: 0.1rem;
+  cursor: pointer;
+  color: #e0fff5;
+  transition: width 0.5s; /* Smooth transition for the width property */
+}
+.sidebar__main .custom-link:hover {
+  background-color: #e0fff5;
+  border-radius: 2rem 0 0 2rem;
+  color: #00a26d;
+  width: 13rem; /* Adjust the width on hover */
+}
+.sidebar__main .active {
+  height: 2rem;
+  width: 13rem;
   padding: 1rem 2rem;
   cursor: pointer;
-}
-.sidebar__main li.active {
   color: #00a26d;
-}
-.sidebar__main a {
-  text-decoration: none;
-  color: inherit;
-}
-.sidebar__main a:hover {
-  color: #00a26d;
+  background-color: #e0fff5;
+  border-radius: 2rem 0 0 2rem;
+  transition: width 0.3s; /* Smooth transition for the width property */
 }
 
 .sidebar__footer {
@@ -148,7 +158,7 @@ a {
   height: 85vh;
   width: 70vw;
   border-radius: 1rem;
-  background-color: #FFFFFF;
+  background-color: #e0fff5;
 }
 
 .overview-customer {
@@ -362,4 +372,5 @@ a {
   text-align: center;
   border: none;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
 }/*# sourceMappingURL=App.css.map */
