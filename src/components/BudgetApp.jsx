@@ -1,10 +1,8 @@
-// budgetapp.jsx
 import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
 import "../style/budget.css";
 
 function BudgetApp({ handleLogout }) {
-  // State variables for description, cost, budget items, edit mode, and more
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
   const [budget, setBudget] = useState([]);
@@ -14,20 +12,15 @@ function BudgetApp({ handleLogout }) {
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
 
-  // Load the current user's data from local storage when the component mounts
-  //This is where we set the user state variable to the user data retrieved from local storage.
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     setUser(currentUser);
   }, []);
 
-
-  //This prevents the component from rendering when no user data is available
   if (!user) {
     return null;
   }
 
-  // Function to toggle the visibility of the budget entry modal
   const toggleAddBudgetVisibility = () => {
     setIsAddBudgetVisible(!isAddBudgetVisible);
     setDsc("");
@@ -35,11 +28,9 @@ function BudgetApp({ handleLogout }) {
     setError("");
   };
 
-  // Function to add a budget item to the list
   const addBudget = (e) => {
     e.preventDefault();
 
-    // Validate input for description and cost
     if (dsc.trim() === "" || cost.trim() === "") {
       setError("Description and Cost are required.");
       return;
@@ -47,7 +38,6 @@ function BudgetApp({ handleLogout }) {
 
     const parsedCost = parseFloat(cost);
 
-    // Ensure cost is not a negative number
     if (parsedCost < 0) {
       setError("Cost cannot be a negative number.");
       return;
@@ -56,33 +46,28 @@ function BudgetApp({ handleLogout }) {
     setError("");
 
     if (editId) {
-      // If in edit mode, update the budget item
       const newBudget = budget.map((b) =>
         b.id === editId ? { id: editId, dsc, cost } : b
       );
       setBudget(newBudget);
       setEditId(null);
 
-      // Update the user's balance
       const difference = originalCost - parsedCost;
       const newBalance = user.balance + difference;
       updateBalance(newBalance);
     } else {
-      // New budget item, add it to the list
       const newBudgetItem = { id: Date.now(), dsc, cost: parsedCost };
       setBudget([...budget, newBudgetItem]);
       const newBalance = user.balance - parsedCost;
       updateBalance(newBalance);
     }
 
-    // Clear input fields and hide the modal
     setDsc("");
     setCost("");
     setOriginalCost(null);
     setIsAddBudgetVisible(false);
   };
 
-  // Function to handle editing a budget item
   const handleEdit = (b) => {
     setEditId(b.id);
     setDsc(b.dsc);
@@ -91,7 +76,6 @@ function BudgetApp({ handleLogout }) {
     setIsAddBudgetVisible(true);
   };
 
-  // Function to handle deleting a budget item
   const handleDelete = (id) => {
     const deletedBudgetItem = budget.find((b) => b.id === id);
     const newBalance = user.balance + parseFloat(deletedBudgetItem.cost);
@@ -99,12 +83,14 @@ function BudgetApp({ handleLogout }) {
     setBudget(budget.filter((b) => b.id !== id));
   };
 
-  // Function to update the user's balance in local storage and state
   const updateBalance = (newBalance) => {
-    user.balance = newBalance;
-    const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
-    updatedUser.balance = newBalance;
-    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    // Update the balance in the current user object in state
+    setUser({ ...user, balance: newBalance });
+  
+    // Update the balance in the localStorage for the current user
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.balance = newBalance;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
   };
 
   return (

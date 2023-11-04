@@ -54,7 +54,6 @@ export function Goals() {
         <div className="goal-top">
           <h1>Set up your goal</h1>
           <h3>"Hit your goals out of the park</h3>
-          <p>Create 5 goals at a time.</p>
           <form onSubmit={addGoals} className="goal-form">
             <input
               value={gName}
