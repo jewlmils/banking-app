@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/main.css"
+import "../style/main.css";
 
 function Login({ loginHandler, error }) {
   const [email, setEmail] = useState("");
@@ -27,7 +27,7 @@ function Login({ loginHandler, error }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="login-btn" onClick={handleLogin}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </div>
     </div>
   );

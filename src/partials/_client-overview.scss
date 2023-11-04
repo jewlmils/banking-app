@@ -1,0 +1,36 @@
+.overview-customer{
+    display: flex;
+    flex-direction: row;
+    .card-container{
+        padding:0.5rem;
+        height:16rem;
+        width: 27rem;
+        background-image: url('image/card.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        color:white;
+        padding-left: 2.2rem;
+        .card-account-number{
+            padding-top: 6rem;
+            padding-bottom: 0.5rem;
+        }
+        .card-balance{
+            font-size: 3rem;
+            padding-bottom: 0.5rem;
+        }
+        .card-name{
+            font-size: 1.5rem;
+            padding-bottom: 0.25rem,;
+        }
+        .transaction-container{
+            padding: 2rem;
+        }
+    }
+    .transaction-title{
+        padding: 2rem;
+    }
+    
+}

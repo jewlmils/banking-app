@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { userData } from "../Data";
 import { Login } from "./Login";
-import { BudgetApp } from "./BudgetApp";
-import { Dashboard } from "./Dashboard";
+import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
 import "../style/budget.css";
+
+
 
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,22 +17,12 @@ export function Authenticate() {
       (user) => user.email === email && user.password === password
     );
 
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-
+    user.balance
     if (user) {
       setIsAdmin(user.isAdmin);
       setClient(user);
       setError("");
       setIsLoggedIn(true);
-
-    
-      // Check if the current user is different from the stored user
-      if (!storedUser || user.email !== storedUser.email) {
-        // Update the stored user data in localStorage
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        // Clear the budget data in localStorage for the previous user
-        localStorage.removeItem("budgetData");
-      }
     } else {
       setError("Wrong username and password.");
     }
@@ -42,14 +33,18 @@ export function Authenticate() {
     setIsAdmin(false);
     setClient(null);
     setError("");
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem('currentUser');
   };
 
   if (isLoggedIn) {
+    localStorage.setItem('currentUser', JSON.stringify(client));
+    
+  
     if (isAdmin) {
-      return <Dashboard user={client} logout={logout} />;
+      
+      return <Dashboard user={client} handleLogout={logout} routes={adminRouter}/>;
     } else {
-      return <BudgetApp logout={logout} />;
+      return <Dashboard routes={customerRouter}/>
     }
   } else {
     return <Login loginHandler={isLoginSuccess} error={error} />;

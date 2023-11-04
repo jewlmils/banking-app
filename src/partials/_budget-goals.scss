@@ -1,21 +1,4 @@
-.admin-page {
-    height: 100vh;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .admin-page h4 {
-    color: grey;
-    font-size: 2rem;
-  }
-  
-  .admin-page h1 {
-    padding-bottom: 0.2rem;
-    text-align: start;
-  }
-  
-  .budget-button {
+.budget-button {
     width: 7rem;
     font-size: 0.8rem;
     margin-right: 0 2rem;
@@ -26,6 +9,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  
+  .goal-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
   
   .budget-modal {
@@ -53,7 +42,8 @@
     position: relative;
   }
   
-  .budget-top {
+  .budget-top,
+  .goal-top {
     display: flex;
     justify-content: center;
     margin-top: 5rem;
@@ -62,7 +52,8 @@
     flex-direction: column;
   }
   
-  .budget-table {
+  .budget-table,
+  .goal-table {
     width: 100%;
     border-collapse: collapse;
     margin-left: auto;
@@ -72,24 +63,31 @@
   }
   
   .budget-table th,
-  .budget-table td {
+  .budget-table td,
+  .goal-table th,
+  .goal-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
   }
   
-  .budget-table th {
+  .budget-table th,
+  .goal-table th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
   
-  .budget-action-d {
+  .budget-action-d,
+  .goal-action-d {
     background-color: lightcoral;
   }
   
   .budget-action-e,
   .budget-action-d,
-  .budget-button {
+  .goal-action-e,
+  .goal-action-d,
+  .budget-button,
+  .goal-button {
     width: 5rem;
     border-radius: 0.5rem;
     height: 50px;
@@ -100,21 +98,25 @@
     letter-spacing: normal;
   }
   
-  .add-budget-btn, .budget-logout {
+  .goal-button {
+    margin: 0;
+  }
+  
+  .add-budget-btn,
+  .budget-logout {
     width: 10rem;
     font-size: 0.8rem;
     border-radius: 0.5rem;
   }
   
-  .budget-balance{
+  .budget-balance {
     display: flex;
     justify-content: space-between;
     padding-top: 1.5rem;
     align-items: center;
   }
   
-  .budget-user-logout{
+  .budget-user-logout {
     display: flex;
     justify-content: space-between;
   }
-  
