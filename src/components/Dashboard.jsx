@@ -4,8 +4,7 @@ import { Header } from "./Header.jsx";
 import { Overview } from "../pages/Overview";
 import { CreateUser } from "../pages/createuser/CreateUser.jsx";
 import { Accounts } from "../pages/accounts/Accounts.jsx";
-import { Deposit } from "../pages/Deposit.jsx";
-import { Withdraw } from "../pages/Withdraw.jsx";
+import {TransactPage} from "../pages/transactPage/TransactPage.jsx"
 import { SendMoney } from "../pages/send-money/SendMoney.jsx";
 import { Currency } from "../pages/currency/Currency.jsx";
 import { BudgetApp } from "../pages/budget/BudgetApp.jsx";
@@ -23,8 +22,8 @@ export const adminRouter = (
       <Route path="/" element={<Overview />} />
       <Route path="/create-new-user" element={<CreateUser />} />
       <Route path="/accounts" element={<Accounts />} />
-      <Route path="/deposit" element={<Deposit />} />
-      <Route path="/withdraw" element={<Withdraw />} />
+      <Route path="/deposit" element={<TransactPage transactionType='deposit' />} />
+      <Route path="/withdraw" element={<TransactPage transactionType='withdraw'/>} />
       <Route path="/send-money" element={<SendMoney />} />
       <Route path="/currency" element={<Currency />} />
     </Route>
@@ -40,7 +39,6 @@ export const customerRouter = (
       <Route path="/goals" element={<Goals />} />
       <Route path="/currency" element={<Currency />} />
     </Route>
- 
 );
 
 export function Dashboard({ user, handleLogout, routes }) {
