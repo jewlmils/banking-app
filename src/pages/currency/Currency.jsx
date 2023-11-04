@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CurrencyRow } from "./CurrencyRow";
-import { Sidebar} from "../../components/Sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 
 export function Currency() {
@@ -46,12 +46,7 @@ export function Currency() {
     : amount;
 
   return (
-    <div className="body">
-<Sidebar />
-<main>
-  <Header />
-  <section className="content">
-    <div className="content-container"><div className="currency-container">
+    <div className="currency-container">
       <div className="currency-inner-cont">
         <h1>Currency Converter</h1>
         <CurrencyRow
@@ -70,10 +65,6 @@ export function Currency() {
           amount={toAmount}
         />
       </div>
-    </div></div>
-        </section>
-      </main>
     </div>
-    
   );
 }

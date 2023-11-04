@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 export function Goals() {
   const [gName, setGName] = useState("");
-  const [gAmount, setGAmount] = useState(null);
+  const [gAmount, setGAmount] = useState();
   const [goal, setGoal] = useState([]);
-  const [gEditID, setGEditID] = useState(null);
+  const [gEditID, setGEditID] = useState("");
 
   const addGoals = (e) => {
     e.preventDefault();
@@ -47,71 +47,61 @@ export function Goals() {
   };
 
   return (
-    <div className="body">
-      <Sidebar />
-      <main>
-        <Header />
-        <section className="content">
-          <div className="content-container">
-            <div className="goals-container">
-              <div>
-                <div className="goal-top">
-                  <h1>Set up your goal</h1>
-                  <h3>"Hit your goals out of the park</h3>
-                  <form onSubmit={addGoals} className="goal-form">
-                    <input
-                      value={gName}
-                      onChange={(e) => setGName(e.target.value)}
-                      type="text"
-                      className="gname"
-                      placeholder="Enter goal name"
-                    />
-                    <input
-                      value={gAmount}
-                      onChange={(e) => setGAmount(e.target.value)}
-                      type="number"
-                      className="gamount"
-                      placeholder="Enter goal amount"
-                    />
-                    <button className="goal-button">Go</button>
-                  </form>
-                </div>
-                <table className="goal-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Amount</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {goal.map((g) => (
-                      <tr key={g.id}>
-                        <td>{g.gName}</td>
-                        <td>{g.gAmount}</td>
-                        <td>
-                          <button
-                            className="goal-action-e"
-                            onClick={(e) => ghandleEdit(g)}
-                          >
-                            Edit
-                          </button>
-                          <button
-                            className="goal-action-d"
-                            onClick={(e) => ghandleDelete(g.id)}
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+    <div className="goals-container">
+      <div>
+        <div className="goal-top">
+          <h1>Set up your goal</h1>
+          <h3>"Hit your goals out of the park</h3>
+          <form onSubmit={addGoals} className="goal-form">
+            <input
+              value={gName}
+              onChange={(e) => setGName(e.target.value)}
+              type="text"
+              className="gname"
+              placeholder="Enter goal name"
+            />
+            <input
+              value={gAmount}
+              onChange={(e) => setGAmount(e.target.value)}
+              type="number"
+              className="gamount"
+              placeholder="Enter goal amount"
+            />
+            <button className="goal-button">Go</button>
+          </form>
+        </div>
+        <table className="goal-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {goal.map((g) => (
+              <tr key={g.id}>
+                <td>{g.gName}</td>
+                <td>{g.gAmount}</td>
+                <td>
+                  <button
+                    className="goal-action-e"
+                    onClick={(e) => ghandleEdit(g)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="goal-action-d"
+                    onClick={(e) => ghandleDelete(g.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

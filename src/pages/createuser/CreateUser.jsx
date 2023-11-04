@@ -85,96 +85,86 @@ export function CreateUser({ userData, setUserData }) {
   };
 
   return (
-    <div className="body">
-      <Sidebar />
-      <main>
-        <Header />
-        <section className="content">
-          <div className="content-container">
-            <div>
-              <form id="survey-form">
-                <div className="title-container">
-                  <h1 id="title">Create Account</h1>
-                  <p id="description">Account Creation for the Users</p>
-                </div>
-                <div className="input-wrapper">
-                  <label htmlFor="fullname">Full Name: </label>
-                  <input
-                    id="fullname"
-                    type="text"
-                    name="fullname"
-                    value={formData.fullname}
-                    onChange={handleInputChange}
-                  />
-                  {formErrors.fullname && (
-                    <span className="error">{formErrors.fullname}</span>
-                  )}
-                </div>
-                <hr />
-                <div className="input-wrapper">
-                  <label htmlFor="account-type">Account Type</label>
-                  <select
-                    name="accountType"
-                    value={formData.accountType}
-                    onChange={handleInputChange}
-                  >
-                    <option value="Checking Account">Checking Account</option>
-                    <option value="Savings Account">Savings Account</option>
-                  </select>
-                </div>
-                <div className="input-wrapper">
-                  <label htmlFor="balance">Initial Balance</label>
-                  <input
-                    id="balance"
-                    type="text"
-                    name="balance"
-                    value={formData.balance}
-                    onChange={handleInputChange}
-                  />
-                  {formErrors.balance && (
-                    <span className="error">{formErrors.balance}</span>
-                  )}
-                </div>
-                <hr />
-                <div className="input-wrapper">
-                  <label htmlFor="email">Email Address</label>
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                  />
-                  {formErrors.email && (
-                    <span className="error">{formErrors.email}</span>
-                  )}
-                </div>
-                <div className="input-wrapper">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                  />
-                  {formErrors.password && (
-                    <span className="error">{formErrors.password}</span>
-                  )}
-                </div>
-                <div className="input-wrapper">
-                  <input
-                    className="btn"
-                    type="submit"
-                    value="Create Account"
-                    onClick={handleSubmit}
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-      </main>
+    <div>
+      <form id="survey-form">
+        <div className="title-container">
+          <h1 id="title">Create Account</h1>
+          <p id="description">Account Creation for the Users</p>
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="fullname">Full Name: </label>
+          <input
+            id="fullname"
+            type="text"
+            name="fullname"
+            value={formData.fullname}
+            onChange={handleInputChange}
+          />
+          {formErrors.fullname && (
+            <span className="error">{formErrors.fullname}</span>
+          )}
+        </div>
+        <hr />
+        <div className="input-wrapper">
+          <label htmlFor="account-type">Account Type</label>
+          <select
+            name="accountType"
+            value={formData.accountType}
+            onChange={handleInputChange}
+          >
+            <option value="Checking Account">Checking Account</option>
+            <option value="Savings Account">Savings Account</option>
+          </select>
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="balance">Initial Balance</label>
+          <input
+            id="balance"
+            type="text"
+            name="balance"
+            value={formData.balance}
+            onChange={handleInputChange}
+          />
+          {formErrors.balance && (
+            <span className="error">{formErrors.balance}</span>
+          )}
+        </div>
+        <hr />
+        <div className="input-wrapper">
+          <label htmlFor="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+          />
+          {formErrors.email && (
+            <span className="error">{formErrors.email}</span>
+          )}
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+          {formErrors.password && (
+            <span className="error">{formErrors.password}</span>
+          )}
+        </div>
+        <div className="input-wrapper">
+          <input
+            className="btn"
+            type="submit"
+            value="Create Account"
+            onClick={handleSubmit}
+          />
+        </div>
+      </form>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export function Sidebar({ handleLogout }) {
       {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="" onclick={handleLogout}>
+          <a href="" onClick={handleLogout}>
             Logout
           </a>
         </div>

@@ -1,7 +1,9 @@
-import { Sidebar } from "../components/Sidebar";
-import { Header } from "../components/Header";
+import React from "react";
+import { Sidebar } from "./Sidebar";
+import { Header } from "./Header";
+import { Outlet } from "react-router";
 
-export function Deposit() {
+export function DashboardWrapper() {
   return (
     <div className="body">
       <Sidebar />
@@ -9,7 +11,7 @@ export function Deposit() {
         <Header />
         <section className="content">
           <div className="content-container">
-            <h1> Deposit</h1>
+            <Outlet />
           </div>
         </section>
       </main>

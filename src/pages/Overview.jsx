@@ -4,17 +4,9 @@ import { Header } from "../components/Header";
 
 export function Overview() {
   return (
-    <div className="body">
-      <Sidebar />
-      <main>
-        <Header />
-        <section className="content">
-          <div className="content-container">
-            {userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}
-          </div>
-        </section>
-      </main>
-    </div>
+          <>
+          {userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}
+          </>     
   );
 }
 // Calculate the total balance
@@ -41,8 +33,8 @@ function CustomerOverview() {
     <div className="overview-customer">
       <div className="card-container">
         <span className="card-account-number">123-456-7890</span>
-        <span className="card-balance">₱{currentUser.balance}</span>
-        <span className="card-name">{currentUser.fullName}</span>
+        <span className="card-balance">₱{currentUser &&currentUser.balance}</span>
+        <span className="card-name">{currentUser &&currentUser.fullName}</span>
         <span className="card-expiration">10/28</span>
       </div>
       <div className="transaction-container">
