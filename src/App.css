@@ -1,42 +1,376 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+@import url("https://fonts.cdnfonts.com/css/poppins");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+main {
+  width: 80vw;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.body {
+  background-color: #e0fff5;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.header {
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #f5fffc;
+}
+
+.header__user-container {
+  padding-right: 2rem;
+}
+
+.sidebar {
+  font-family: "Poppins", sans-serif;
+  background-color: #00a26d;
+  width: 20vw;
+  height: 100vh;
+}
+
+.sidebar__header {
+  width: 20vw;
+  height: 20vh;
+  padding-left: 1rem;
+  font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar__main {
+  display: flex;
+  align-items: flex-end;
+  width: 20vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+}
+.sidebar__main .custom-link {
+  height: 2rem;
+  width: 12rem;
+  padding: 1rem 2rem;
+  margin-bottom: 0.1rem;
+  cursor: pointer;
+  color: #e0fff5;
+  transition: width 0.5s; /* Smooth transition for the width property */
+}
+.sidebar__main .custom-link:hover {
+  background-color: #e0fff5;
+  border-radius: 2rem 0 0 2rem;
+  color: #00a26d;
+  width: 13rem; /* Adjust the width on hover */
+}
+.sidebar__main .active {
+  height: 2rem;
+  width: 13rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  color: #00a26d;
+  background-color: #e0fff5;
+  border-radius: 2rem 0 0 2rem;
+  transition: width 0.3s; /* Smooth transition for the width property */
+}
+
+.sidebar__footer {
+  width: 20vw;
+  height: 20vh;
+  display: flex;
+  align-items: flex-end;
+}
+.sidebar__footer div {
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+}
+
+.content {
+  height: 90vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-container {
   padding: 2rem;
+  height: 85vh;
+  width: 70vw;
+  border-radius: 1rem;
+  background-color: #e0fff5;
+}
+
+.overview-customer {
+  display: flex;
+  flex-direction: row;
+}
+.overview-customer .card-container {
+  padding: 0.5rem;
+  height: 16rem;
+  width: 27rem;
+  background-image: url("image/card.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left: 2.2rem;
+}
+.overview-customer .card-container .card-account-number {
+  padding-top: 6rem;
+  padding-bottom: 0.5rem;
+}
+.overview-customer .card-container .card-balance {
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+.overview-customer .card-container .card-name {
+  font-size: 1.5rem;
+  padding-bottom: 0.25rem;
+}
+.overview-customer .card-container .transaction-container {
+  padding: 2rem;
+}
+.overview-customer .transaction-title {
+  padding: 2rem;
+}
+
+.budget-button {
+  width: 7rem;
+  font-size: 0.8rem;
+  margin-right: 0 2rem;
+}
+
+.budget-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.budget-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-app {
+  background-color: white;
+  border-radius: 8rem;
+  padding: 2rem;
+  border: 1px solid #888;
+  border-radius: 5px;
+  max-width: 80%;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.budget-top,
+.goal-top {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  background-color: #f2f2f2;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.budget-table,
+.goal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.budget-table th,
+.budget-table td,
+.goal-table th,
+.goal-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.budget-table th,
+.goal-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.budget-action-d,
+.goal-action-d {
+  background-color: lightcoral;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.budget-action-e,
+.budget-action-d,
+.goal-action-e,
+.goal-action-d,
+.budget-button,
+.goal-button {
+  width: 5rem;
+  border-radius: 0.5rem;
+  height: 50px;
+  margin: 0 1rem;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: normal;
 }
 
-.card {
-  padding: 2em;
+.goal-button {
+  margin: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.add-budget-btn,
+.budget-logout {
+  width: 10rem;
+  font-size: 0.8rem;
+  border-radius: 0.5rem;
 }
+
+.budget-balance {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  align-items: center;
+}
+
+.budget-user-logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.currency-container {
+  height: 85vh;
+  width: 70vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.currency-container .currency-inner-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  width: 40vw;
+  border-radius: 2rem;
+  background-color: #000001;
+}
+.currency-container .currency__equals {
+  color: white;
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+}
+.currency-container h1 {
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+  margin: 0;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.currency-container .currency-input {
+  border: none;
+  border-radius: 1rem;
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+  font-family: "Poppins", sans-serif;
+  padding: 1rem;
+  width: 20rem;
+  height: 4rem;
+  text-align: center;
+}
+.currency-container select {
+  margin: 1rem;
+  font-family: inherit;
+  font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+  border-radius: 1rem;
+  background-color: #00a26d;
+  color: white;
+  text-align: center;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}/*# sourceMappingURL=App.css.map */
