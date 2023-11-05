@@ -108,6 +108,8 @@ a {
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 }
 .sidebar__main .custom-link {
+  display: flex;
+  align-items: center;
   height: 2rem;
   width: 12rem;
   padding: 1rem 2rem;
@@ -142,6 +144,23 @@ a {
 .sidebar__footer div {
   padding-left: 1rem;
   padding-bottom: 2rem;
+}
+
+.logout-button {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  width: 10rem;
+  font-style: "Poppins", sans-serif;
+  background-color: transparent;
+  border: none;
+}
+
+.logout-button:hover {
+  color: #00a26d;
+  background-color: #e0fff5;
 }
 
 .content {

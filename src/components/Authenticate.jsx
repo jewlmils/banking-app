@@ -3,6 +3,7 @@ import { userData } from "../Data";
 import { Login } from "./Login";
 import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
 import "../style/budget.css";
+import { Sidebar } from "./Sidebar";
 
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,17 +49,19 @@ export function Authenticate() {
 
     if (isAdmin) {
       return (
-        <>
+        <div className="body">
+        <Sidebar handleLogout={logout}/>
           <Dashboard user={client} routes={adminRouter} />;
-          <button onClick={logout}>Logout</button>
-        </>
+          </div>
+       
       );
     } else {
       return (
-        <>
+        <div className="body">
+        <Sidebar handleLogout={logout}/>
           <Dashboard routes={customerRouter} />
-          <button onClick={logout}>Logout</button>
-        </>
+          
+       </div>
       );
     }
   } else {

@@ -11,6 +11,7 @@ import {
   TabletSmartphone,
   Wallet,
   Goal,
+  LogOut,
 } from "lucide-react";
 
 export function Sidebar({ handleLogout }) {
@@ -23,9 +24,7 @@ export function Sidebar({ handleLogout }) {
       {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="" onClick={handleLogout}>
-            Logout
-          </a>
+        <button className="logout-button"onClick={handleLogout}>Logout <LogOut/></button>
         </div>
       </div>
     </nav>

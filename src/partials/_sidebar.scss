@@ -25,6 +25,8 @@
     font-size: $mediumFont;
   
     .custom-link {
+      display: flex;
+      align-items: center;
       height: 2rem;
       width: 12rem;
       padding: 1rem 2rem;
@@ -65,4 +67,20 @@
         padding-left: 1rem;
         padding-bottom: 2rem;
     }
+}
+
+.logout-button{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ height:3rem;
+ width: 10rem;
+ font-style: $fontStyle;
+ background-color: transparent;
+ border:none;
+}
+.logout-button:hover{
+  color:$primaryColor;
+  background-color: $pageColor;
 }
