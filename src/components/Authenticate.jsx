@@ -57,7 +57,7 @@ useEffect(()=>{
       return <Dashboard routes={customerRouter}/>
     }
   } else {
-    return (<Route><Login loginHandler={isLoginSuccess} error={error} /></Route>
+    return (<Login loginHandler={isLoginSuccess} error={error} />
     )
   }
 }
