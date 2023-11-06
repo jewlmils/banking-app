@@ -104,6 +104,7 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <input
+                        className="input-accounts"
                         type="text"
                         value={editedUser.fullName}
                         onChange={(e) =>
@@ -117,6 +118,7 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <input
+                        className="input-accounts"
                         type="text"
                         value={editedUser.accountType}
                         onChange={(e) =>
@@ -130,6 +132,7 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <input
+                        className="input-accounts"
                         type="number"
                         value={editedUser.balance}
                         onChange={(e) =>
@@ -143,6 +146,7 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <input
+                        className="input-accounts"
                         type="text"
                         value={editedUser.email}
                         onChange={(e) =>
@@ -156,11 +160,17 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <>
-                        <Edit onClick={() => handleUpdateUser(index)} />
+                        <Edit
+                          onClick={() => handleUpdateUser(index)}
+                          className="edit-icon"
+                        />
                         <Ban onClick={handleCancelEdit} />
                       </>
                     ) : (
-                      <Edit onClick={() => handleEditUser(index)} />
+                      <Edit
+                        onClick={() => handleEditUser(index)}
+                        className="edit-icon"
+                      />
                     )}
                   </td>
                   <td>
