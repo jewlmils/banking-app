@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { userData } from "../Data";
 import { Login } from "./Login";
 import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
-import "../style/budget.css";
-
-
 
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
