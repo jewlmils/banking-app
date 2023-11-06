@@ -4,9 +4,6 @@ import { userData } from "./Data.jsx";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }, []);
 
   return <Authenticate />;
 }
