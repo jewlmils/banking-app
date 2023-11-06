@@ -1,5 +1,6 @@
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
+import { Edit, Ban, UserX2 } from "lucide-react";
 
 import React, { useEffect, useState } from "react";
 
@@ -93,6 +94,7 @@ export function Accounts() {
                 <th>Account Type</th>
                 <th>Initial Balance</th>
                 <th>Email</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -154,21 +156,15 @@ export function Accounts() {
                   <td>
                     {editingIndex === index ? (
                       <>
-                        <button onClick={() => handleUpdateUser(index)}>
-                          Update
-                        </button>
-                        <button onClick={handleCancelEdit}>Cancel</button>
+                        <Edit onClick={() => handleUpdateUser(index)} />
+                        <Ban onClick={handleCancelEdit} />
                       </>
                     ) : (
-                      <button onClick={() => handleEditUser(index)}>
-                        Edit
-                      </button>
+                      <Edit onClick={() => handleEditUser(index)} />
                     )}
                   </td>
                   <td>
-                    <button onClick={() => handleDeleteUser(index)}>
-                      Delete
-                    </button>
+                    <UserX2 onClick={() => handleDeleteUser(index)} />
                   </td>
                 </tr>
               ))}
