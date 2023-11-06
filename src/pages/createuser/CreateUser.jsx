@@ -1,9 +1,19 @@
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
-import React, { useState } from "react";
 
-export function CreateUser({ userData, setUserData }) {
+import React, { useState, useEffect } from "react";
+
+export function CreateUser() {
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+
+    if (!storedUserData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
+    accountNumber: "",
     fullname: "",
     accountType: "Checking Account",
     balance: "",
@@ -19,6 +29,11 @@ export function CreateUser({ userData, setUserData }) {
       ...formData,
       [name]: value,
     });
+  };
+
+  const generateAccountNumber = () => {
+    const accountNumber = Date.now().toString();
+    return accountNumber;
   };
 
   const validateForm = () => {
@@ -45,9 +60,9 @@ export function CreateUser({ userData, setUserData }) {
     return errors;
   };
 
-  const addNewUser = (newUser) => {
-    setUserData([...userData, newUser]);
-  };
+  // const addNewUser = (newUser) => {
+  //   setUserData([...userData, newUser]);
+  // };
 
   const isValidEmail = (email) => {
     const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -59,20 +74,26 @@ export function CreateUser({ userData, setUserData }) {
     const errors = validateForm();
 
     if (Object.keys(errors).length === 0) {
+      const accountNumber = generateAccountNumber();
       const newUser = {
+        accountNumber,
         email: formData.email,
         password: formData.password,
         fullName: formData.fullname,
         isAdmin: false,
         balance: formData.balance,
         accountType: formData.accountType,
+        loginStatus: false,
       };
 
-      addNewUser(newUser);
+      const userData = JSON.parse(localStorage.getItem("userData")) || [];
 
-      localStorage.setItem("userData", JSON.stringify([...userData, newUser]));
+      userData.push(newUser);
+
+      localStorage.setItem("userData", JSON.stringify(userData));
 
       setFormData({
+        accountNumber: "",
         fullname: "",
         accountType: "Checking Account",
         balance: "",
@@ -85,8 +106,10 @@ export function CreateUser({ userData, setUserData }) {
   };
 
   return (
-    <div>
-      <form id="survey-form">
+    <div className="body">
+      <Sidebar />
+      <form id="survey-form" onSubmit={handleSubmit}>
+        <Header />
         <div className="title-container">
           <h1 id="title">Create Account</h1>
           <p id="description">Account Creation for the Users</p>
@@ -157,12 +180,7 @@ export function CreateUser({ userData, setUserData }) {
           )}
         </div>
         <div className="input-wrapper">
-          <input
-            className="btn"
-            type="submit"
-            value="Create Account"
-            onClick={handleSubmit}
-          />
+          <input className="btn" type="submit" value="Create Account" />
         </div>
       </form>
     </div>

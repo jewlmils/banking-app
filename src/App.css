@@ -59,7 +59,7 @@ a {
 }
 
 .body {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   width: 100vw;
@@ -73,7 +73,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
 }
 
 .header__user-container {
@@ -81,7 +81,7 @@ a {
   height: fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-right: 2rem;
   padding: 1rem;
   border-radius: 1rem;
@@ -89,7 +89,7 @@ a {
 
 .sidebar {
   font-family: "Poppins", sans-serif;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 20vw;
   height: 100vh;
 }
@@ -132,7 +132,7 @@ a {
 .sidebar__main .custom-link:hover {
   background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 13rem; /* Adjust the width on hover */
 }
 .sidebar__main .active {
@@ -140,7 +140,7 @@ a {
   width: 15rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
   transition: width 0.3s; /* Smooth transition for the width property */
@@ -169,7 +169,7 @@ a {
   cursor: pointer;
   color: #00a26d;
   transition: width 0.5s;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: default;
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
@@ -178,7 +178,7 @@ a {
 .sidebar__footer .sidebar__footer-container .logout-button:hover {
   background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 13rem;
 }
 
@@ -196,7 +196,7 @@ a {
   height: 80vh;
   width: 70vw;
   border-radius: 1rem;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
 }
 
 .overview-customer {
@@ -233,7 +233,7 @@ a {
   min-width: 35vw;
   margin-left: 2rem;
   margin-right: 1rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 1rem;
 }
 .overview-customer .transaction-container .transaction-title {
@@ -260,7 +260,7 @@ a {
   width: 30vw;
   border-radius: 1rem;
   margin: 2rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .overview-admin .deposit-container h1 {
   padding: 1rem;
@@ -280,7 +280,7 @@ a {
   width: 30vw;
   border-radius: 1rem;
   margin: 2rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .overview-admin .clients-container h1 {
   padding: 1rem;
@@ -433,7 +433,7 @@ a {
   height: 60vh;
   width: 40vw;
   border-radius: 2rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .currency-container .currency__equals {
   color: #00a26d;
@@ -452,7 +452,7 @@ a {
   border-radius: 1rem;
   font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   font-family: "Poppins", sans-serif;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   padding: 1rem;
   width: 20rem;
   height: 4rem;
@@ -468,5 +468,54 @@ a {
   text-align: center;
   border: none;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.accounts-table th,
+.accounts-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+.wrapper {
+  width: 80%;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchQueryInput {
+  width: 40%;
+  height: 2.8rem;
+  background: #f5f5f5;
+  outline: none;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchQuerySubmit {
+  width: 3.5rem;
+  margin-bottom: 10px;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
   cursor: pointer;
 }/*# sourceMappingURL=App.css.map */
