@@ -1,0 +1,68 @@
+.sidebar{
+    // border: 1px solid black;
+    font-family: $fontStyle;
+    background-color: $sideBarColor;
+    width: 20vw;
+    height: 100vh;
+}
+
+.sidebar__header{
+    // border: 1px solid red;
+    width: 20vw;
+    height: 20vh;
+    padding-left: 1rem;
+    font-size: $largeFont;
+    @include center;
+}
+
+.sidebar__main {
+    display: flex;
+    align-items: flex-end;
+    width: 20vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    font-size: $mediumFont;
+  
+    .custom-link {
+      height: 2rem;
+      width: 12rem;
+      padding: 1rem 2rem;
+      margin-bottom: 0.1rem;
+      cursor: pointer;
+      color: $pageColor;
+      transition: width 0.5s; /* Smooth transition for the width property */
+  
+      &:hover {
+        background-color: $pageColor;
+        border-radius: 2rem 0 0 2rem;
+        color: $primaryColor;
+        width: 13rem; /* Adjust the width on hover */
+      }
+    }
+  
+    .active {
+      height: 2rem;
+      width: 13rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      color: $primaryColor;
+      background-color: $pageColor;
+      border-radius: 2rem 0 0 2rem;
+      transition: width 0.3s; /* Smooth transition for the width property */
+    }
+  }
+  
+
+
+.sidebar__footer{
+    // border: 1px solid yellow;
+    width: 20vw;
+    height: 20vh; 
+    display: flex;
+    align-items: flex-end;
+    div{
+        padding-left: 1rem;
+        padding-bottom: 2rem;
+    }
+}
