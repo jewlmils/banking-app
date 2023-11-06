@@ -1,5 +1,3 @@
-import { Sidebar } from "../../components/Sidebar";
-import { Header } from "../../components/Header";
 import { Edit, Ban, UserX2 } from "lucide-react";
 
 import React, { useEffect, useState } from "react";
@@ -62,10 +60,9 @@ export function Accounts() {
   };
 
   return (
-    <div className="body">
-      <Sidebar />
+ 
       <div className="wrapper">
-        <Header />
+        
         <div className="searchBar">
           <input
             id="searchQueryInput"
@@ -172,6 +169,5 @@ export function Accounts() {
           </table>
         </div>
       </div>
-    </div>
   );
 }
