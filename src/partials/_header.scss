@@ -10,5 +10,10 @@
 
 //header
 .header__user-container{
-    padding-right: 2rem;
+    height:fit-content ;
+    width:fit-content;
+    background-color: $sideBarColor;
+    margin-right: 2rem;
+    padding:1rem ;
+    border-radius: 1rem;
 }

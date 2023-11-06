@@ -59,7 +59,7 @@ a {
 }
 
 .body {
-  background-color: #e0fff5;
+  background-color: #E8E8E8;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   width: 100vw;
@@ -73,16 +73,23 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #f5fffc;
+  background-color: #E8E8E8;
 }
 
 .header__user-container {
-  padding-right: 2rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #FFFFFF;
+  margin-right: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .sidebar {
   font-family: "Poppins", sans-serif;
-  background-color: #00a26d;
+  background-color: #FFFFFF;
   width: 20vw;
   height: 100vh;
 }
@@ -97,6 +104,9 @@ a {
   align-items: center;
   flex-direction: column;
 }
+.sidebar__header img {
+  width: 15vw;
+}
 
 .sidebar__main {
   display: flex;
@@ -108,27 +118,30 @@ a {
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
 }
 .sidebar__main .custom-link {
+  display: flex;
+  align-items: center;
   height: 2rem;
   width: 12rem;
   padding: 1rem 2rem;
   margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
   cursor: pointer;
-  color: #e0fff5;
+  color: #00a26d;
   transition: width 0.5s; /* Smooth transition for the width property */
 }
 .sidebar__main .custom-link:hover {
-  background-color: #e0fff5;
+  background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
-  color: #00a26d;
+  color: #FFFFFF;
   width: 13rem; /* Adjust the width on hover */
 }
 .sidebar__main .active {
   height: 2rem;
-  width: 13rem;
+  width: 15rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  color: #00a26d;
-  background-color: #e0fff5;
+  color: #FFFFFF;
+  background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
   transition: width 0.3s; /* Smooth transition for the width property */
 }
@@ -137,11 +150,36 @@ a {
   width: 20vw;
   height: 20vh;
   display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.sidebar__footer .sidebar__footer-container {
+  display: flex;
   align-items: flex-end;
 }
-.sidebar__footer div {
-  padding-left: 1rem;
-  padding-bottom: 2rem;
+.sidebar__footer .sidebar__footer-container .logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 12rem;
+  padding: 1rem 2rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  cursor: pointer;
+  color: #00a26d;
+  transition: width 0.5s;
+  background-color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: default;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+  text-align: center;
+}
+.sidebar__footer .sidebar__footer-container .logout-button:hover {
+  background-color: #00a26d;
+  border-radius: 2rem 0 0 2rem;
+  color: #FFFFFF;
+  width: 13rem;
 }
 
 .content {
@@ -155,10 +193,10 @@ a {
 
 .content-container {
   padding: 2rem;
-  height: 85vh;
+  height: 80vh;
   width: 70vw;
   border-radius: 1rem;
-  background-color: #e0fff5;
+  background-color: #E8E8E8;
 }
 
 .overview-customer {
@@ -169,7 +207,7 @@ a {
   padding: 0.5rem;
   height: 16rem;
   width: 27rem;
-  background-image: url("image/card.png");
+  background-image: url("assets/image/card.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -190,11 +228,68 @@ a {
   font-size: 1.5rem;
   padding-bottom: 0.25rem;
 }
-.overview-customer .card-container .transaction-container {
-  padding: 2rem;
+.overview-customer .transaction-container {
+  height: 80vh;
+  min-width: 35vw;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
 }
-.overview-customer .transaction-title {
-  padding: 2rem;
+.overview-customer .transaction-container .transaction-title {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overview-admin {
+  height: 80vh;
+  width: 70vw;
+  font-family: "Poppins", sans-serif;
+}
+.overview-admin .deposit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  border-radius: 1rem;
+  margin: 2rem;
+  background-color: #FFFFFF;
+}
+.overview-admin .deposit-container h1 {
+  padding: 1rem;
+  font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+}
+.overview-admin .deposit-container h2 {
+  padding: 1rem;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+  color: #00a26d;
+}
+.overview-admin .clients-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  border-radius: 1rem;
+  margin: 2rem;
+  background-color: #FFFFFF;
+}
+.overview-admin .clients-container h1 {
+  padding: 1rem;
+  font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+}
+.overview-admin .clients-container h2 {
+  padding: 1rem;
+  font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+  color: #00a26d;
 }
 
 .budget-button {
@@ -321,7 +416,7 @@ a {
 }
 
 .currency-container {
-  height: 85vh;
+  height: 80vh;
   width: 70vw;
   margin: 0;
   display: flex;
@@ -338,17 +433,17 @@ a {
   height: 60vh;
   width: 40vw;
   border-radius: 2rem;
-  background-color: #000001;
+  background-color: #FFFFFF;
 }
 .currency-container .currency__equals {
-  color: white;
+  color: #00a26d;
   font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
 }
 .currency-container h1 {
   font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   margin: 0;
   margin-bottom: 2rem;
-  color: white;
+  color: #00a26d;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
@@ -357,6 +452,7 @@ a {
   border-radius: 1rem;
   font-size: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
   font-family: "Poppins", sans-serif;
+  background-color: #E8E8E8;
   padding: 1rem;
   width: 20rem;
   height: 4rem;

@@ -1,8 +1,48 @@
 
-.content-title{
-    font-size: $largeFont;
-    padding:1rem;
+.overview-admin{
+    // border:1px solid red;
+    height: 80vh;
+    width: 70vw;
+    font-family: $fontStyle;
+    .deposit-container{
+        // border: 1px solid blue;
+        @include center;
+        height: 30vh;
+        width: 30vw;
+        border-radius: 1rem;
+        margin: 2rem;
+        background-color: $sideBarColor;
+        
+        h1{
+            padding: 1rem;
+           font-size: $largeFont;
+        }
+        h2{
+            padding: 1rem;
+            font-size: $mediumFont;
+            color:$primaryColor;
+
+        }
+    }
+
+    .clients-container{
+        // border: 1px solid blue;
+        @include center;
+        height: 30vh;
+        width: 30vw;
+        border-radius: 1rem;
+        margin: 2rem;
+        background-color: $sideBarColor;
+        h1{
+            padding: 1rem;
+            font-size: $largeFont;
+        }
+        h2{
+            padding: 1rem;
+            font-size: $mediumFont;
+            color:$primaryColor;
+        }
+    }
 }
-.content-amount{
-    font-size: $mediumFont;
-}
+    
+    
