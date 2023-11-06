@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { currentUser } from "../Data";
 
 export function Header() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
   return (
     <section className="header">
       <div className="header__user-container">

@@ -1,5 +1,4 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { userRole } from "../Data";
 import {
   Layout,
   UserPlus,
@@ -11,20 +10,20 @@ import {
   TabletSmartphone,
   Wallet,
   Goal,
+  LogOut,
 } from "lucide-react";
 
-export function Sidebar({ handleLogout }) {
+export function Sidebar({ handleLogout, userRole }) {
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
-        <img className="sidebar__logo" src="" alt="" />
-        <h1 className="sidebar__logo-text">The Iron Bank of Avion</h1>
+        <img className="sidebar__logo" src="src/assets/image/iba-logo.png" alt="IBA-logo" />
       </div>
       {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
-          <a href="" onclick={handleLogout}>
-            Logout
+          <a className="logout-button" onClick={handleLogout}>
+          <LogOut /> Logout 
           </a>
         </div>
       </div>
