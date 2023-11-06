@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { userData } from "../Data";
 import { Login } from "./Login";
 import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
 import "../style/budget.css";
-
-
+import { Sidebar } from "./Sidebar";
 
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,7 +16,6 @@ export function Authenticate() {
       (user) => user.email === email && user.password === password
     );
 
-    user.balance
     if (user) {
       setIsAdmin(user.isAdmin);
       setClient(user);
@@ -29,22 +27,42 @@ export function Authenticate() {
   };
 
   const logout = () => {
+    console.log("Logout function called");
     setIsLoggedIn(false);
     setIsAdmin(false);
     setClient(null);
     setError("");
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem("currentUser");
+    console.log("Logout completed");
   };
 
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser) {
+      setIsLoggedIn(true);
+      setClient(currentUser);
+    }
+  }, []);
+
   if (isLoggedIn) {
-    localStorage.setItem('currentUser', JSON.stringify(client));
-    
-  
+    localStorage.setItem("currentUser", JSON.stringify(client));
+
     if (isAdmin) {
-      
-      return <Dashboard user={client} handleLogout={logout} routes={adminRouter}/>;
+      return (
+        <div className="body">
+        <Sidebar handleLogout={logout}/>
+          <Dashboard user={client} routes={adminRouter} />;
+          </div>
+       
+      );
     } else {
-      return <Dashboard routes={customerRouter}/>
+      return (
+        <div className="body">
+        <Sidebar handleLogout={logout}/>
+          <Dashboard routes={customerRouter} />
+          
+       </div>
+      );
     }
   } else {
     return <Login loginHandler={isLoginSuccess} error={error} />;

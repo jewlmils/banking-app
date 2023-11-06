@@ -1,10 +1,10 @@
 @use "partials/reset";
 @import url("https://fonts.cdnfonts.com/css/poppins");
 
-$pageColor: #e0fff5;
-$headerColor: #f5fffc;
-$sideBarColor: #00a26d;
-$contentColor: #e0fff5;
+$pageColor: #e8e8e8;
+$headerColor: #e8e8e8;
+$sideBarColor: #ffffff;
+$contentColor: #e8e8e8;
 $primaryColor: #00a26d;
 $secondaryColor: #000001;
 
@@ -56,14 +56,14 @@ a {
 .content-container {
   // border: 1px solid blue;
   padding: 2rem;
-  height: 85vh;
+  height: 80vh;
   width: 70vw;
   border-radius: 1rem;
   background-color: $contentColor;
 }
 
 @import "partials/client-overview";
+@import "partials/admin-overview";
 @import "partials/budget-goals";
 @import "partials/currency";
 @import "partials/accounts";
-// @import 'pages/transactPage/transactPage';

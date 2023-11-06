@@ -109,12 +109,7 @@ function BudgetApp({ handleLogout }) {
   };
 
   return (
-    <div className="body">
-<Sidebar />
-<main>
-  <Header />
-  <section className="content">
-    <div className="content-container">    <div className="admin-page">
+<div className="admin-page">
       <div className="budget-top">
         <div className="budget-intro">
           <div className="budget-user-logout">
@@ -195,11 +190,7 @@ function BudgetApp({ handleLogout }) {
           ))}
         </tbody>
       </table>
-    </div></div>
-        </section>
-      </main>
     </div>
-
   );
 }
 export { BudgetApp };

@@ -62,5 +62,6 @@ export const userData = [
 ];
 
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
 export const userRole =
   currentUser && currentUser.isAdmin ? "admin" : "customer";

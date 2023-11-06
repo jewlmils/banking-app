@@ -1,7 +1,7 @@
 // currency
 
 .currency-container{
-    height: 85vh;
+    height: 80vh;
     width: 70vw;
     margin:0;
     @include center;
@@ -11,17 +11,18 @@
         height:60vh;
         width:40vw;
         border-radius: 2rem;
-        background-color: $secondaryColor;
+        background-color: $sideBarColor;
     }
     .currency__equals{
-        color: white;
+        color: $primaryColor;
         font-size: $xlargeFont;
     }
+
     h1{
         font-size: $xlargeFont;
         margin:0;
         margin-bottom:2rem;
-        color: white;
+        color:$primaryColor;
         font-family: $fontStyle;
         font-weight:600;
     }
@@ -30,6 +31,7 @@
         border-radius: 1rem;
         font-size: $xlargeFont;
         font-family: $fontStyle;
+        background-color: $pageColor;
         padding:1rem;
         width: 20rem;
         height:4rem;
