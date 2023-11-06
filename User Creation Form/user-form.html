@@ -1,0 +1,41 @@
+Z<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="survey-form">
+      <div class="title-container">
+        <h1 id="title">Create Account</h1>
+        <p id="description">Account Creation for the Users</p>
+      </div>
+      <label for="fullname">Full Name: </label>
+      <input id="fullname" type="text" autocomplete="off" name="fullname" />
+      <hr />
+      <label for="account-number">Account Number:</label>
+      <input
+        id="account-number"
+        name="accountNumber"
+        disabled
+        value="123412341234"
+      />
+      <label for="account-type">Account Type</label>
+      <select name="accountType">
+        <option value="Checking Account">Checking Account</option>
+        <option value="Savings Account">Savings Account</option>
+      </select>
+      <label for="balance">Initial Balance</label>
+      <input id="balance" type="text" name="initialBalance" value="0" />
+      <hr />
+      <label for="email">Email Address</label>
+      <input id="email" type="email" name="email" />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" />
+      <input class="btn" type="submit" value="Create Account" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

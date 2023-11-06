@@ -5,7 +5,7 @@
         padding:0.5rem;
         height:16rem;
         width: 27rem;
-        background-image: url('image/card.png');
+        background-image: url('assets/image/card.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -25,12 +25,23 @@
             font-size: 1.5rem;
             padding-bottom: 0.25rem,;
         }
-        .transaction-container{
-            padding: 2rem;
+        
+    }
+    .transaction-container{
+        height: 80vh;
+        min-width:35vw ;
+        margin-left: 2rem;
+        margin-right: 1rem;
+        // border: 1px solid red;
+        background-color: $sideBarColor;
+        border-radius: 1rem;
+        .transaction-title{
+            margin-top: 1rem;
+            font-size: $mediumFont;
+            font-family: $fontStyle;
+            @include center;
         }
     }
-    .transaction-title{
-        padding: 2rem;
-    }
+    
     
 }

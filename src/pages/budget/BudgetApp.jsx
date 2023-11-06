@@ -104,96 +104,81 @@ function BudgetApp() {
   };
 
   return (
-    <div className="body">
-      <Sidebar />
-      <main>
-        <Header />
-        <section className="content">
-          <div className="content-container">
-            {" "}
-            <div className="budget-page">
-              <div className="budget-top">
-                <div className="budget-intro">
-                  <h1>Budget App</h1>
-                  <p>Smart money habits start with our financial app</p>
-                </div>
-                <div className="budget-balance">
-                  <div className="add-btn">
-                    <button
-                      className="add-budget-btn"
-                      onClick={toggleAddBudgetVisibility}
-                    >
-                      Add Budget
-                    </button>
-                  </div>
-                  <div className="bgt-balance">
-                    <h3>Balance</h3>
-                    <h2>
-                      ₱
-                      {user.balance.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-
-              <BudgetModal
-                isAddBudgetVisible={isAddBudgetVisible}
-                toggleAddBudgetVisibility={toggleAddBudgetVisibility}
-                dsc={dsc}
-                setDsc={setDsc}
-                cost={cost}
-                setCost={setCost}
-                addBudget={addBudget}
-                error={error}
-              />
-
-              <div className="budget-table-list-container">
-              <table className="budget-table">
-                <thead className="budget-table-wrapper">
-                  <tr>
-                    <th>Description</th>
-                    <th>Cost</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {" "}
-                  {/* Add this container */}
-                  {budget.map((b) => (
-                    <tr key={b.id} className="budget-li">
-                      <td>{b.dsc}</td>
-                      <td>
-                        {b.cost.toLocaleString("en-US", {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}
-                      </td>
-                      <td className="button-container">
-                        <button
-                          onClick={() => handleEdit(b)}
-                          className="budget-action-e"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          onClick={() => handleDelete(b.id)}
-                          className="budget-action-d"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              </div>
-            </div>
+    <div className="budget-page">
+      <div className="budget-top">
+        <div className="budget-intro">
+          <h1>Budget App</h1>
+          <p>Smart money habits start with our financial app</p>
+        </div>
+        <div className="budget-balance">
+          <div className="add-btn">
+            <button
+              className="add-budget-btn"
+              onClick={toggleAddBudgetVisibility}
+            >
+              Add Budget
+            </button>
           </div>
-        </section>
-      </main>
+          <div className="bgt-balance">
+            <h3>Balance</h3>
+            <h2>
+              ₱
+              {user.balance.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <BudgetModal
+        isAddBudgetVisible={isAddBudgetVisible}
+        toggleAddBudgetVisibility={toggleAddBudgetVisibility}
+        dsc={dsc}
+        setDsc={setDsc}
+        cost={cost}
+        setCost={setCost}
+        addBudget={addBudget}
+        error={error}
+      />
+
+      <table className="budget-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {budget.map((b) => (
+            <tr key={b.id}>
+              <td>{b.dsc}</td>
+              <td>
+                {b.cost.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </td>
+              <td className="button-container">
+                <button
+                  onClick={() => handleEdit(b)}
+                  className="budget-action-e"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(b.id)}
+                  className="budget-action-d"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

@@ -1,0 +1,48 @@
+.accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.accounts-table th,
+.accounts-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+.wrapper {
+  width: 80%;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchQueryInput {
+  width: 40%;
+  height: 2.8rem;
+  background: #f5f5f5;
+  outline: none;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchQuerySubmit {
+  width: 3.5rem;
+  margin-bottom: 10px;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
+  cursor: pointer;
+}
