@@ -1,0 +1,164 @@
+.budget-page {
+  margin-left: auto;
+  margin-right: auto;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    text-align: start;
+  }
+
+  .budget-top {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 2rem;
+    flex-direction: column;
+
+    .budget-balance {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      align-items: center;
+
+      .add-budget-btn {
+        width: 10rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        background-color: #00a26d;
+        color: white;
+        font-weight: 700;
+      }
+
+      .bgt-balance {
+        h2 {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+  }
+
+  th {
+    color: #888;
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 1.2rem;
+  }
+
+  .budget-action-d {
+    background-color: lightcoral;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .budget-action-e {
+    background-color: #00a26d;
+    color: white;
+    font-size: 1.2rem;
+  }
+}
+
+.budget-table-wrapper {
+  position: sticky; 
+  top: 0; 
+  background-color: white;
+}
+
+
+.budget-table-list-container {
+  max-height: 50vh; 
+  overflow-y: auto;
+}
+
+.budget-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  .budget-app {
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 25rem;
+    text-align: center;
+    position: relative;
+
+    h2 {
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .budget-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .budget-input {
+        width: clamp(15rem, 7.857rem + 19.048vw, 25rem);
+        background-color: white;
+        color: black;
+        box-sizing: border-box;
+        border-radius: 0.5rem;
+        border: 1px solid #00a26d;
+        padding: 1em;
+        margin-bottom: 1.25rem;
+        font-size: 0.875rem;
+        outline: none;
+      }
+    }
+
+    .budget-button {
+      width: 7rem;
+      font-size: 1.2rem;
+      margin-right: 0 2rem;
+      background-color: #00a26d;
+      color: white;
+    }
+  }
+}
+
+.budget-action-e,
+.budget-action-d,
+.budget-button,
+.add-budget-btn {
+  border: none;
+  outline: none;
+  width: 5rem;
+  border-radius: 0.5rem;
+  height: 50px;
+  margin: 0 1rem;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: normal;
+}

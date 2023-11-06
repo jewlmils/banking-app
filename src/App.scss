@@ -23,6 +23,9 @@ $smallFont: 1rem;
   flex-direction: column;
 }
 
+body{
+    font-family: $fontStyle;
+}
 main {
   width: 80vw;
   height: 100vh;
@@ -64,6 +67,8 @@ a {
 
 @import "partials/client-overview";
 @import "partials/admin-overview";
-@import "partials/budget-goals";
 @import "partials/currency";
 @import "partials/accounts";
+@import 'partials/login';
+@import 'partials/budget';
+@import 'partials/goals';

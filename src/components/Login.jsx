@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../style/main.css";
 
 function Login({ loginHandler, error }) {
   const [email, setEmail] = useState("");
@@ -10,25 +9,32 @@ function Login({ loginHandler, error }) {
   };
 
   return (
-    <div>
-      <div className="login-page">
-        <h1>Welcome Back!</h1>
-        <p>Fueling Your Financial Future</p>
-        {error && <p className="error-message">{error}</p>}
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={handleLogin}>Login</button>
+    <div className="split-screen">
+      <div className="left">
+        <div className="login-page">
+          <h1>Welcome Back!</h1>
+          <p>Please enter your details</p>
+          {error && <p className="error-message">{error}</p>}
+          <input
+            className="login-input"
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="login-input"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="login-button" onClick={handleLogin}>
+            Login
+          </button>
+        </div>
       </div>
+      <div className="right"></div>
     </div>
   );
 }
