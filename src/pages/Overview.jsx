@@ -1,9 +1,16 @@
 import { userRole, currentUser, userData } from "../Data";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
+import { useState, useEffect } from "react";
 
 export function Overview() {
-  return <>{userRole === "admin" ? <AdminOverview /> : <CustomerOverview />}</>;
+  const user = JSON.parse(localStorage.getItem("currentUser"))
+  const [overviewDisplay, setOverviewDisplay] = useState();
+  useEffect(()=>{
+    setOverviewDisplay(user.isAdmin? <AdminOverview /> : <CustomerOverview />)
+  },[user.isAdmin])
+
+  return <>{overviewDisplay}</>;
 }
 // Calculate the total balance
 const totalBalance = userData
@@ -15,6 +22,7 @@ const nonAdminUsers = userData.filter((user) => !user.isAdmin);
 const numberOfClients = nonAdminUsers.length;
 
 function AdminOverview() {
+  const user = JSON.parse(localStorage.getItem("currentUser"))
   return (
     <div className="overview-admin">
       <div className="deposit-container">
@@ -31,14 +39,26 @@ function AdminOverview() {
 }
 
 function CustomerOverview() {
+  const user = JSON.parse(localStorage.getItem("currentUser"))
+  const [balanceDisplay, setbalanceDisplay] = useState();
+  const [nameDisplay, setNameDisplay] = useState();
+  useEffect(()=>{
+    setbalanceDisplay(user.balance)
+  },[user.balance])
+
+  useEffect(()=>{
+    setNameDisplay(user.fullName)
+  },[user.fullName])
+
+
   return (
     <div className="overview-customer">
       <div className="card-container">
         <span className="card-account-number">123-456-7890</span>
         <span className="card-balance">
-          ₱{currentUser && currentUser.balance}
+          ₱{balanceDisplay}
         </span>
-        <span className="card-name">{currentUser && currentUser.fullName}</span>
+        <span className="card-name">{nameDisplay}</span>
         <span className="card-expiration">10/28</span>
       </div>
       <div className="transaction-container">

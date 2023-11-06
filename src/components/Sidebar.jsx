@@ -1,4 +1,5 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useMatch, useResolvedPath} from "react-router-dom";
+import { useEffect,useState } from "react";
 import {
   Layout,
   UserPlus,
@@ -14,12 +15,17 @@ import {
 } from "lucide-react";
 
 export function Sidebar({ handleLogout, userRole }) {
+  const [sidebarDisplay, setSidebarDisplay]= useState(userRole)
+
+  useEffect(()=>{
+    setSidebarDisplay(userRole === "admin"? <AdminSidebar/>:<CustomerSidebar/>)
+  },[userRole])
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
         <img className="sidebar__logo" src="src/assets/image/iba-logo.png" alt="IBA-logo" />
       </div>
-      {userRole === "admin" ? <AdminSidebar /> : <CustomerSidebar />}
+      {sidebarDisplay}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
           <a className="logout-button" onClick={handleLogout}>

@@ -1,5 +1,4 @@
-import { Sidebar } from "../../components/Sidebar";
-import { Header } from "../../components/Header";
+
 
 import React, { useState, useEffect } from "react";
 
@@ -106,10 +105,9 @@ export function CreateUser() {
   };
 
   return (
-    <div className="body">
-      <Sidebar />
+ 
       <form id="survey-form" onSubmit={handleSubmit}>
-        <Header />
+        
         <div className="title-container">
           <h1 id="title">Create Account</h1>
           <p id="description">Account Creation for the Users</p>
@@ -183,6 +181,5 @@ export function CreateUser() {
           <input className="btn" type="submit" value="Create Account" />
         </div>
       </form>
-    </div>
   );
 }
