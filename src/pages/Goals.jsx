@@ -5,7 +5,6 @@ import React, { useState } from "react";
 export function Goals() {
   const [gName, setGName] = useState("");
   const [gAmount, setGAmount] = useState();
-  const [gAmount, setGAmount] = useState();
   const [goal, setGoal] = useState([]);
   const [gEditID, setGEditID] = useState("");
 
