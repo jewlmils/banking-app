@@ -41,29 +41,24 @@ export function Authenticate() {
     if (currentUser) {
       setIsLoggedIn(true);
       setClient(currentUser);
+      setIsAdmin(currentUser.isAdmin);
     }
   }, []);
 
   if (isLoggedIn) {
     localStorage.setItem("currentUser", JSON.stringify(client));
-
-    if (isAdmin) {
-      return (
-        <div className="body">
-        <Sidebar handleLogout={logout}/>
-          <Dashboard user={client} routes={adminRouter} />;
-          </div>
-       
-      );
-    } else {
-      return (
-        <div className="body">
-        <Sidebar handleLogout={logout}/>
-          <Dashboard routes={customerRouter} />
-          
-       </div>
-      );
-    }
+    return (
+      <div className="body">
+        <Sidebar
+          userRole={isAdmin ? "admin" : "customer"}
+          handleLogout={logout}
+        />
+        <Dashboard
+          user={client}
+          routes={isAdmin ? adminRouter : customerRouter}
+        />
+      </div>
+    );
   } else {
     return <Login loginHandler={isLoginSuccess} error={error} />;
   }
