@@ -1,7 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { userData } from "./Data";
 
-function UserCreationForm({ userData }) {
+function UserCreationForm() {
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+
+    if (!storedUserData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
+    accountNumber: "",
     fullname: "",
     accountType: "Checking Account",
     balance: "",
@@ -17,6 +27,11 @@ function UserCreationForm({ userData }) {
       ...formData,
       [name]: value,
     });
+  };
+
+  const generateAccountNumber = () => {
+    const accountNumber = Date.now().toString();
+    return accountNumber;
   };
 
   const validateForm = () => {
@@ -57,7 +72,9 @@ function UserCreationForm({ userData }) {
     const errors = validateForm();
 
     if (Object.keys(errors).length === 0) {
+      const accountNumber = generateAccountNumber();
       const newUser = {
+        accountNumber,
         email: formData.email,
         password: formData.password,
         fullName: formData.fullname,
@@ -66,9 +83,14 @@ function UserCreationForm({ userData }) {
         accountType: formData.accountType,
       };
 
-      localStorage.setItem("userData", JSON.stringify([...userData, newUser]));
+      const userData = JSON.parse(localStorage.getItem("userData")) || [];
+
+      userData.push(newUser);
+
+      localStorage.setItem("userData", JSON.stringify(userData));
 
       setFormData({
+        accountNumber: "",
         fullname: "",
         accountType: "Checking Account",
         balance: "",
@@ -82,7 +104,7 @@ function UserCreationForm({ userData }) {
 
   return (
     <div>
-      <form id="survey-form">
+      <form id="survey-form" onSubmit={handleSubmit}>
         <div className="title-container">
           <h1 id="title">Create Account</h1>
           <p id="description">Account Creation for the Users</p>
@@ -153,12 +175,7 @@ function UserCreationForm({ userData }) {
           )}
         </div>
         <div className="input-wrapper">
-          <input
-            className="btn"
-            type="submit"
-            value="Create Account"
-            onClick={handleSubmit}
-          />
+          <input className="btn" type="submit" value="Create Account" />
         </div>
       </form>
     </div>

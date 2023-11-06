@@ -8,7 +8,7 @@ import { userData } from "./components/Data";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserCreationForm userData={userData} />
+    <UserCreationForm />
     <AccountsTable />
   </React.StrictMode>
 );

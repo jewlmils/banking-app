@@ -1,5 +1,6 @@
 const userData = [
   {
+    accountNumber: "1000000000001",
     email: "admin@gmail.com",
     password: "pass",
     fullName: "Admin",
@@ -8,6 +9,7 @@ const userData = [
     accountType: "",
   },
   {
+    accountNumber: "1000000000002",
     email: "user@gmail.com",
     password: "pass",
     fullName: "User",
@@ -16,6 +18,7 @@ const userData = [
     accountType: "Savings Account",
   },
   {
+    accountNumber: "1000000000003",
     email: "jewel@gmail.com",
     password: "pass",
     fullName: "Jewel",
@@ -24,6 +27,7 @@ const userData = [
     accountType: "Savings Account",
   },
   {
+    accountNumber: "1000000000004",
     email: "hakdog@gmail.com",
     password: "pass",
     fullName: "Hakdog",
@@ -32,6 +36,7 @@ const userData = [
     accountType: "Savings Account",
   },
   {
+    accountNumber: "1000000000005",
     email: "john.doe@example.com",
     password: "johndoe123",
     fullName: "John Doe",
@@ -40,6 +45,7 @@ const userData = [
     accountType: "Checking Account",
   },
   {
+    accountNumber: "1000000000006",
     email: "jane.doe@example.com",
     password: "janedoe123",
     fullName: "Jane Doe",

@@ -92,7 +92,7 @@ function AccountsTable() {
           <tbody>
             {filteredData.map((user, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
+                <td>{user.accountNumber}</td>
                 <td>
                   {editingIndex === index ? (
                     <input
