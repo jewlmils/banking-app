@@ -123,30 +123,30 @@ function BudgetApp({ handleLogout }) {
               Logout
             </button>
           </div>
-          <h1>Budget App</h1>
-          <p>Smart money habits start with our financial app</p>
-        </div>
-        <div className="budget-balance">
-          <div className="add-btn">
-            <button
-              className="add-budget-btn"
-              onClick={toggleAddBudgetVisibility}
-            >
-              Add Budget
-            </button>
-          </div>
-          <div className="bgt-balance">
-            <h3>Balance</h3>
-            <h2>
-              ₱
-              {user.balance.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
-            </h2>
-          </div>
-        </div>
-      </div>
+                  <h1>Budget App</h1>
+                  <p>Smart money habits start with our financial app</p>
+                </div>
+                <div className="budget-balance">
+                  <div className="add-btn">
+                    <button
+                      className="add-budget-btn"
+                      onClick={toggleAddBudgetVisibility}
+                    >
+                      Add Budget
+                    </button>
+                  </div>
+                  <div className="bgt-balance">
+                    <h3>Balance</h3>
+                    <h2>
+                      ₱
+                      {user.balance.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </h2>
+                  </div>
+                </div>
+              </div>
 
       <BudgetModal
         isAddBudgetVisible={isAddBudgetVisible}
