@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
-import "../../style/budget.css";
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 
-function BudgetApp({ handleLogout }) {
-  // State variables for description, cost, budget items, edit mode, and more
+function BudgetApp() {
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
   const [budget, setBudget] = useState([]);
@@ -15,13 +13,10 @@ function BudgetApp({ handleLogout }) {
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
 
-  // Load the current user's data from local storage when the component mounts
-  //This is where we set the user state variable to the user data retrieved from local storage.
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     setUser(currentUser);
   }, []);
-
 
   //This prevents the component from rendering when no user data is available
   if (!user) {
@@ -109,15 +104,9 @@ function BudgetApp({ handleLogout }) {
   };
 
   return (
-<div className="admin-page">
+    <div className="budget-page">
       <div className="budget-top">
         <div className="budget-intro">
-          <div className="budget-user-logout">
-            <h4>Hello, {user.fullName}!</h4>
-            <button className="budget-logout" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
           <h1>Budget App</h1>
           <p>Smart money habits start with our financial app</p>
         </div>
