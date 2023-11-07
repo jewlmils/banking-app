@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { currentUser } from "../Data";
 export function Header() {
-  const user = JSON.parse(localStorage.getItem("userData"));
+  const user = JSON.parse(localStorage.getItem("currentUser"));
   const [nameDisplay, setNameDisplay] = useState();
   useEffect(() => {
     setNameDisplay(user.fullName);
