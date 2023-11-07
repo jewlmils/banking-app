@@ -59,6 +59,16 @@ export const userData = [
     accountType: "Savings Account",
     loginStatus: false,
   },
+  {
+    accountNumber: "1000000000007",
+    email: "john.snow@example.com",
+    password: "janedoe123",
+    fullName: "John Snow",
+    isAdmin: false,
+    balance: "4500",
+    accountType: "Checking Account",
+    loginStatus: false,
+  },
 ];
 
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
