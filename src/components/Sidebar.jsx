@@ -41,25 +41,25 @@ function AdminSidebar() {
   return (
     <ul className="sidebar__main">
       <CustomLink to="/">
-        <Layout /> Overview
+        <Layout className="sidebar-icon"/> Overview
       </CustomLink>
       <CustomLink to="/create-new-user">
-        <UserPlus /> Create User
+        <UserPlus className="sidebar-icon"/> Create User
       </CustomLink>
       <CustomLink to="/accounts">
-        <Contact /> Accounts
+        <Contact className="sidebar-icon"/> Accounts
       </CustomLink>
       <CustomLink to="/deposit">
-        <PiggyBank /> Deposit
+        <PiggyBank className="sidebar-icon"/> Deposit
       </CustomLink>
       <CustomLink to="/withdraw">
-        <Banknote /> Withdraw
+        <Banknote className="sidebar-icon" /> Withdraw
       </CustomLink>
       <CustomLink to="/send-money">
-        <Send /> Send Money
+        <Send className="sidebar-icon" /> Send Money
       </CustomLink>
       <CustomLink to="/currency">
-        <DollarSign /> Currency
+        <DollarSign className="sidebar-icon"/> Currency
       </CustomLink>
     </ul>
   );
@@ -69,22 +69,22 @@ function CustomerSidebar() {
   return (
     <ul className="sidebar__main">
       <CustomLink to="/">
-        <Layout /> Overview
+        <Layout className="sidebar-icon"/> Overview
       </CustomLink>
       <CustomLink to="/send-money">
-        <Send /> Send Money
+        <Send className="sidebar-icon"/> Send Money
       </CustomLink>
       <CustomLink to="/buy-load">
-        <TabletSmartphone /> Buy Load
+        <TabletSmartphone className="sidebar-icon"/> Buy Load
       </CustomLink>
       <CustomLink to="/budget">
-        <Wallet /> Budget
+        <Wallet className="sidebar-icon"/> Budget
       </CustomLink>
       <CustomLink to="/goals">
-        <Goal /> Goals
+        <Goal className="sidebar-icon"/> Goals
       </CustomLink>
       <CustomLink to="/currency">
-        <DollarSign /> Currency
+        <DollarSign className="sidebar-icon"/> Currency
       </CustomLink>
     </ul>
   );
