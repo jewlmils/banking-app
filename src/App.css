@@ -485,6 +485,10 @@ a {
 
 .wrapper {
   width: 80%;
+  background-color: white;
+  border-radius: 15px;
+  height: 60vh;
+  margin-left: 7.7rem;
 }
 
 table {
@@ -500,7 +504,7 @@ table {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 .edit-icon {
