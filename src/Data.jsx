@@ -11,9 +11,9 @@ export const userData = [
   },
   {
     accountNumber: "1000000000002",
-    email: "johnsnow@gmail.com",
+    email: "user@gmail.com",
     password: "pass",
-    fullName: "John Snow",
+    fullName: "User",
     isAdmin: false,
     balance: "100000",
     accountType: "Savings Account",
@@ -42,7 +42,7 @@ export const userData = [
   {
     accountNumber: "1000000000005",
     email: "daenerystargaryen@example.com",
-    password: "johndoe123",
+    password: "pass",
     fullName: "Daenerys Targaryen",
     isAdmin: false,
     balance: "500000",
@@ -52,7 +52,7 @@ export const userData = [
   {
     accountNumber: "1000000000006",
     email: "cerseilannister@example.com",
-    password: "janedoe123",
+    password: "pass",
     fullName: "Cersei Lannister",
     isAdmin: false,
     balance: "75000000",
@@ -62,7 +62,7 @@ export const userData = [
   {
     accountNumber: "1000000000007",
     email: "john.snow@example.com",
-    password: "janedoe123",
+    password: "pass",
     fullName: "John Snow",
     isAdmin: false,
     balance: "4500",
