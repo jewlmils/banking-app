@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { userData } from "../Data";
+
 import { Login } from "./Login";
 import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
 import { Sidebar } from "./Sidebar";
-
+import { userData } from "../Data";
 export function Authenticate() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [client, setClient] = useState(null);
   const [error, setError] = useState("");
-
   const isLoginSuccess = (email, password) => {
+    
+    const userData = JSON.parse(localStorage.getItem("userData"));
     const user = userData.find(
       (user) => user.email === email && user.password === password
     );
@@ -34,6 +35,15 @@ export function Authenticate() {
     localStorage.removeItem("currentUser");
     console.log("Logout completed");
   };
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+
+    if (!storedUserData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+      console.log('userdata saved')
+    }
+  }, []);
 
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));

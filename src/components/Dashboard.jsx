@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { DashboardWrapper } from "./DashboardWrapper.jsx";
-import { Overview } from "../pages/Overview";
+import { Overview } from "../pages/overview/Overview.jsx";
 import { CreateUser } from "../pages/createuser/CreateUser.jsx";
 import { Accounts } from "../pages/accounts/Accounts.jsx";
 import { TransactPage } from "../pages/transactPage/TransactPage.jsx";
