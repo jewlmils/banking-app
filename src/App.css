@@ -560,11 +560,12 @@ table {
 .budget-table {
   width: 100%;
   border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
-.budget-table th, .budget-table td {
+.budget-table th,
+.budget-table td {
   padding: 8px;
   text-align: center;
   background-color: white;
