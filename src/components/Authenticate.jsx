@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Login } from "./Login";
 import { Dashboard, adminRouter, customerRouter } from "./Dashboard";
-import "../style/budget.css";
 import { Sidebar } from "./Sidebar";
 import { userData } from "../Data";
 export function Authenticate() {

@@ -51,7 +51,7 @@ export function Goals() {
       <div>
         <div className="goal-top">
           <h1>Set up your goal</h1>
-          <h3>"Hit your goals out of the park</h3>
+          <h3>Hit your goals out of the park</h3>
           <form onSubmit={addGoals} className="goal-form">
             <input
               value={gName}
@@ -70,37 +70,39 @@ export function Goals() {
             <button className="goal-button">Go</button>
           </form>
         </div>
-        <table className="goal-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Amount</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {goal.map((g) => (
-              <tr key={g.id}>
-                <td>{g.gName}</td>
-                <td>{g.gAmount}</td>
-                <td>
-                  <button
-                    className="goal-action-e"
-                    onClick={(e) => ghandleEdit(g)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="goal-action-d"
-                    onClick={(e) => ghandleDelete(g.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
+        <div className="goal-table-list-container">
+          <table className="goal-table">
+            <thead className="goal-table-wrapper">
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {goal.map((g) => (
+                <tr key={g.id}>
+                  <td>{g.gName}</td>
+                  <td>{g.gAmount}</td>
+                  <td>
+                    <button
+                      className="goal-action-e"
+                      onClick={(e) => ghandleEdit(g)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="goal-action-d"
+                      onClick={(e) => ghandleDelete(g.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
