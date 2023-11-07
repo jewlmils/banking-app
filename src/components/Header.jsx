@@ -1,13 +1,18 @@
-import { useState } from "react";
-import { currentUser } from "../Data";
 
+import { useState, useEffect } from "react";
+import { currentUser } from "../Data";
 export function Header() {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
+  const user = JSON.parse(localStorage.getItem("userData"));
+  const [nameDisplay, setNameDisplay] = useState();
+  useEffect(() => {
+    setNameDisplay(user.fullName);
+  }, [user.fullName]);
+
   return (
     <section className="header">
       <div className="header__user-container">
         <img src="" alt="" />
-        <span>Good Day {currentUser && currentUser.fullName}!</span>
+        <span>Good Day {nameDisplay}!</span>
       </div>
     </section>
   );
