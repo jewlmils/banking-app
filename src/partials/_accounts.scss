@@ -4,7 +4,7 @@
 }
 
 #title-accounts {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   padding-bottom: 1rem;
   text-align: start;
@@ -51,6 +51,7 @@ p#description-accounts {
   background-color: white;
   max-height: 80vh;
   overflow-y: auto;
+  border-radius: 10px;
 }
 
 .wrapper::-webkit-scrollbar {
@@ -115,7 +116,6 @@ table.table-element-accounts {
 
 #searchQuerySubmit {
   width: 3.5rem;
-  margin-bottom: 10px;
   margin-left: -3.5rem;
   background: none;
   border: none;

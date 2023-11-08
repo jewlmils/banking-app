@@ -87,6 +87,8 @@ export function CreateUser() {
         password: "",
       });
 
+      setFormErrors({});
+
       alert("User created successfully!");
     } else {
       setFormErrors(errors);
