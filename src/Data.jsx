@@ -18,7 +18,6 @@ export const userData = [
     balance: "100000",
     accountType: "Savings Account",
     loginStatus: false,
-    expenses: "hello"
   },
   {
     accountNumber: "1000000000003",
@@ -29,8 +28,6 @@ export const userData = [
     balance: "0",
     accountType: "Savings Account",
     loginStatus: false,
-    expenses: [],
-    goals: []
   },
   {
     accountNumber: "1000000000004",
@@ -41,8 +38,6 @@ export const userData = [
     balance: "0",
     accountType: "Savings Account",
     loginStatus: false,
-    expenses: [],
-    goals: []
   },
   {
     accountNumber: "1000000000005",
@@ -53,8 +48,6 @@ export const userData = [
     balance: "500000",
     accountType: "Checking Account",
     loginStatus: false,
-    expenses: [],
-    goals: []
   },
   {
     accountNumber: "1000000000006",
@@ -65,8 +58,6 @@ export const userData = [
     balance: "75000000",
     accountType: "Savings Account",
     loginStatus: false,
-    expenses: [],
-    goals: []
   },
   {
     accountNumber: "1000000000007",
@@ -77,8 +68,6 @@ export const userData = [
     balance: "4500",
     accountType: "Checking Account",
     loginStatus: false,
-    expenses: [],
-    goals: []
   },
 ];
 
