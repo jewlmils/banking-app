@@ -1,28 +1,74 @@
+.accounts-page {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#title-accounts {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  text-align: start;
+  color: #00a26d;
+}
+
+p#description-accounts {
+  font-weight: bold;
+}
+
+.accounts-top {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem;
+  flex-direction: column;
+}
+
 .accounts-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .accounts-table th,
 .accounts-table td {
   padding: 8px;
-  text-align: left;
+  text-align: center;
+  background-color: white;
+}
+
+.accounts-table th {
+  color: #888;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  padding: 1.2rem;
 }
 
 .wrapper {
-  width: 80%;
+  position: sticky;
+  top: 0;
   background-color: white;
-  border-radius: 15px;
-  height: 60vh;
-  margin-left: 7.7rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
 }
 
-table {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+table.table-element-accounts {
+  width: 100%;
 }
 
 .searchBar {
@@ -34,13 +80,25 @@ table {
   margin-top: 4rem;
 }
 
-.edit-icon {
+.edit-icon-accounts {
   cursor: pointer;
   transition: color 0.3s;
   color: #666666;
 }
 
-.edit-icon:hover {
+.cancel-icon-accounts {
+  cursor: pointer;
+  transition: color 0.3s;
+  color: #666666;
+  height: 37%;
+  width: 37%;
+}
+
+.cancel-icon-accounts:hover {
+  color: #ff0000;
+}
+
+.edit-icon-accounts:hover {
   color: #ff0000;
 }
 
@@ -58,7 +116,6 @@ table {
 
 #searchQuerySubmit {
   width: 3.5rem;
-  margin-bottom: 10px;
   margin-left: -3.5rem;
   background: none;
   border: none;
@@ -70,7 +127,86 @@ table {
 }
 
 .input-accounts {
-  width: 75%;
-  height: 30%;
+  width: 95%;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  border: 1px solid #00a26d;
   padding: 0.3em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  outline: none;
+  margin-left: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .accounts-table,
+  .table-element-accounts {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .accounts-table th,
+  .accounts-table td {
+    padding: 6px; /* Adjust padding as needed */
+    font-size: 0.9rem; /* Adjust font size as needed */
+  }
+
+  .searchBar {
+    flex-direction: row; /* Keep the default flex row direction */
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+
+  #searchQueryInput {
+    width: 80%; /* Slightly reduced width to allow room for the button */
+    height: 2.8rem;
+    padding: 0 1rem; /* Adjust padding as necessary */
+    margin-right: -3.5rem; /* Overlap the button over the input */
+  }
+
+  #searchQuerySubmit {
+    margin-left: 5%;
+    flex-shrink: 0; /* Prevent button from shrinking */
+  }
+
+  .accounts-top,
+  .wrapper {
+    padding: 1rem;
+  }
+
+  #title-accounts {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .accounts-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p#description-accounts {
+    font-size: 0.8rem;
+  }
+
+  #title-accounts {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .accounts-table th,
+  .accounts-table td {
+    padding: 3px;
+    font-size: 0.4rem;
+  }
+
+  .input-accounts {
+    width: 90%;
+    margin: 0.5rem auto;
+  }
 }

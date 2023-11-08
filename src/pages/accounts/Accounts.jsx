@@ -61,27 +61,43 @@ export function Accounts() {
 
   return (
     <div className="wrapper">
-      <div className="searchBar">
-        <input
-          id="searchQueryInput"
-          type="text"
-          name="searchQueryInput"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-        <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
-          <svg style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
-            <path
-              fill="#666666"
-              d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
-            />
-          </svg>
-        </button>
+      <div className="accounts-page">
+        <div className="accounts-top">
+          <div className="accounts-intro">
+            <h1 id="title-accounts">Accounts Table</h1>
+            <p id="description-accounts">
+              Manage all the user and admin Accounts of IBA
+            </p>
+            <div className="searchBar">
+              <input
+                id="searchQueryInput"
+                type="text"
+                name="searchQueryInput"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <button
+                id="searchQuerySubmit"
+                type="submit"
+                name="searchQuerySubmit"
+              >
+                <svg
+                  style={{ width: "24px", height: "24px" }}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#666666"
+                    d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
       <div className="accounts-table">
-        <table>
+        <table className="table-element-accounts">
           <thead>
             <tr>
               <th>Account Number</th>
@@ -90,6 +106,7 @@ export function Accounts() {
               <th>Balance</th>
               <th>Email</th>
               <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -157,21 +174,24 @@ export function Accounts() {
                     <>
                       <Edit
                         onClick={() => handleUpdateUser(index)}
-                        className="edit-icon"
+                        className="edit-icon-accounts"
                       />
-                      <Ban onClick={handleCancelEdit} />
+                      <Ban
+                        onClick={handleCancelEdit}
+                        className="cancel-icon-accounts"
+                      />
                     </>
                   ) : (
                     <Edit
                       onClick={() => handleEditUser(index)}
-                      className="edit-icon"
+                      className="edit-icon-accounts"
                     />
                   )}
                 </td>
                 <td>
                   <UserX2
                     onClick={() => handleDeleteUser(index)}
-                    className="edit-icon"
+                    className="edit-icon-accounts"
                   />
                 </td>
               </tr>
