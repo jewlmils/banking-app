@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 export const PrivateRoutes = () => {
   console.log("private Routes");
@@ -14,17 +14,14 @@ export const PrivateRoutes = () => {
         user.password === currentUser.password
     );
 
+
     if (user.loginStatus) {
-      console.log("redirecting to dashboard");
-      if (user.isAdmin) {
-        return null; // Return null to let the route rendering in App.jsx handle navigation
-      } else {
-        return null; // Return null to let the route rendering in App.jsx handle navigation
+        return <><Outlet/></>
+      }
+      else{
+        return <Navigate to='/login'/>
       }
     }
-  }
-
-  console.log("redirecting to login");
   return <Navigate to="/login" />;
 };
 

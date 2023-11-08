@@ -1,67 +1,48 @@
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  
- 
+  const navigate = useNavigate();
+
   const handleLogin = (email, password) => {
     // Step 1: Retrieve userData from local storage
     const userData = JSON.parse(localStorage.getItem("userData"));
-  
+    let pageStatus =JSON.parse(localStorage.getItem("pageStatus"))
     // Step 2: Find and update loginStatus for the user
     const userIndex = userData.findIndex(
       (user) => user.email === email && user.password === password
     );
-  
+
     if (userIndex !== -1) {
+      // Set isAdmin based on the user's role
+      const isAdmin = userData[userIndex].isAdmin;
+      pageStatus= true;
       userData[userIndex].loginStatus = true;
-  
+
       // Step 3: Update currentUser with the same user object
       localStorage.setItem("currentUser", JSON.stringify(userData[userIndex]));
-  
+      localStorage.setItem("pageStatus",JSON.stringify(pageStatus));
+
       // Step 4: Save the updated userData back to local storage
       localStorage.setItem("userData", JSON.stringify(userData));
-  
+
       console.log("Login successful!");
-      
-      // Conditionally render <Navigate /> to trigger the redirect
-      if (userData[userIndex].isAdmin) {
-        console.log('navigating to admin');
-        return <Navigate to="/admin" />;
-      } else {
-        console.log('navigating to customer');
-        return <Navigate to="/customer/goals" />;
-      }
+      // Redirect to the root route ("/") after successful login
+      navigate("/");
     } else {
       setError("Invalid email or password");
     }
   }
-  
 
-  const handleLogout = () => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  
-    // Step 2: Find the user
-    const userIndex = userData.findIndex(
-      (user) => user.email === currentUser.email && user.password === currentUser.password
-    );
-  
-    if (userIndex !== -1) {
-      // Step 3: Update loginStatus for the user
-      userData[userIndex].loginStatus = false;
-  
-      // Step 4: Remove currentUser from local storage
-      localStorage.removeItem("currentUser");
-  
-      // Step 5: Save the updated userData back to local storage
-      localStorage.setItem("userData", JSON.stringify(userData));
+  useEffect(() => {
+    // Check if the user is already logged in (loggedIn state)
+    if (localStorage.getItem("currentUser")) {
+      navigate("/"); // Redirect to the root route ("/")
     }
-  }
-  
+  }, [navigate]);
 
   return (
     <div className="split-screen">
@@ -90,7 +71,6 @@ function Login() {
         </div>
       </div>
       <div className="right"></div>
-      <button onClick={handleLogout} >logout</button>
     </div>
   );
 }
