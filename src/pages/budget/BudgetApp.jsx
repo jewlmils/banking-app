@@ -4,6 +4,7 @@ import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 import { currentUser } from "../../Data";
 import { json } from "react-router-dom";
+import { FileEdit, Trash2 } from "lucide-react";
 
 function BudgetApp() {
   const [dsc, setDsc] = useState("");
@@ -71,7 +72,12 @@ function BudgetApp() {
       updateBalance(newBalance);
     } else {
       // new budget item, add it to the list
-      const newBudgetItem = { id: Date.now(), dsc, cost: parsedCost };
+      const newBudgetItem = {
+        id: Date.now(),
+        dsc,
+        cost: parsedCost,
+        email: currentUser.email,
+      };
       setBudget([...budget, newBudgetItem]);
       const newBalance = user.balance - parsedCost;
       updateBalance(newBalance);
@@ -156,31 +162,30 @@ function BudgetApp() {
         </thead>
         <tbody className="budget-table-body">
           {/* Your comment here */}
-          {budget.map((b) => (
-            <tr key={b.id} className="budget-li">
-              <td>{b.dsc}</td>
-              <td>
-                {b.cost.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </td>
-              <td className="button-container">
-                <button
-                  onClick={() => handleEdit(b)}
-                  className="budget-action-e"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(b.id)}
-                  className="budget-action-d"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+          {budget.map(
+            (b) =>
+              b.email === currentUser.email && (
+                <tr key={b.id} className="budget-li">
+                  <td>{b.dsc}</td>
+                  <td>
+                    {b.cost.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </td>
+                  <td className="button-container">
+                    <FileEdit
+                      onClick={() => handleEdit(b)}
+                      className="budget-action-e"
+                    />
+                    <Trash2
+                      onClick={() => handleDelete(b.id)}
+                      className="budget-action-d"
+                    />
+                  </td>
+                </tr>
+              )
+          )}
         </tbody>
       </table>
     </div>
