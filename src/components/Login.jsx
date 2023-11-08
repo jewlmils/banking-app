@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+export let email = null;
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,10 +31,12 @@ function Login() {
 
       // Step 4: Save the updated userData back to local storage
       localStorage.setItem("userData", JSON.stringify(userData));
-
+      email= userData[userIndex].email;
       console.log("Login successful!");
       // Redirect to the root route ("/") after successful login
       navigate("/");
+      
+      window.location.reload();
     } else {
       setError("Invalid email or password");
     }

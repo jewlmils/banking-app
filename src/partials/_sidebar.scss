@@ -3,29 +3,19 @@
     font-family: $fontStyle;
     background-color: $sideBarColor;
     width: 20vw;
-    height: 100vh;
+    height: 90vh;
 }
 
-.sidebar__header{
-    width: 20vw;
-    height: 20vh;
-    padding-left: 1rem;
-    font-size: $largeFont;
-    @include center;
-    img{
-      width: 15vw;
-    }
-}
 
 .sidebar__main {
     display: flex;
     align-items: flex-end;
     width: 20vw;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     font-size: $mediumFont;
-  
+    justify-content: center;
     .custom-link {
       // border: 1px solid red;
       display: flex;

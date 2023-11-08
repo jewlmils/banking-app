@@ -1,5 +1,10 @@
-import { Link, useMatch, useResolvedPath, Navigate, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {
+  Link,
+  useMatch,
+  useResolvedPath,
+  useNavigate,
+} from "react-router-dom";
+import { useState } from "react";
 import {
   Layout,
   UserPlus,
@@ -14,12 +19,13 @@ import {
   LogOut,
 } from "lucide-react";
 
-export function Sidebar({ userRole }) {
+export function Sidebar() {
   const navigate = useNavigate(); // Initialize navigate hook
+
   const handleLogout = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    let pageStatus =JSON.parse(localStorage.getItem("pageStatus"))
+    let pageStatus = JSON.parse(localStorage.getItem("pageStatus"));
     // Step 2: Find the user
     if (currentUser) {
       const userIndex = userData.findIndex(
@@ -31,20 +37,19 @@ export function Sidebar({ userRole }) {
       if (userIndex !== -1) {
         // Step 3: Update loginStatus for the user
         userData[userIndex].loginStatus = false;
-        pageStatus= false;
+        pageStatus = false;
 
         // Step 4: Remove currentUser from local storage
         localStorage.removeItem("currentUser");
         localStorage.setItem("userData", JSON.stringify(userData));
-        localStorage.setItem("pageStatus",JSON.stringify(pageStatus))
-        console.log('redirecting to login');
-        
+        localStorage.setItem("pageStatus", JSON.stringify(pageStatus));
+        console.log("redirecting to login");
+
         // Use navigate to redirect to the login page
         navigate("/login");
       }
     }
   };
-
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const [sidebarDisplay, setSidebarDisplay] = useState(
@@ -54,11 +59,7 @@ export function Sidebar({ userRole }) {
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
-        <img
-          className="sidebar__logo"
-          src="src/assets/image/iba-logo.png"
-          alt="IBA-logo"
-        />
+       
       </div>
       {sidebarDisplay}
       <div className="sidebar__footer">

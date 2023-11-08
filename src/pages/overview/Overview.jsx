@@ -1,6 +1,3 @@
-import { userRole, currentUser, userData } from "../../Data";
-import { Sidebar } from "../../components/Sidebar";
-import { Header } from "../../components/Header";
 import { useState, useEffect } from "react";
 import {AdminOverview,CustomerOverview} from './components'
 
