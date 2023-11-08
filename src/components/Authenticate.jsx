@@ -9,22 +9,9 @@ export function Authenticate() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [client, setClient] = useState(null);
   const [error, setError] = useState("");
-  const isLoginSuccess = (email, password) => {
-    
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const user = userData.find(
-      (user) => user.email === email && user.password === password
-    );
 
-    if (user) {
-      setIsAdmin(user.isAdmin);
-      setClient(user);
-      setError("");
-      setIsLoggedIn(true);
-    } else {
-      setError("Wrong username and password.");
-    }
-  };
+  
+  
 
   const logout = () => {
     console.log("Logout function called");

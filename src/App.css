@@ -122,7 +122,6 @@ a {
   font-size: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
 }
 .sidebar__main .custom-link {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);

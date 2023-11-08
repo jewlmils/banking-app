@@ -5,7 +5,8 @@ import { Outlet } from "react-router";
 
 export function DashboardWrapper() {
   return (
-   
+    <div className="body">
+    <Sidebar/>
       <main>
         <Header />
         <section className="content">
@@ -14,6 +15,6 @@ export function DashboardWrapper() {
           </div>
         </section>
       </main>
-   
+   </div>
   );
 }
