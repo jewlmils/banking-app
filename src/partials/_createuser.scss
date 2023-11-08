@@ -1,0 +1,95 @@
+form#survey-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: 950px;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px;
+}
+
+#title-createuser {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  color: #00a26d;
+}
+
+p#description-createuser {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 0.3rem;
+}
+
+.divider-create {
+  margin: 0.3rem 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+  width: 95%;
+  margin: 0 auto;
+}
+
+input.btn-create {
+  padding: 0.7rem;
+  margin-top: 0.4rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container-createuser {
+  text-align: left;
+  margin-left: 1.2rem;
+  font-weight: 600;
+}
+
+.error-createuser {
+  color: red;
+  font-size: 0.7rem;
+  margin-top: 5px;
+  margin-left: 1.3rem;
+}
+
+.createuser-input {
+  width: 95%;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  border: 1px solid #00a26d;
+  padding: 0.5em;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  outline: none;
+  margin-left: 1.25rem;
+}
+
+.createuser-labels {
+  margin-left: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.createuser-select {
+  border-color: #00a26d;
+  width: 95%;
+  margin-left: 1.25rem;
+  border-radius: 0.2rem;
+}
+
+input.btn-create {
+  width: 95%;
+  font-size: 1.2rem;
+  margin-right: 0 2rem;
+  background-color: #00a26d;
+  color: white;
+  margin-left: 1.25rem;
+}

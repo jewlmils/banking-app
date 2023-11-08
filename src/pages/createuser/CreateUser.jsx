@@ -39,8 +39,13 @@ export function CreateUser() {
 
     if (formData.email.trim() === "") {
       errors.email = "Email is required.";
-    } else if (!isValidEmail(formData.email)) {
-      errors.email = "Invalid email format.";
+    } else {
+      const emailExists = userData.some(
+        (user) => user.email === formData.email
+      );
+      if (emailExists) {
+        errors.email = "Email already exists. Please use a different email.";
+      }
     }
 
     if (formData.password.length < 6) {
@@ -48,11 +53,6 @@ export function CreateUser() {
     }
 
     return errors;
-  };
-
-  const isValidEmail = (email) => {
-    const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    return emailPattern.test(email);
   };
 
   const handleSubmit = (e) => {
@@ -70,6 +70,8 @@ export function CreateUser() {
         balance: formData.balance,
         accountType: formData.accountType,
         loginStatus: false,
+        expenseList: [],
+        goals: [],
       };
 
       userData.push(newUser);
@@ -84,6 +86,8 @@ export function CreateUser() {
         email: "",
         password: "",
       });
+
+      alert("User created successfully!");
     } else {
       setFormErrors(errors);
     }
@@ -99,75 +103,92 @@ export function CreateUser() {
 
   return (
     <form id="survey-form" onSubmit={handleSubmit}>
-      <div className="title-container">
-        <h1 id="title">Create Account</h1>
-        <p id="description">Account Creation for the Users</p>
+      <div className="title-container-createuser">
+        <h1 id="title-createuser">Create Account</h1>
+        <p id="description-createuser">Create an Account for IBA Users</p>
       </div>
       <div className="input-wrapper">
-        <label htmlFor="fullname">Full Name: </label>
+        <label className="createuser-labels" htmlFor="fullname">
+          FULL NAME
+        </label>
         <input
           id="fullname"
           type="text"
           name="fullname"
           value={formData.fullname}
           onChange={handleInputChange}
+          className="createuser-input"
         />
         {formErrors.fullname && (
-          <span className="error">{formErrors.fullname}</span>
+          <span className="error-createuser">{formErrors.fullname}</span>
         )}
       </div>
-      <hr />
+      <hr className="divider-create" />
       <div className="input-wrapper">
-        <label htmlFor="account-type">Account Type</label>
+        <label className="createuser-labels" htmlFor="account-type">
+          ACCOUNT TYPE
+        </label>
         <select
           name="accountType"
           value={formData.accountType}
           onChange={handleInputChange}
+          className="createuser-select"
         >
           <option value="Checking Account">Checking Account</option>
           <option value="Savings Account">Savings Account</option>
         </select>
       </div>
       <div className="input-wrapper">
-        <label htmlFor="balance">Initial Balance</label>
+        <label className="createuser-labels" htmlFor="balance">
+          INITIAL BALANCE
+        </label>
         <input
           id="balance"
           type="text"
           name="balance"
           value={formData.balance}
           onChange={handleInputChange}
+          className="createuser-input"
         />
         {formErrors.balance && (
-          <span className="error">{formErrors.balance}</span>
+          <span className="error-createuser">{formErrors.balance}</span>
         )}
       </div>
-      <hr />
+      <hr className="divider-create" />
       <div className="input-wrapper">
-        <label htmlFor="email">Email Address</label>
+        <label className="createuser-labels" htmlFor="email">
+          EMAIL ADDRESS
+        </label>
         <input
           id="email"
           type="email"
           name="email"
           value={formData.email}
           onChange={handleInputChange}
+          className="createuser-input"
         />
-        {formErrors.email && <span className="error">{formErrors.email}</span>}
+        {formErrors.email && (
+          <span className="error-createuser">{formErrors.email}</span>
+        )}
       </div>
       <div className="input-wrapper">
-        <label htmlFor="password">Password</label>
+        <label className="createuser-labels" htmlFor="password">
+          PASSWORD
+        </label>
         <input
           id="password"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleInputChange}
+          className="createuser-input"
         />
         {formErrors.password && (
-          <span className="error">{formErrors.password}</span>
+          <span className="error-createuser">{formErrors.password}</span>
         )}
       </div>
       <div className="input-wrapper">
-        <input className="btn" type="submit" value="Create Account" />
+        <input className="btn-create" type="submit" value="Create Account" />
       </div>
     </form>
   );
