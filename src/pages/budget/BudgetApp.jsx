@@ -20,7 +20,6 @@ function BudgetApp() {
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
-    // console.log("") --- di gumagana, idebug mo mhie
     localStorage.setItem("expenseList", JSON.stringify(budget));
   }, [budget]);
 
