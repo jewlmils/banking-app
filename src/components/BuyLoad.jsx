@@ -7,63 +7,31 @@ export function BuyLoad() {
   const [amount, setAmount] = useState("");
   const [transactionStatus, setTransactionStatus] = useState("");
 
-  const deductBalanceFromUser = async (recipient, amount) => {
-    // Simulate a delay (you can remove this in production)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    console.log("Recipient:", recipient);
-    console.log("Amount:", amount);
-
-    // Validate input
-    if (recipient.trim() === "") {
-      setTransactionStatus("Recipient name is required");
-      return { success: false };
-    }
-
-    if (amount <= 0) {
-      setTransactionStatus("Amount must be greater than 0");
-      return { success: false };
-    }
-
-    // Parse the current user from localStorage
+  const handlePurchase = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    console.log("Current Balance:", currentUser.balance);
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
-    if (recipient === currentUser.email && amount <= currentUser.balance) {
-      // Parse the userData array from localStorage
-      const userData = JSON.parse(localStorage.getItem("userData"));
+    // Find the user in userData
+    const user = userData.find((user) => user.email === currentUser.email);
 
-      // Find and update the user's balance in the userData array
-      const user = userData.find((user) => user.email === currentUser.email);
+    // Ensure recipient is the same as the current user
+    if (amount > 0 && amount <= currentUser.balance) {
+      // Deduct the amount from both currentUser and userData
+      currentUser.balance -= amount;
       user.balance -= amount;
-      currentUser.balance = user.balance;
 
-      // Save the updated userData and currentUser back to localStorage
-      localStorage.setItem("userData", JSON.stringify(userData));
+      // Save the updated currentUser and userData back to localStorage
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      localStorage.setItem("userData", JSON.stringify(userData));
 
-      return { success: true };
+      setTransactionStatus("Transaction successful");
     } else {
-      setTransactionStatus("Insufficient balance");
-      return { success: false };
+      setTransactionStatus("Insufficient balance or invalid amount");
     }
-  };
 
-  const handlePurchase = async () => {
-    try {
-      const response = await deductBalanceFromUser(recipient, amount);
-
-      if (response.success) {
-        setTransactionStatus("Transaction successful");
-      }
-
-      // Clear the input fields after a transaction attempt
-      setRecipient("");
-      setAmount("");
-    } catch (error) {
-      console.error("Error during purchase:", error);
-      setTransactionStatus("Transaction failed");
-    }
+    // Clear the input fields after a transaction attempt
+    setRecipient("");
+    setAmount("");
   };
 
   const isPurchaseButtonDisabled = recipient.trim() === "" || amount <= 0;
@@ -75,9 +43,13 @@ export function BuyLoad() {
       <div className="input-section">
         <label htmlFor="recipient">Recipient</label>
         <input
-          type="text"
+          type="number"
           id="recipient"
-          placeholder="Enter recipient name"
+          placeholder="Enter phone number"
+          in="0"
+          max="99999999999"
+          pattern="[0-9]{11}"
+          required
           value={recipient}
           onChange={(e) => setRecipient(e.target.value)}
         />
@@ -92,7 +64,11 @@ export function BuyLoad() {
           onChange={(e) => setAmount(e.target.value)}
         />
       </div>
-      <button className="purchase-btn" onClick={handlePurchase} disabled={isPurchaseButtonDisabled}>
+      <button
+        className="purchase-btn"
+        onClick={handlePurchase}
+        disabled={isPurchaseButtonDisabled}
+      >
         Purchase Load
       </button>
       {transactionStatus && <p>{transactionStatus}</p>}
