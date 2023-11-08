@@ -1,6 +1,17 @@
+
 .split-screen {
   display: flex;
-  height: 100vh;
+  height: 70vh;
+  width: 70vw;
+  background-color: white;
+  border-radius: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 1px 1px 19px -2px rgba(0,0,0,0.45);
 
   .left,
   .right {
@@ -12,9 +23,11 @@
   }
 
   .right {
-    background-image: url("assets/image/login-image.png");
+    background-image: url("src/assets/image/login-image.png");
     background-size: cover;
     background-repeat: no-repeat;
+    // background-color: pink;
+    border-radius: 1rem;
   }
 
   .left {
@@ -58,15 +71,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 600;
         padding-bottom: 0.8rem;
       }
 
       p {
         padding-bottom: 2rem;
+      }
+
+      .login-logo{
+        width: 13rem;
+        padding-bottom: 3.5rem;
       }
     }
     .error-message {

@@ -23,8 +23,9 @@ $smallFont: 1rem;
   flex-direction: column;
 }
 
-body {
-  font-family: $fontStyle;
+body{
+    font-family: $fontStyle;
+    background-color: #edede9;
 }
 main {
   width: 100vw;

@@ -2,28 +2,40 @@ import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
+import { currentUser } from "../../Data";
+import { json } from "react-router-dom";
+import { FileEdit, Trash2 } from "lucide-react";
 
 function BudgetApp() {
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
-  const [budget, setBudget] = useState([]);
+  const [budget, setBudget] = useState(
+    JSON.parse(localStorage.getItem("expenseList") || "[]")
+  );
   const [editId, setEditId] = useState(null);
   const [originalCost, setOriginalCost] = useState(null);
   const [isAddBudgetVisible, setIsAddBudgetVisible] = useState(false);
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  useEffect(() => {
+    localStorage.setItem("expenseList", JSON.stringify(budget));
+  }, [budget]);
+
+  const userFromStorage = userData.find(
+    (userFromStorage) => userFromStorage.email === currentUser.email
+  );
 
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     setUser(currentUser);
   }, []);
 
-  //This prevents the component from rendering when no user data is available
   if (!user) {
     return null;
   }
 
-  // Function to toggle the visibility of the budget entry modal
   const toggleAddBudgetVisibility = () => {
     setIsAddBudgetVisible(!isAddBudgetVisible);
     setDsc("");
@@ -31,54 +43,52 @@ function BudgetApp() {
     setError("");
   };
 
-  // Function to add a budget item to the list
   const addBudget = (e) => {
     e.preventDefault();
-
-    // Validate input for description and cost
     if (dsc.trim() === "" || cost.trim() === "") {
       setError("Description and Cost are required.");
       return;
     }
 
     const parsedCost = parseFloat(cost);
-
-    // Ensure cost is not a negative number
     if (parsedCost < 0) {
       setError("Cost cannot be a negative number.");
       return;
     }
 
     setError("");
-
     if (editId) {
-      // If in edit mode, update the budget item
+      // if in edit mode, update the budget item
       const newBudget = budget.map((b) =>
         b.id === editId ? { id: editId, dsc, cost } : b
       );
       setBudget(newBudget);
       setEditId(null);
 
-      // Update the user's balance
+      // update the user's balance
       const difference = originalCost - parsedCost;
       const newBalance = user.balance + difference;
       updateBalance(newBalance);
     } else {
-      // New budget item, add it to the list
-      const newBudgetItem = { id: Date.now(), dsc, cost: parsedCost };
+      // new budget item, add it to the list
+      const newBudgetItem = {
+        id: Date.now(),
+        dsc,
+        cost: parsedCost,
+        email: currentUser.email,
+      };
       setBudget([...budget, newBudgetItem]);
       const newBalance = user.balance - parsedCost;
       updateBalance(newBalance);
     }
 
-    // Clear input fields and hide the modal
+    // clear input fields and hide the modal
     setDsc("");
     setCost("");
     setOriginalCost(null);
     setIsAddBudgetVisible(false);
   };
 
-  // Function to handle editing a budget item
   const handleEdit = (b) => {
     setEditId(b.id);
     setDsc(b.dsc);
@@ -87,7 +97,6 @@ function BudgetApp() {
     setIsAddBudgetVisible(true);
   };
 
-  // Function to handle deleting a budget item
   const handleDelete = (id) => {
     const deletedBudgetItem = budget.find((b) => b.id === id);
     const newBalance = user.balance + parseFloat(deletedBudgetItem.cost);
@@ -95,12 +104,13 @@ function BudgetApp() {
     setBudget(budget.filter((b) => b.id !== id));
   };
 
-  // Function to update the user's balance in local storage and state
   const updateBalance = (newBalance) => {
     user.balance = newBalance;
     const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
     updatedUser.balance = newBalance;
+    userFromStorage.balance = newBalance;
     localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    localStorage.setItem("userData", JSON.stringify(userData));
   };
 
   return (
@@ -131,7 +141,6 @@ function BudgetApp() {
           </div>
         </div>
       </div>
-
       <BudgetModal
         isAddBudgetVisible={isAddBudgetVisible}
         toggleAddBudgetVisibility={toggleAddBudgetVisibility}
@@ -142,41 +151,40 @@ function BudgetApp() {
         addBudget={addBudget}
         error={error}
       />
-
       <table className="budget-table">
-        <thead>
+        <thead className="budget-table-head">
           <tr>
             <th>Description</th>
             <th>Cost</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          {budget.map((b) => (
-            <tr key={b.id}>
-              <td>{b.dsc}</td>
-              <td>
-                {b.cost.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </td>
-              <td className="button-container">
-                <button
-                  onClick={() => handleEdit(b)}
-                  className="budget-action-e"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(b.id)}
-                  className="budget-action-d"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+        <tbody className="budget-table-body">
+          {/* Your comment here */}
+          {budget.map(
+            (b) =>
+              b.email === currentUser.email && (
+                <tr key={b.id} className="budget-li">
+                  <td>{b.dsc}</td>
+                  <td>
+                    {b.cost.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </td>
+                  <td className="button-container">
+                    <FileEdit
+                      onClick={() => handleEdit(b)}
+                      className="budget-action-e"
+                    />
+                    <Trash2
+                      onClick={() => handleDelete(b.id)}
+                      className="budget-action-d"
+                    />
+                  </td>
+                </tr>
+              )
+          )}
         </tbody>
       </table>
     </div>

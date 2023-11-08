@@ -53,6 +53,7 @@ function Login() {
     <div className="split-screen">
       <div className="left">
         <div className="login-page">
+          <img className="login-logo" src="src/assets/image/full green logo-01.png" />
           <h1>Welcome Back!</h1>
           <p>Please enter your details</p>
           {error && <p className="error-message">{error}</p>}
