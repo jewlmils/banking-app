@@ -1,5 +1,10 @@
-import { Link, useMatch, useResolvedPath} from "react-router-dom";
-import { useEffect,useState } from "react";
+import {
+  Link,
+  useMatch,
+  useResolvedPath,
+  useNavigate,
+} from "react-router-dom";
+import { useState } from "react";
 import {
   Layout,
   UserPlus,
@@ -14,22 +19,53 @@ import {
   LogOut,
 } from "lucide-react";
 
-export function Sidebar({ handleLogout, userRole }) {
-  const [sidebarDisplay, setSidebarDisplay]= useState(userRole)
+export function Sidebar() {
+  const navigate = useNavigate(); // Initialize navigate hook
 
-  useEffect(()=>{
-    setSidebarDisplay(userRole === "admin"? <AdminSidebar/>:<CustomerSidebar/>)
-  },[userRole])
+  const handleLogout = () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    let pageStatus = JSON.parse(localStorage.getItem("pageStatus"));
+    // Step 2: Find the user
+    if (currentUser) {
+      const userIndex = userData.findIndex(
+        (user) =>
+          user.email === currentUser.email &&
+          user.password === currentUser.password
+      );
+
+      if (userIndex !== -1) {
+        // Step 3: Update loginStatus for the user
+        userData[userIndex].loginStatus = false;
+        pageStatus = false;
+
+        // Step 4: Remove currentUser from local storage
+        localStorage.removeItem("currentUser");
+        localStorage.setItem("userData", JSON.stringify(userData));
+        localStorage.setItem("pageStatus", JSON.stringify(pageStatus));
+        console.log("redirecting to login");
+
+        // Use navigate to redirect to the login page
+        navigate("/login");
+      }
+    }
+  };
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const [sidebarDisplay, setSidebarDisplay] = useState(
+    currentUser && currentUser.isAdmin ? <AdminSidebar /> : <CustomerSidebar />
+  );
+
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
-        <img className="sidebar__logo" src="src/assets/image/full green logo-01.png" alt="IBA-logo" />
+       
       </div>
       {sidebarDisplay}
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
           <a className="logout-button" onClick={handleLogout}>
-          <LogOut /> Logout 
+            <LogOut /> Logout
           </a>
         </div>
       </div>
@@ -41,25 +77,25 @@ function AdminSidebar() {
   return (
     <ul className="sidebar__main">
       <CustomLink to="/">
-        <Layout /> Overview
+        <Layout className="sidebar-icon" /> Overview
       </CustomLink>
       <CustomLink to="/create-new-user">
-        <UserPlus /> Create User
+        <UserPlus className="sidebar-icon" /> Create User
       </CustomLink>
       <CustomLink to="/accounts">
-        <Contact /> Accounts
+        <Contact className="sidebar-icon" /> Accounts
       </CustomLink>
       <CustomLink to="/deposit">
-        <PiggyBank /> Deposit
+        <PiggyBank className="sidebar-icon" /> Deposit
       </CustomLink>
       <CustomLink to="/withdraw">
-        <Banknote /> Withdraw
+        <Banknote className="sidebar-icon" /> Withdraw
       </CustomLink>
       <CustomLink to="/send-money">
-        <Send /> Send Money
+        <Send className="sidebar-icon" /> Send Money
       </CustomLink>
       <CustomLink to="/currency">
-        <DollarSign /> Currency
+        <DollarSign className="sidebar-icon" /> Currency
       </CustomLink>
     </ul>
   );
@@ -69,22 +105,22 @@ function CustomerSidebar() {
   return (
     <ul className="sidebar__main">
       <CustomLink to="/">
-        <Layout /> Overview
+        <Layout className="sidebar-icon" /> Overview
       </CustomLink>
       <CustomLink to="/send-money">
-        <Send /> Send Money
+        <Send className="sidebar-icon" /> Send Money
       </CustomLink>
       <CustomLink to="/buy-load">
-        <TabletSmartphone /> Buy Load
+        <TabletSmartphone className="sidebar-icon" /> Buy Load
       </CustomLink>
       <CustomLink to="/budget">
-        <Wallet /> Budget
+        <Wallet className="sidebar-icon" /> Budget
       </CustomLink>
       <CustomLink to="/goals">
-        <Goal /> Goals
+        <Goal className="sidebar-icon" /> Goals
       </CustomLink>
       <CustomLink to="/currency">
-        <DollarSign /> Currency
+        <DollarSign className="sidebar-icon" /> Currency
       </CustomLink>
     </ul>
   );

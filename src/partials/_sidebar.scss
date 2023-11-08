@@ -3,53 +3,46 @@
     font-family: $fontStyle;
     background-color: $sideBarColor;
     width: 20vw;
-    height: 100vh;
+    height: 90vh;
 }
 
-.sidebar__header{
-    // border: 1px solid red;
-    width: 20vw;
-    height: 20vh;
-    padding-left: 1rem;
-    font-size: $largeFont;
-    @include center;
-    img{
-      width: 15vw;
-    }
-}
 
 .sidebar__main {
     display: flex;
     align-items: flex-end;
     width: 20vw;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     font-size: $mediumFont;
-  
+    justify-content: center;
     .custom-link {
+      // border: 1px solid red;
       display: flex;
       align-items: center;
-      height: 2rem;
-      width: 12rem;
+      height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
+      width: clamp(1rem, -6.857rem + 20.952vw, 12rem);
       padding: 1rem 2rem;
       margin-bottom: 0.1rem;
       margin-top: 0.1rem;
       cursor: pointer;
       color: $primaryColor;
       transition: width 0.5s; /* Smooth transition for the width property */
-  
+      .sidebar-icon{
+        height:$mediumFont;
+        width: $mediumFont;
+      }
       &:hover {
         background-color: $primaryColor;
         border-radius: 2rem 0 0 2rem;
         color: $sideBarColor;
-        width: 13rem; /* Adjust the width on hover */
+        width: clamp(1.5rem, -6.714rem + 21.905vw, 13rem); /* Adjust the width on hover */
       }
     }
   
     .active {
-      height: 2rem;
-      width: 15rem;
+      height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
+      width: clamp(2rem, -7.286rem + 24.762vw, 15rem);
       padding: 1rem 2rem;
       cursor: pointer;
       color: $sideBarColor;

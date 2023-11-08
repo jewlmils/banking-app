@@ -10,9 +10,14 @@ export function Header() {
 
   return (
     <section className="header">
+       <img
+          className="header__logo"
+          src="src/assets/image/iba-logo.png"
+          alt="IBA-logo"
+        />
       <div className="header__user-container">
         <img src="" alt="" />
-        <span>Good Day {nameDisplay}!</span>
+        <span>Good Day, <span className='header-name'>{nameDisplay}</span>!</span>
       </div>
     </section>
   );
