@@ -8,13 +8,20 @@ import { json } from "react-router-dom";
 function BudgetApp() {
   const [dsc, setDsc] = useState("");
   const [cost, setCost] = useState("");
-  const [budget, setBudget] = useState([]);
+  const [budget, setBudget] = useState(
+    JSON.parse(localStorage.getItem("expenseList") || "[]")
+  );
   const [editId, setEditId] = useState(null);
   const [originalCost, setOriginalCost] = useState(null);
   const [isAddBudgetVisible, setIsAddBudgetVisible] = useState(false);
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
   const userData = JSON.parse(localStorage.getItem("userData"));
+
+  useEffect(() => {
+    // console.log("") --- di gumagana, idebug mo mhie
+    localStorage.setItem("expenseList", JSON.stringify(budget));
+  }, [budget]);
 
   const userFromStorage = userData.find(
     (userFromStorage) => userFromStorage.email === currentUser.email
@@ -28,7 +35,7 @@ function BudgetApp() {
   if (!user) {
     return null;
   }
-  
+
   const toggleAddBudgetVisibility = () => {
     setIsAddBudgetVisible(!isAddBudgetVisible);
     setDsc("");
@@ -44,14 +51,12 @@ function BudgetApp() {
     }
 
     const parsedCost = parseFloat(cost);
-
     if (parsedCost < 0) {
       setError("Cost cannot be a negative number.");
       return;
     }
 
     setError("");
-
     if (editId) {
       // if in edit mode, update the budget item
       const newBudget = budget.map((b) =>
@@ -131,7 +136,6 @@ function BudgetApp() {
           </div>
         </div>
       </div>
-
       <BudgetModal
         isAddBudgetVisible={isAddBudgetVisible}
         toggleAddBudgetVisibility={toggleAddBudgetVisibility}
@@ -142,47 +146,43 @@ function BudgetApp() {
         addBudget={addBudget}
         error={error}
       />
-
-      <div className="budget-table-list-container">
-        <table className="budget-table">
-          <thead className="budget-table-wrapper">
-            <tr>
-              <th>Description</th>
-              <th>Cost</th>
-              <th>Action</th>
+      <table className="budget-table">
+        <thead className="budget-table-head">
+          <tr>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody className="budget-table-body">
+          {/* Your comment here */}
+          {budget.map((b) => (
+            <tr key={b.id} className="budget-li">
+              <td>{b.dsc}</td>
+              <td>
+                {b.cost.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </td>
+              <td className="button-container">
+                <button
+                  onClick={() => handleEdit(b)}
+                  className="budget-action-e"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(b.id)}
+                  className="budget-action-d"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody className="budget-table-list">
-            {" "}
-            {/* Add this container */}
-            {budget.map((b) => (
-              <tr key={b.id} className="budget-li">
-                <td>{b.dsc}</td>
-                <td>
-                  {b.cost.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}
-                </td>
-                <td className="button-container">
-                  <button
-                    onClick={() => handleEdit(b)}
-                    className="budget-action-e"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(b.id)}
-                    className="budget-action-d"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

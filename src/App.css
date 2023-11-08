@@ -372,13 +372,6 @@ a {
   margin-left: 7.7rem;
 }
 
-table {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .searchBar {
   width: 100%;
   display: flex;
@@ -517,10 +510,6 @@ table {
     top: 50%;
     transform: translate(-50%, -50%);
   }
-}
-.budget-page {
-  margin-left: auto;
-  margin-right: auto;
 }
 .budget-page h1 {
   font-size: 2rem;
@@ -676,7 +665,8 @@ table {
   justify-content: center;
   background-color: white;
   padding: 2rem 2rem 0.5rem 2rem;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 5rem;
 }
 .goals-container .goal-top h1 {
   font-size: 2rem;
@@ -686,21 +676,26 @@ table {
 .goals-container .goal-top h3 {
   padding-bottom: 3rem;
 }
-.goals-container .goal-form {
+.goals-container .goal-top .goal-form {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 }
-.goals-container .goal-form .goal-button {
+.goals-container .goal-top .goal-form .goal-button {
+  background-color: #00a26d;
+  font-size: 1.5rem;
+  color: white;
   border: none;
   outline: none;
-  width: 5rem;
+  width: 20rem;
   border-radius: 0.5rem;
-  height: 50px;
-  padding: 0;
+  height: 3.125rem;
   display: inline-block;
   text-align: center;
   letter-spacing: normal;
+}
+.goals-container .goal-top .goal-ads-image {
+  height: 18rem;
 }
 
 .goal-table {

@@ -23,7 +23,7 @@ export function Sidebar({ handleLogout, userRole }) {
   return (
     <nav className="sidebar">
       <div className="sidebar__header">
-        <img className="sidebar__logo" src="src/assets/image/iba-logo.png" alt="IBA-logo" />
+        <img className="sidebar__logo" src="src/assets/image/full green logo-01.png" alt="IBA-logo" />
       </div>
       {sidebarDisplay}
       <div className="sidebar__footer">

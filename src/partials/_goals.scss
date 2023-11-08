@@ -7,7 +7,8 @@
     justify-content: center;
     background-color: white;
     padding: 2rem 2rem 0.5rem 2rem;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 5rem;
 
     h1 {
       font-size: 2rem;
@@ -17,23 +18,30 @@
     h3 {
       padding-bottom: 3rem;
     }
-  }
 
-  .goal-form {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    
-    .goal-button {
-      border: none;
-      outline: none;
-      width: 5rem;
-      border-radius: 0.5rem;
-      height: 50px;
-      padding: 0;
-      display: inline-block;
-      text-align: center;
-      letter-spacing: normal;
+    .goal-form {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      // flex-direction: column;
+
+      .goal-button {
+        background-color: #00a26d;
+        font-size: 1.5rem;
+        color: white;
+        border: none;
+        outline: none;
+        width: 20rem;
+        border-radius: 0.5rem;
+        height: 3.125rem;
+        display: inline-block;
+        text-align: center;
+        letter-spacing: normal;
+      }
+    }
+
+    .goal-ads-image {
+      height: 18rem;
     }
   }
 }
