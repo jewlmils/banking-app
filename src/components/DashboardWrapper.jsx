@@ -5,15 +5,16 @@ import { Outlet } from "react-router";
 
 export function DashboardWrapper() {
   return (
-   
+    <div className="body">
+    <Header />
       <main>
-        <Header />
+      <Sidebar/>
         <section className="content">
           <div className="content-container">
             <Outlet />
           </div>
         </section>
       </main>
-   
+   </div>
   );
 }

@@ -17,7 +17,7 @@ export const userData = [
     password: "pass",
     fullName: "User",
     isAdmin: false,
-    balance: "0",
+    balance: "100000",
     accountType: "Savings Account",
     loginStatus: false,
     expenseList: [],
@@ -49,11 +49,11 @@ export const userData = [
   },
   {
     accountNumber: "1000000000005",
-    email: "john.doe@example.com",
-    password: "johndoe123",
-    fullName: "John Doe",
+    email: "daenerystargaryen@example.com",
+    password: "pass",
+    fullName: "Daenerys Targaryen",
     isAdmin: false,
-    balance: "1000",
+    balance: "500000",
     accountType: "Checking Account",
     loginStatus: false,
     expenseList: [],
@@ -61,11 +61,11 @@ export const userData = [
   },
   {
     accountNumber: "1000000000006",
-    email: "jane.doe@example.com",
-    password: "janedoe123",
-    fullName: "Jane Doe",
+    email: "cerseilannister@example.com",
+    password: "pass",
+    fullName: "Cersei Lannister",
     isAdmin: false,
-    balance: "7500",
+    balance: "75000000",
     accountType: "Savings Account",
     loginStatus: false,
     expenseList: [],
@@ -74,7 +74,7 @@ export const userData = [
   {
     accountNumber: "1000000000007",
     email: "john.snow@example.com",
-    password: "janedoe123",
+    password: "pass",
     fullName: "John Snow",
     isAdmin: false,
     balance: "4500",
@@ -85,7 +85,14 @@ export const userData = [
   },
 ];
 
+
+export const pageStatus = false;
+
+
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export const userRole =
   currentUser && currentUser.isAdmin ? "admin" : "customer";
+
+
+
