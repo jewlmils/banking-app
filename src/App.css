@@ -1142,6 +1142,46 @@ input.btn-create {
   margin: 0;
 }
 
+.page-not-found-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.page-not-found-container .pnf-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 15vh;
+  width: 100vw;
+}
+.page-not-found-container .pnf-button-container button {
+  padding: 1rem;
+  font-size: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+  font-family: "Poppins", sans-serif;
+  border-radius: 1rem;
+  background-color: #00a26d;
+  color: white;
+  border: none;
+}
+.page-not-found-container .pnf-button-container :hover {
+  opacity: 0.9;
+}
+.page-not-found-container .pnf-img-container {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+}
+.page-not-found-container .pnf-img-container .page-not-found {
+  position: fixed;
+  max-height: 40rem;
+  width: 90vw;
+}
+
 @media (max-width: 851px) {
   .header {
     justify-content: space-between;

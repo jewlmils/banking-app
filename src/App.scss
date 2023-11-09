@@ -10,6 +10,8 @@ $secondaryColor: #000001;
 
 $fontStyle: "Poppins", sans-serif;
 
+
+
 $xxlargeFont: clamp(2rem, 0.571rem + 3.81vw, 4rem);
 $xlargeFont: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
 $largeFont: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
@@ -79,4 +81,5 @@ a {
 @import "partials/budget";
 @import "partials/goals";
 @import "partials/transactPage";
+@import "partials/pageNotFound";
 @import "partials/mediaQuery";
