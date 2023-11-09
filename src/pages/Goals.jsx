@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
 import React, { useEffect, useState } from "react";
+import { currentUser } from "../Data";
+import { LogIn, FileEdit, Trash2 } from 'lucide-react';
 
 export function Goals() {
   const [gName, setGName] = useState("");
@@ -31,12 +31,17 @@ export function Goals() {
 
     if (gEditID) {
       const newGoal = goal.map((g) =>
-        g.id === gEditID ? { id: gEditID, gName, gAmount } : g
+        g.id === gEditID
+          ? { id: gEditID, gName, gAmount, email: currentUser.email }
+          : g
       );
       setGoal(newGoal);
       setGEditID(null);
     } else {
-      setGoal([...goal, { id: Date.now(), gName, gAmount }]);
+      setGoal([
+        ...goal,
+        { id: Date.now(), gName, gAmount, email: currentUser.email },
+      ]);
     }
     setGName("");
     setGAmount("");
@@ -68,6 +73,7 @@ export function Goals() {
               className="gname"
               placeholder="Enter goal name"
             />
+            <div className="input-enter-goal">
             <input
               value={gAmount}
               onChange={(e) => setGAmount(e.target.value)}
@@ -75,13 +81,10 @@ export function Goals() {
               className="gamount"
               placeholder="Enter goal amount"
             />
-            <button className="goal-button">Go</button>
+            <LogIn className="goal-button" />
+           </div>
           </form>
         </div>
-        {/* <img
-          className="goal-ads-image"
-          src="src/assets/image/pexels-zen-chung-5537573.jpg"
-        /> */}
       </div>
       <div className="goal-table-list-container">
         <table className="goal-table">
@@ -93,26 +96,25 @@ export function Goals() {
             </tr>
           </thead>
           <tbody>
-            {goal.map((g) => (
-              <tr key={g.id}>
-                <td>{g.gName}</td>
-                <td>{g.gAmount}</td>
-                <td>
-                  <button
-                    className="goal-action-e"
-                    onClick={(e) => ghandleEdit(g)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="goal-action-d"
-                    onClick={(e) => ghandleDelete(g.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {goal.map(
+              (g) =>
+                g.email === currentUser.email && (
+                  <tr key={g.id}>
+                    <td>{g.gName}</td>
+                    <td>{g.gAmount}</td>
+                    <td className="gbutton-container">
+                      <FileEdit
+                        className="goal-action-e"
+                        onClick={(e) => ghandleEdit(g)}
+                      />
+                      <Trash2
+                        className="goal-action-d"
+                        onClick={(e) => ghandleDelete(g.id)}
+                      />
+                    </td>
+                  </tr>
+                )
+            )}
           </tbody>
         </table>
       </div>
