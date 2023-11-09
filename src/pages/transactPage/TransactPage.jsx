@@ -37,7 +37,7 @@ export const TransactPage = (props) => {
       } else {
         for (const data of Data) {
           if (accountName === data.fullName && data.accountNumber == e.target.value) {
-            setBalance(data.balance);
+            setBalance(parseFloat(data.balance));
             setAddAmountDisabled(false);
             setIsAccountNumberFound(true);
 
@@ -50,15 +50,15 @@ export const TransactPage = (props) => {
   };
 
   const deposit = (user, amount) => {
-    user.balance = parseFloat(amount) + user.balance;
+    user.balance = parseFloat(amount) + parseFloat(user.balance);
 
-    return user.balance;
+    return parseFloat(user.balance);
   };
 
   const withdraw = (user, amount) => {
-    user.balance = user.balance - parseFloat(amount);
+    user.balance = parseFloat(user.balance) - parseFloat(amount);
 
-    return user.balance;
+    return parseFloat(user.balance);
   };
 
   const transact = (e) => {
@@ -77,6 +77,7 @@ export const TransactPage = (props) => {
           setTransactionStatus({ msg: "Deposit Confirmed", style: "success" });
           setInputAmount("");
 
+          data.balance = String(data.balance)
           localStorage.setItem("userData", JSON.stringify(Data));
 
           return new_balance;
@@ -93,7 +94,7 @@ export const TransactPage = (props) => {
           data.accountNumber == accountNumber &&
           inputAmount >= 100
         ) {
-          if (data.balance < parseFloat(inputAmount)) {
+          if (parseFloat(data.balance) < parseFloat(inputAmount)) {
             setTransactionStatus({
               msg: "Withdrawal was not successful.",
               style: "failed",
@@ -110,6 +111,8 @@ export const TransactPage = (props) => {
             style: "success",
           });
           setInputAmount("");
+
+          data.balance = String(data.balance);
 
           localStorage.setItem("userData", JSON.stringify(Data));
 
