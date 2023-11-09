@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
-import { Sidebar } from "../../components/Sidebar";
+import { Sidebar } from "../../components/sidebar/Sidebar";
 import { Header } from "../../components/Header";
 import { currentUser } from "../../Data";
 import { json } from "react-router-dom";

@@ -11,7 +11,7 @@ export const userData = [
   },
   {
     accountNumber: "1000000000002",
-    email: "eme@gmail.com",
+    email: "user@gmail.com",
     password: "pass",
     fullName: "User",
     isAdmin: false,
