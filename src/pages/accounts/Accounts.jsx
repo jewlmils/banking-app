@@ -73,7 +73,7 @@ export function Accounts() {
                 id="searchQueryInput"
                 type="text"
                 name="searchQueryInput"
-                placeholder="Search"
+                placeholder="Search for a User by their Full Name"
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
