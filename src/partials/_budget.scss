@@ -18,6 +18,7 @@
       justify-content: space-between;
       padding-top: 1.5rem;
       align-items: center;
+      // padding-bottom: 3rem;
 
       .add-budget-btn {
         width: clamp(8rem, 6.571rem + 3.81vw, 10rem);
@@ -30,11 +31,11 @@
 
       .bgt-balance {
         h2 {
-          font-size: clamp(3rem, 3.714rem + -1.905vw, 2rem);
+          font-size: 2rem;
           font-weight: bold;
         }
         h3 {
-          font-size: 1.2rem;
+          font-size: clamp(1rem, 0.857rem + 0.381vw, 1.2rem);
         }
       }
     }
@@ -53,6 +54,11 @@
     padding: 8px;
     text-align: center;
     background-color: white;
+    word-break: break;
+  }
+
+  .tr-mobile {
+    display: none;
   }
 
   th {
@@ -60,7 +66,7 @@
     background-color: #f2f2f2;
     font-weight: bold;
     padding: 1.2rem;
-    font-size: clamp(0.5rem, 0.143rem + 0.952vw, 1rem);
+    font-size: clamp(0.7rem, 0.143rem + 0.952vw, 1rem);
   }
 
   .budget-action-d {
@@ -78,6 +84,14 @@
     width: clamp(1rem, 0.286rem + 1.905vw, 2rem);
     height: clamp(1rem, 0.286rem + 1.905vw, 2rem);
   }
+
+  .budget-action-c {
+    background-color: #a2d2ff;
+    color: white;
+    padding: 0.5rem;
+    width: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+    height: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+  }
 }
 
 .budget-table-wrapper {
@@ -87,7 +101,7 @@
 }
 
 .budget-table-list-container {
-  max-height: 50vh;
+  max-height: 45vh;
   overflow-y: auto;
 }
 
@@ -151,22 +165,20 @@
 
 .budget-action-e,
 .budget-action-d,
+.budget-action-c,
 .budget-button,
 .add-budget-btn {
   border: none;
   outline: none;
-  width: clamp(2.5rem, 0.714rem + 4.762vw, 5rem);
   border-radius: 0.5rem;
   height: 50px;
-  margin: 0 1rem;
-  padding: 0;
-  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
   text-align: center;
-  letter-spacing: normal;
 }
 
 @media only screen and (max-width: 851px) {
-  .budget-intro p {
+  .budget-intro {
     display: none;
   }
 
@@ -174,27 +186,28 @@
     align-items: center;
     flex-direction: column-reverse;
     text-align: center;
+
+    .bgt-balance {
+      h2 {
+        padding-bottom: 1rem;
+      }
+      h3 {
+        padding-bottom: 0.2rem;
+      }
+    }
+
+    .add-btn {
+      margin-bottom: -1rem;
+    }
   }
 
-  .bgt-balance {
-    h2{
-      padding-bottom: 1.2rem;
-    }
-    h3 {
-      padding-bottom: 0.5rem;
-    }
-  }
-
-  .button-container{
+  .button-container {
     display: flex;
     justify-content: center;
 
-    .budget-action-d{
-      margin-left: -0.8rem;
+    .budget-action-d,
+    .budget-action-c {
+      margin-left: 0.1rem;
     }
-  }
-  
-  .budget-table{
-    width: 100%;
   }
 }

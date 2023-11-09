@@ -28,6 +28,7 @@ $smallFont: 1rem;
 body{
     font-family: $fontStyle;
     background-color: #edede9;
+    overflow: hidden;
 }
 main {
   width: 100vw;
@@ -82,4 +83,5 @@ a {
 @import "partials/goals";
 @import "partials/transactPage";
 @import "partials/pageNotFound";
+@import "partials/landingpage";
 @import "partials/mediaQuery";
