@@ -113,24 +113,24 @@ a {
 .sidebar {
   font-family: "Poppins", sans-serif;
   background-color: #ffffff;
-  width: 20vw;
+  width: 15vw;
   height: 90vh;
 }
 .sidebar .sidebar__main {
   display: flex;
   align-items: flex-end;
-  width: 20vw;
+  width: 15w;
   height: 70vh;
   display: flex;
   flex-direction: column;
-  font-size: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+  font-size: 0.8rem;
   justify-content: center;
 }
 .sidebar .sidebar__main .custom-link {
   display: flex;
   align-items: center;
-  height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
-  width: clamp(1rem, -6.857rem + 20.952vw, 12rem);
+  height: 0.8rem;
+  width: 6rem;
   padding: 1rem 2rem;
   margin-bottom: 0.1rem;
   margin-top: 0.1rem;
@@ -139,8 +139,8 @@ a {
   transition: width 0.5s; /* Smooth transition for the width property */
 }
 .sidebar .sidebar__main .custom-link .sidebar-icon {
-  height: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
-  width: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+  height: 0.8rem;
+  width: 0.8rem;
 }
 .sidebar .sidebar__main .custom-link:hover {
   background-color: #00a26d;
@@ -159,11 +159,11 @@ a {
   transition: width 0.3s; /* Smooth transition for the width property */
 }
 .sidebar .sidebar__main .active .sidebar-icon {
-  height: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
-  width: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+  height: 0.8rem;
+  width: 0.8rem;
 }
 .sidebar .sidebar__footer {
-  width: 20vw;
+  width: 15vw;
   height: 20vh;
   display: flex;
   justify-content: flex-end;
@@ -188,10 +188,13 @@ a {
   background-color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: default;
-  font-size: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+  font-size: 0.8rem;
   text-align: center;
 }
-.sidebar .sidebar__footer .sidebar__footer-container .logout-button:hover {
+.sidebar .sidebar__footer .sidebar__footer-container .logout-button .logout-icon {
+  padding-right: 0.5rem;
+}
+.sidebar .sidebar__footer .logout-button:hover {
   background-color: #00a26d;
   border-radius: 2rem 0 0 2rem;
   color: #ffffff;
@@ -1166,6 +1169,7 @@ input.btn-create {
   background-color: #00a26d;
   color: white;
   border: none;
+  z-index: 5;
 }
 .page-not-found-container .pnf-button-container :hover {
   opacity: 0.9;

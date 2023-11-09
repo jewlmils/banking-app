@@ -46,7 +46,7 @@ export function Sidebar() {
       <div className="sidebar__footer">
         <div className="sidebar__footer-container">
           <a className="logout-button" onClick={handleLogout}>
-            <LogOut /> Logout
+            <LogOut className="logout-icon" /> Logout
           </a>
         </div>
       </div>

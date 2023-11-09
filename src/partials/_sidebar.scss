@@ -2,32 +2,33 @@
     // border: 1px solid black;
     font-family: $fontStyle;
     background-color: $sideBarColor;
-    width: 20vw;
+    width: 15vw;
     height: 90vh;
     .sidebar__main {
       display: flex;
       align-items: flex-end;
-      width: 20vw;
+      width: 15w;
       height: 70vh;
       display: flex;
       flex-direction: column;
-      font-size: $mediumFont;
+      font-size: $sideBarFont;
       justify-content: center;
       .custom-link {
         // border: 1px solid red;
         display: flex;
         align-items: center;
-        height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
-        width: clamp(1rem, -6.857rem + 20.952vw, 12rem);
+        height: 0.8rem;
+        width: 6rem;
         padding: 1rem 2rem;
         margin-bottom: 0.1rem;
         margin-top: 0.1rem;
+    
         cursor: pointer;
         color: $primaryColor;
         transition: width 0.5s; /* Smooth transition for the width property */
         .sidebar-icon{
-          height:$mediumFont;
-          width: $mediumFont;
+          height:$sideBarFont;
+          width: $sideBarFont;
         }
         &:hover {
           background-color: $primaryColor;
@@ -47,8 +48,8 @@
         border-radius: 2rem 0 0 2rem;
         transition: width 0.3s; /* Smooth transition for the width property */
         .sidebar-icon{
-          height:$mediumFont;
-          width: $mediumFont;
+          height:$sideBarFont;
+          width: $sideBarFont;
         }
       }
     }
@@ -56,7 +57,7 @@
   
   
   .sidebar__footer{
-      width: 20vw;
+      width: 15vw;
       height: 20vh; 
       display: flex;
       justify-content: flex-end;
@@ -80,15 +81,19 @@
             background-color: $sideBarColor;
             font-family: $fontStyle;
             font-weight: default;
-            font-size: $mediumFont;
+            font-size: $sideBarFont;
             text-align: center;
+            .logout-icon{
+              padding-right:0.5rem;
+            }
+          }
           }
           .logout-button:hover{
             background-color: $primaryColor;
             border-radius: 2rem 0 0 2rem;
             color: $sideBarColor;
             width: clamp(1.5rem, -6.714rem + 21.905vw, 13rem);
-          }
+            
       }
   }
   
