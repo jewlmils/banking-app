@@ -11,7 +11,7 @@ export const userData = [
   },
   {
     accountNumber: "1000000000002",
-    email: "eme@gmail.com",
+    email: "user@gmail.com",
     password: "pass",
     fullName: "User",
     isAdmin: false,
@@ -71,9 +71,7 @@ export const userData = [
   },
 ];
 
-
 export const pageStatus = false;
-
 
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 

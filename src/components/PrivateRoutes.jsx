@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export const PrivateRoutes = () => {
   console.log("private Routes");
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
   if (currentUser) {
     console.log("currentUser Validated");
@@ -22,7 +22,9 @@ export const PrivateRoutes = () => {
         return <Navigate to='/login'/>
       }
     }
+    else{
   return <Navigate to="/login" />;
+    }
 };
 
 export default PrivateRoutes;
