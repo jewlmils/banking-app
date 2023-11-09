@@ -28,6 +28,7 @@ $smallFont: 1rem;
 body{
     font-family: $fontStyle;
     background-color: #edede9;
+    overflow: hidden;
 }
 main {
   width: 100vw;

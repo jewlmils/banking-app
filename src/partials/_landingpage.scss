@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+.lp-body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    0deg,
+    rgba(156, 238, 130, 0.4375875350140056) 0%,
+    rgba(255, 255, 255, 1) 42%
+  );
+  height: 100vh;
+}
+
+.lp-navbar {
+  background-color: #00a26d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+
+  .lp-nav-list {
+    margin-right: 3rem;
+
+    a {
+      list-style-type: none;
+      display: inline-block;
+      margin-left: 40px;
+      cursor: pointer;
+    }
+
+    .nav-link-button {
+      border: 1px solid white;
+      background: none;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: black;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .lp-logo {
+    padding-left: 3rem;
+    width: 13vw;
+  }
+}
+
+.lp-split-screen {
+  display: flex;
+  justify-content: space-between;
+
+  .lp-left,
+  .lp-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
+
+  .lp-left {
+    flex-direction: column;
+
+    .lp-left-content {
+      text-align: left;
+      margin-left: 2rem;
+
+      .lp-text {
+        font-size: clamp(4rem, 2.571rem + 3.81vw, 6rem);
+        margin-bottom: 0.8rem;
+
+        i {
+          font-family: "Lora", serif;
+        }
+      }
+
+      .lp-gs {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        background: none;
+        border: 1px solid #00a26d;
+        cursor: pointer;
+
+        &:hover {
+          background-color: black;
+          border: none;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .lp-right {
+    background-image: url("src/assets/lanfing-page-oink.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
