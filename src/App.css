@@ -91,9 +91,7 @@ a {
   width: clamp(7rem, 4.857rem + 5.714vw, 10rem);
 }
 .header .header__user-container {
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   background-color: #00a26d;
   margin-right: 1rem;
