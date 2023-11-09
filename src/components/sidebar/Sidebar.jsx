@@ -4,13 +4,13 @@ import { LogOut } from "lucide-react";
 import { AdminSidebar, CustomerSidebar } from "./components";
 
 export function Sidebar() {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
   const navigate = useNavigate(); // Initialize navigate hook
   const [sidebarDisplay, setSidebarDisplay] = useState(currentUser && currentUser.isAdmin ? <AdminSidebar /> : <CustomerSidebar />);
   
   const handleLogout = () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null ;
     let pageStatus = JSON.parse(localStorage.getItem("pageStatus"));
     // Step 2: Find the user
     if (currentUser) {

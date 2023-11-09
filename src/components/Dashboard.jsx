@@ -8,8 +8,8 @@ export const adminRouter = (
     <Route index element={<Overview />} />
     <Route path="create-new-user" element={<CreateUser />} />
     <Route path="accounts" element={<Accounts />} />
-    <Route path="deposit" element={<TransactPage />} />
-    <Route path="withdraw" element={<TransactPage />} />
+    <Route path="deposit" element={<TransactPage transactionType='deposit'/>} />
+    <Route path="withdraw" element={<TransactPage transactionType='withdraw'/>} />
     <Route path="send-money" element={<SendMoney />} />
     <Route path="currency" element={<Currency />} />
   </Route>
