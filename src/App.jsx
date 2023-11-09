@@ -15,6 +15,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+    
+    localStorage.setItem("userData", JSON.stringify(userData));
+    
+    
     const storedUserData = localStorage.getItem("userData");
     if (!storedUserData) {
       localStorage.setItem("userData", JSON.stringify(userData));
