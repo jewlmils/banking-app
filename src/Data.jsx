@@ -8,8 +8,6 @@ export const userData = [
     balance: "0",
     accountType: "",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000002",
@@ -20,8 +18,6 @@ export const userData = [
     balance: "100000",
     accountType: "Savings Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000003",
@@ -32,8 +28,6 @@ export const userData = [
     balance: "0",
     accountType: "Savings Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000004",
@@ -44,8 +38,6 @@ export const userData = [
     balance: "0",
     accountType: "Savings Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000005",
@@ -56,8 +48,6 @@ export const userData = [
     balance: "500000",
     accountType: "Checking Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000006",
@@ -68,8 +58,6 @@ export const userData = [
     balance: "75000000",
     accountType: "Savings Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
   {
     accountNumber: "1000000000007",
@@ -80,19 +68,12 @@ export const userData = [
     balance: "4500",
     accountType: "Checking Account",
     loginStatus: false,
-    expenseList: [],
-    goals: [],
   },
 ];
 
-
 export const pageStatus = false;
-
 
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export const userRole =
   currentUser && currentUser.isAdmin ? "admin" : "customer";
-
-
-
