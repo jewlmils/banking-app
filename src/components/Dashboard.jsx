@@ -1,16 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { DashboardWrapper } from "./DashboardWrapper.jsx";
-import { Overview } from "../pages/overview/Overview.jsx";
-import { CreateUser } from "../pages/createuser/CreateUser.jsx";
-import { Accounts } from "../pages/accounts/Accounts.jsx";
-import { TransactPage } from "../pages/transactPage/TransactPage.jsx";
-import { SendMoney } from "../pages/send-money/SendMoney.jsx";
-import { Currency } from "../pages/currency/Currency.jsx";
-import { BudgetApp } from "../pages/budget/BudgetApp.jsx";
-import { BuyLoad } from "../pages/buy-load/BuyLoad.jsx";
-import { Goals } from "../pages/Goals.jsx";
-
+import { Overview,CreateUser,Accounts,TransactPage,Currency,BudgetApp, SendMoney, BuyLoad,Goals} from "../pages";
 
 export const adminRouter = (
   <Route path="/" element={<DashboardWrapper />}>
@@ -34,4 +25,3 @@ export const customerRouter = (
     <Route path="currency" element={<Currency />} />
   </Route>
 );
-

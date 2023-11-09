@@ -1,5 +1,5 @@
 import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
+import { Sidebar } from "../components/sidebar/Sidebar";
 import React, { useEffect, useState } from "react";
 
 export function Goals() {
