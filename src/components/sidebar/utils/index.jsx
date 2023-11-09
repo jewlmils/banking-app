@@ -1,0 +1,2 @@
+export { handleLogout } from "./handleLogout";
+

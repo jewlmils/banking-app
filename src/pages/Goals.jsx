@@ -1,12 +1,18 @@
 import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
-import React, { useState } from "react";
+import { Sidebar } from "../components/sidebar/Sidebar";
+import React, { useEffect, useState } from "react";
 
 export function Goals() {
   const [gName, setGName] = useState("");
   const [gAmount, setGAmount] = useState();
-  const [goal, setGoal] = useState([]);
+  const [goal, setGoal] = useState(
+    JSON.parse(localStorage.getItem("goalList") || "[]")
+  );
   const [gEditID, setGEditID] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("goalList", JSON.stringify(goal));
+  }, [goal]);
 
   const addGoals = (e) => {
     e.preventDefault();
@@ -48,10 +54,12 @@ export function Goals() {
 
   return (
     <div className="goals-container">
-      <div>
-        <div className="goal-top">
-          <h1>Set up your goal</h1>
-          <h3>Hit your goals out of the park</h3>
+      <div className="goal-top">
+        <div className="goal-intro-form">
+          <div className="goal-intro">
+            <h1>Set up your goal</h1>
+            <h3>Hit your goals out of the park.</h3>
+          </div>
           <form onSubmit={addGoals} className="goal-form">
             <input
               value={gName}
@@ -70,39 +78,43 @@ export function Goals() {
             <button className="goal-button">Go</button>
           </form>
         </div>
-        <div className="goal-table-list-container">
-          <table className="goal-table">
-            <thead className="goal-table-wrapper">
-              <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Action</th>
+        {/* <img
+          className="goal-ads-image"
+          src="src/assets/image/pexels-zen-chung-5537573.jpg"
+        /> */}
+      </div>
+      <div className="goal-table-list-container">
+        <table className="goal-table">
+          <thead className="goal-table-wrapper">
+            <tr>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {goal.map((g) => (
+              <tr key={g.id}>
+                <td>{g.gName}</td>
+                <td>{g.gAmount}</td>
+                <td>
+                  <button
+                    className="goal-action-e"
+                    onClick={(e) => ghandleEdit(g)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="goal-action-d"
+                    onClick={(e) => ghandleDelete(g.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {goal.map((g) => (
-                <tr key={g.id}>
-                  <td>{g.gName}</td>
-                  <td>{g.gAmount}</td>
-                  <td>
-                    <button
-                      className="goal-action-e"
-                      onClick={(e) => ghandleEdit(g)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="goal-action-d"
-                      onClick={(e) => ghandleDelete(g.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

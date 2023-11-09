@@ -20,10 +20,12 @@ export function CustomerOverview() {
     return (
       <div className="overview-customer">
         <div className="card-container">
+          
           <span className="card-account-number">{accountNumberDisplay}</span>
           <span className="card-balance">₱{balanceDisplay}</span>
           <span className="card-name">{nameDisplay}</span>
           <span className="card-expiration">10/28</span>
+          <span>Savings Account</span>
         </div>
         <div className="transaction-container">
           <span className="transaction-title">Transaction History</span>

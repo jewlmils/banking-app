@@ -6,25 +6,30 @@
     align-items: center;
     justify-content: space-between;
     background-color:$headerColor;
+    .header__burger-btn{
+        display: none;
+    }
     img{
-        padding-left: 3rem;
-        width: 13vw;
- }
-}
-
-//header
-.header__user-container{
-    height:fit-content ;
-    width:fit-content;
-    background-color: $primaryColor;
-    margin-right: 2rem;
-    padding:1rem ;
-    border-radius: 1rem;
-    font-size: $mediumFont;
-    span{
-        color: $sideBarColor;
-        .header-name{
-            font-weight: bold;
+        padding-left: 2rem;
+        width:clamp(7rem, 4.857rem + 5.714vw, 10rem);
+    
+    }
+    .header__user-container{
+        height:fit-content ;
+        width:fit-content;
+        background-color: $primaryColor;
+        margin-right: 1rem;
+        padding-right:1rem ;
+        border-radius: 1rem;
+        font-size: $mediumFont;
+        text-align: right;
+        span{
+            color: $sideBarColor;
+            .header-name{
+                font-weight: bold;
+            }
         }
     }
 }
+
+//header

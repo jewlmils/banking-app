@@ -1,9 +1,6 @@
 .budget-page {
-  margin-left: auto;
-  margin-right: auto;
-
   h1 {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 0.986rem + 0.571vw, 1.5rem);
     font-weight: bold;
     padding-bottom: 1rem;
     text-align: start;
@@ -23,8 +20,8 @@
       align-items: center;
 
       .add-budget-btn {
-        width: 10rem;
-        font-size: 1.2rem;
+        width: clamp(8rem, 6.571rem + 3.81vw, 10rem);
+        font-size: clamp(1rem, 0.857rem + 0.381vw, 1.2rem);
         border-radius: 0.5rem;
         background-color: #00a26d;
         color: white;
@@ -33,7 +30,7 @@
 
       .bgt-balance {
         h2 {
-          font-size: 2rem;
+          font-size: clamp(3rem, 3.714rem + -1.905vw, 2rem);
           font-weight: bold;
         }
         h3 {
@@ -47,11 +44,12 @@
 .budget-table {
   width: 100%;
   border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 
-  th, td {
+  th,
+  td {
     padding: 8px;
     text-align: center;
     background-color: white;
@@ -62,30 +60,34 @@
     background-color: #f2f2f2;
     font-weight: bold;
     padding: 1.2rem;
+    font-size: clamp(0.5rem, 0.143rem + 0.952vw, 1rem);
   }
 
   .budget-action-d {
     background-color: lightcoral;
     color: white;
-    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+    height: clamp(1rem, 0.286rem + 1.905vw, 2rem);
   }
 
   .budget-action-e {
     background-color: #00a26d;
     color: white;
-    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: clamp(1rem, 0.286rem + 1.905vw, 2rem);
+    height: clamp(1rem, 0.286rem + 1.905vw, 2rem);
   }
 }
 
 .budget-table-wrapper {
-  position: sticky; 
-  top: 0; 
+  position: sticky;
+  top: 0;
   background-color: white;
 }
 
-
 .budget-table-list-container {
-  max-height: 50vh; 
+  max-height: 50vh;
   overflow-y: auto;
 }
 
@@ -153,7 +155,7 @@
 .add-budget-btn {
   border: none;
   outline: none;
-  width: 5rem;
+  width: clamp(2.5rem, 0.714rem + 4.762vw, 5rem);
   border-radius: 0.5rem;
   height: 50px;
   margin: 0 1rem;
@@ -161,4 +163,38 @@
   display: inline-block;
   text-align: center;
   letter-spacing: normal;
+}
+
+@media only screen and (max-width: 851px) {
+  .budget-intro p {
+    display: none;
+  }
+
+  .budget-balance {
+    align-items: center;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .bgt-balance {
+    h2{
+      padding-bottom: 1.2rem;
+    }
+    h3 {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .button-container{
+    display: flex;
+    justify-content: center;
+
+    .budget-action-d{
+      margin-left: -0.8rem;
+    }
+  }
+  
+  .budget-table{
+    width: 100%;
+  }
 }

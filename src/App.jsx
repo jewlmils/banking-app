@@ -9,6 +9,7 @@ import { Login } from "./components/Login.jsx";
 import { userData, pageStatus } from "./Data.jsx";
 import { adminRouter, customerRouter } from "./components/Dashboard.jsx";
 import "./App.css";
+import { PageNotFound } from "./pages/PageNotFound.jsx";
 
 function App() {
   const [activeRouter, setActiveRouter] = useState(customerRouter);
@@ -42,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login onLogin={setCurrentUser} />} />
         <Route element={<PrivateRoutes />}>{activeRouter}</Route>
+        <Route path="*" element={<PageNotFound/>}/>
       </Routes>
     </Router>
   );

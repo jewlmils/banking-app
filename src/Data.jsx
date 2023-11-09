@@ -76,4 +76,7 @@ export const pageStatus = false;
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 export const userRole =
-  currentUser && currentUser.isAdmin ? "admin" : "customer";
+currentUser && currentUser.isAdmin ? "admin" : "customer";
+
+
+
