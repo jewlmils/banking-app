@@ -55,6 +55,11 @@
 .content{
     @include center;
     width: 100vw;
+    
+}
+
+.overview-customer{
+    flex-direction: column;
 }
 }
 
