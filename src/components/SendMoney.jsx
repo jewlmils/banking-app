@@ -1,141 +1,80 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 
 export function SendMoney() {
-  const [sender, setSender] = useState('');
-  const [receiver, setReceiver] = useState('');
+  // State variables
+  const [recipient, setRecipient] = useState('');
   const [amount, setAmount] = useState('');
-  const [error, setError] = useState('');
-  const [currentUser, setCurrentUser] = useState(null);
-  
-  const userData = JSON.parse(localStorage.getItem('userData')) || [];
+  const [transactionStatus, setTransactionStatus] = useState('');
 
-  useEffect(() => {
-    const storedCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (storedCurrentUser) {
-      setCurrentUser(storedCurrentUser);
-      setSender(storedCurrentUser.email);
-    }
-  }, []);
+  const handlePurchase = () => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
-  const handleSenderChange = (e) => {
-    setSender(e.target.value);
-  };
+    // Find the recipient user in userData based on the provided account number
+    const recipientUser = userData.find((user) => user.accountNumber === recipient);
 
-  const handleReceiverChange = (e) => {
-    setReceiver(e.target.value);
-  };
-
-  const handleAmountChange = (e) => {
-    setAmount(e.target.value);
-  };
-
-  const getCurrentBalance = () => {
-    return userData.find((user) => user.email === sender)?.balance || 0;
-  };
-
-  const getReceiverBalance = () => {
-    return userData.find((user) => user.email === receiver)?.balance || 0;
-  };
-
-  const handleTransfer = () => {
-    setError(''); // Clear any previous error messages
-
-    if (!sender || !receiver || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) {
-      setError('Please fill out all fields and provide a valid amount.');
+    if (!recipientUser) {
+      setTransactionStatus("Recipient not found");
       return;
     }
 
-    const senderUser = userData.find((user) => user.email === sender);
-    const receiverUser = userData.find((user) => user.email === receiver);
+    if (amount > 0 && amount <= currentUser.balance) {
+      // Deduct the amount from the currentUser and add it to the recipient's balance
+      currentUser.balance -= amount;
+      recipientUser.balance += amount;
 
-    if (!senderUser || !receiverUser) {
-      setError('Invalid sender or receiver');
-      return;
+      // Save the updated currentUser and recipientUser back to localStorage
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      setTransactionStatus("Transaction successful");
+    } else {
+      setTransactionStatus("Insufficient balance or invalid amount");
     }
 
-    const transferAmount = parseFloat(amount);
-
-    if (senderUser.balance < transferAmount) {
-      setError('Insufficient balance for the transfer');
-      return;
-    }
-
-    // Create a new array of users with updated balances
-    const updatedUserData = userData.map((user) => {
-      if (user.email === sender) {
-        return { ...user, balance: user.balance - transferAmount };
-      } else if (user.email === receiver) {
-        return { ...user, balance: user.balance + transferAmount };
-      }
-      return user;
-    });
-
-    // Update userData in localStorage
-    localStorage.setItem('userData', JSON.stringify(updatedUserData));
-
-    setError('Transfer successful');
+    // Clear the input fields after a transaction attempt
+    setRecipient("");
+    setAmount("");
   };
 
-  
+  const isPurchaseButtonDisabled = recipient.trim() === "" || amount <= 0;
+
   return (
     <div className="send-money">
-      <h1>Send Money</h1>
-      <div className="form">
-        <label htmlFor="sender">Sender:</label>
-        <select id="sender" name="sender" onChange={handleSenderChange} value={sender}>
-          <option value="">Select Sender</option>
-          {userData.map((user, index) => (
-            <option key={index} value={user.email}>
-              {user.fullName}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="current-balance">Current Balance:</label>
+      <h2>Send Money</h2>
+      <div className="input-section">
+        <label htmlFor="accountnumber">Account Number</label>
         <input
-          type="text"
-          id="current-balance"
-          name="current-balance"
-          value={userData.find((user) => user.email === sender)?.balance || ''}
-          readOnly
+          type="number"
+          id="recipient"
+          placeholder="Enter Account Number"
+          max="99999999999"
+          pattern="[0-9]{11}"
+          required
+          value={recipient}
+          onChange={(e) => setRecipient(e.target.value)}
         />
-
-        <label htmlFor="receiver">Receiver:</label>
-        <select id="receiver" name="receiver" onChange={handleReceiverChange} value={receiver}>
-          <option value="">Select Receiver</option>
-          {userData.map((user, index) => (
-            <option key={index} value={user.email}>
-              {user.fullName}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="receiver-balance">Receiver Current Balance:</label>
-        <input
-          type="text"
-          id="receiver-balance"
-          name="receiver-balance"
-          value={userData.find((user) => user.email === receiver)?.balance || ''}
-          readOnly
-        />
-
-        <label htmlFor="amount-to-transfer">Amount to Transfer:</label>
-        <input
-          type="text"
-          id="amount-to-transfer"
-          name="amount-to-transfer"
-          value={amount}
-          onChange={handleAmountChange}
-        />
-
-        <button type="button" onClick={handleTransfer}>
-          Transfer Money
-        </button>
-
-        {error && <p className="error">{error}</p>}
       </div>
+      <div className="input-section">
+        <label htmlFor="amount">Amount</label>
+        <input
+          type="number"
+          id="amount"
+          placeholder="Enter amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+      </div>
+      <button
+        className="purchase-btn"
+        onClick={handlePurchase}
+        disabled={isPurchaseButtonDisabled}
+      >
+        Proceed
+      </button>
+      {transactionStatus && <p>{transactionStatus}</p>}
     </div>
   );
-};
+}
