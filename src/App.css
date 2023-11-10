@@ -69,7 +69,7 @@ a {
 }
 
 .body {
-  background-color: #e8e8e8;
+  background: linear-gradient(0deg, rgba(156, 238, 130, 0.437587535) 0%, rgb(255, 255, 255) 42%);
   font-family: "Poppins", sans-serif;
   height: 100vh;
   width: 100vw;
@@ -95,7 +95,9 @@ a {
   width: clamp(7rem, 4.857rem + 5.714vw, 10rem);
 }
 .header .header__user-container {
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   background-color: #00a26d;
   margin-right: 1rem;
@@ -924,6 +926,9 @@ input.btn-create {
     transform: translate(-50%, -50%);
   }
 }
+.budget-page {
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
+}
 .budget-page h1 {
   font-size: clamp(1.2rem, 0.986rem + 0.571vw, 1.5rem);
   font-weight: bold;
@@ -1110,6 +1115,9 @@ input.btn-create {
     margin-left: 0.1rem;
   }
 }
+.goals-container {
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
+}
 .goals-container .goal-top {
   display: flex;
   justify-content: center;
@@ -1252,6 +1260,7 @@ input.btn-create {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
 }
 
 /* Styles for h2 inside .buyload-container */
@@ -1328,6 +1337,7 @@ input.btn-create {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
 }
 
 .send-money h2 {
@@ -1383,6 +1393,7 @@ input.btn-create {
 }
 
 .transact_container {
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
   position: sticky;
   top: 0;
   background-color: white;

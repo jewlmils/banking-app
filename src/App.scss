@@ -29,6 +29,8 @@ body{
     font-family: $fontStyle;
     background-color: #edede9;
     overflow: hidden;
+    
+    
 }
 main {
   width: 100vw;
@@ -43,7 +45,11 @@ a {
 }
 
 .body {
-  background-color: $pageColor;
+  background: linear-gradient(
+    0deg,
+    rgba(156, 238, 130, 0.4375875350140056) 0%,
+    rgba(255, 255, 255, 1) 42%
+  );
   font-family: $fontStyle;
   height: 100vh;
   width: 100vw;
@@ -63,6 +69,7 @@ a {
   width: 85vw;
   @include center;
   overflow: auto;
+  
 }
 
 .content::-webkit-scrollbar {
