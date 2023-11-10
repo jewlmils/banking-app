@@ -20,6 +20,7 @@
         flex-direction: column;
         color:white;
         padding-left: 2.2vw;
+        box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
         .card-account-number{
             padding-top: clamp(3rem, 1.571rem + 3.81vw, 5rem);
             padding-bottom: 0.5vw;
@@ -49,12 +50,15 @@
         margin:0;
         @include center;
         text-align: center;
+        
         .currency-inner-cont{
+            
             @include center;
             height:25rem;
             width:clamp(15rem, 4.286rem + 28.571vw, 30rem);
             border-radius: 2rem;
             background-color: $sideBarColor;
+            box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
         }
         .currency__equals{
             color: $primaryColor;

@@ -65,6 +65,19 @@ a {
   overflow: auto;
 }
 
+.content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
 .content-container {
   height: 80vh;
   width: 80vw;
