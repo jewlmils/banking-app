@@ -1059,7 +1059,7 @@ input.btn-create {
   background-color: white;
   max-height: 80vh;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: 16px;
 }
 
 #transact_form {

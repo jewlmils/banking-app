@@ -1,25 +1,12 @@
 @import url(https://fonts.cdnfonts.com/css/poppins);
 
-// #main-content{
-//     background-color: white;
-//     padding: 20px 35px;
-//     width: 100%;
-//     min-width: 260px;
-//     transform: translate(-50%, -50%);
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//     border-radius: 10px;
-//     box-shadow: 20px, 30px, 50px 25px #333333;
-// }
-
 .transact_container {
   position: sticky;
   top: 0;
   background-color: white;
   max-height: 80vh;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: 16px;
 }
 
 #transact_form{

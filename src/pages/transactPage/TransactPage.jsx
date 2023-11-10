@@ -80,6 +80,7 @@ export const TransactPage = (props) => {
                     setInputAmount("");
 
                     data.balance = String(data.balance)
+                    
                     localStorage.setItem("userData", JSON.stringify(Data));
 
                     return new_balance;
