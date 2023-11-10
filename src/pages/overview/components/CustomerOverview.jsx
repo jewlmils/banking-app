@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Currency } from "../../currency/Currency";
 
 export function CustomerOverview() {
     const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -25,11 +26,10 @@ export function CustomerOverview() {
           <span className="card-balance">₱{balanceDisplay}</span>
           <span className="card-name">{nameDisplay}</span>
           <span className="card-expiration">10/28</span>
-          <span>Savings Account</span>
+          <span className="account-type">Savings Account</span>
         </div>
-        <div className="transaction-container">
-          <span className="transaction-title">Transaction History</span>
-          <div className="transaction-history"></div>
+        <div className="currency-container">
+            <Currency/>
         </div>
       </div>
     );

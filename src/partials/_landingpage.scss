@@ -73,11 +73,12 @@
       margin-left: 2rem;
 
       .lp-text {
-        font-size: clamp(4rem, 2.571rem + 3.81vw, 6rem);
-        margin-bottom: 0.8rem;
+        font-size:clamp(3rem, 0.857rem + 5.714vw, 6rem);
+        margin-bottom: 1rem;
 
         i {
           font-family: "Lora", serif;
+          font-style: italic;
         }
       }
 
@@ -101,7 +102,7 @@
   }
 
   .lp-right {
-    background-image: url("src/assets/lanfing-page-oink.png");
+    background-image: url("assets/image/lanfing-page-oink.png");
     background-size: cover;
     background-repeat: no-repeat;
   }

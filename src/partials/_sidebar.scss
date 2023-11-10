@@ -2,95 +2,107 @@
     // border: 1px solid black;
     font-family: $fontStyle;
     background-color: $sideBarColor;
-    width: 20vw;
+    width: 15vw;
+    min-width: 12rem;
     height: 90vh;
+    @include center;
+    box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
     .sidebar__main {
       display: flex;
-      align-items: flex-end;
-      width: 20vw;
+      align-items: center;
+      width: 15vw;
       height: 70vh;
       display: flex;
       flex-direction: column;
-      font-size: $mediumFont;
-      justify-content: center;
+      font-size: $sideBarFont;
+      justify-content: flex-start;
+      padding-top: 2rem;
+      text-align: center;
       .custom-link {
         // border: 1px solid red;
-        display: flex;
-        align-items: center;
-        height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
-        width: clamp(1rem, -6.857rem + 20.952vw, 12rem);
+        @include center;
+        height: clamp(0.8rem, 0.657rem + 0.381vw, 1rem);
+        width: clamp(6rem, 4.571rem + 3.81vw, 8rem);
         padding: 1rem 2rem;
         margin-bottom: 0.1rem;
         margin-top: 0.1rem;
         cursor: pointer;
         color: $primaryColor;
-        transition: width 0.5s; /* Smooth transition for the width property */
+        transition: height 0.5s;  /* Smooth transition for the width property */
         .sidebar-icon{
-          height:$mediumFont;
-          width: $mediumFont;
+          height:$sideBarFont;
+          width: $sideBarFont;
         }
         &:hover {
-          background-color: $primaryColor;
-          border-radius: 2rem 0 0 2rem;
-          color: $sideBarColor;
-          width: clamp(1.5rem, -6.714rem + 21.905vw, 13rem); /* Adjust the width on hover */
+          font-size: 1.3rem;
+          border-radius: 2rem;
+          height: 2.5rem;
+          width: 10rem;
+          .sidebar-icon{
+            height:1.3rem;
+            width: 1.3rem;
+          }
         }
       }
     
       .active {
-        height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
-        width: clamp(2rem, -7.286rem + 24.762vw, 15rem);
+        @include center;
+        height:clamp(0.8rem, 0.657rem + 0.381vw, 1rem);
+        width: clamp(6rem, 4.571rem + 3.81vw, 8rem);
         padding: 1rem 2rem;
         cursor: pointer;
         color: $sideBarColor;
         background-color: $primaryColor;
-        border-radius: 2rem 0 0 2rem;
-        transition: width 0.3s; /* Smooth transition for the width property */
+        border-radius: 2rem;
         .sidebar-icon{
-          height:$mediumFont;
-          width: $mediumFont;
+          height:$sideBarFont;
+          width: $sideBarFont;
         }
       }
     }
     
   
   
-  .sidebar__footer{
-      width: 20vw;
-      height: 20vh; 
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      
-      .sidebar__footer-container{
-          display:flex;
-          align-items: flex-end;
-          .logout-button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: clamp(0.5rem, -0.571rem + 2.857vw, 2rem);
-            width: clamp(1rem, -6.857rem + 20.952vw, 12rem);
-            padding: 1rem 2rem;
-            margin-bottom: 0.1rem;
-            margin-top: 0.1rem;
-            cursor: pointer;
-            color: $primaryColor;
-            transition: width 0.5s; 
-            background-color: $sideBarColor;
-            font-family: $fontStyle;
-            font-weight: default;
-            font-size: $mediumFont;
-            text-align: center;
-          }
-          .logout-button:hover{
-            background-color: $primaryColor;
-            border-radius: 2rem 0 0 2rem;
-            color: $sideBarColor;
-            width: clamp(1.5rem, -6.714rem + 21.905vw, 13rem);
-          }
-      }
-  }
+    .sidebar__footer{
+        width: 15vw;
+        height: 20vh; 
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        
+        .sidebar__footer-container{
+            display:flex;
+            align-items: flex-end;
+            .logout-button{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: clamp(0.8rem, 0.657rem + 0.381vw, 1rem);
+              width: clamp(6rem, 4.571rem + 3.81vw, 8rem);
+              padding: 1rem 2rem;
+              margin-bottom: 0.1rem;
+              margin-top: 0.1rem;
+              cursor: pointer;
+              color: $primaryColor;
+              transition: width 0.5s; 
+              background-color: $sideBarColor;
+              font-family: $fontStyle;
+              font-weight: default;
+              font-size: $sideBarFont;
+              text-align: center;
+              .logout-icon{
+                padding-right:0.5rem;
+              }
+            }
+            }
+            .logout-button:hover{
+              font-size: 1.3rem;
+              border-radius: 2rem;
+              height: 2.5rem;
+              width: 10rem;
+              
+        }
+    }
   
   
   

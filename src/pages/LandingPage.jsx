@@ -3,18 +3,14 @@ export function LandingPage() {
     <div className="lp-body">
       <div className="lp-navbar">
         <div>
-          <img
-            className="lp-logo"
-            src="src/assets/full white  logo-01.png"
-            alt=""
-          />
+          <img className="lp-logo" src="src/assets/image/iba-logo.png" alt="" />
         </div>
         <nav className="lp-nav-list">
           <a className="nav-link">Service</a>
           <a className="nav-link">Blog</a>
           <a className="nav-link">Support</a>
           <a className="nav-link">About Us</a>
-          <a>
+          <a href="/login">
             <button className="nav-link-button">Login</button>
           </a>
         </nav>
@@ -29,7 +25,11 @@ export function LandingPage() {
               A new solution by creating the best digital bank credit with
               various services available
             </p>
-            <button className="lp-gs">Get Started</button>
+            <a href="/login">
+              <button className="lp-gs">
+                Get Started
+              </button>
+            </a>
           </div>
         </div>
         <div className="lp-right"></div>
