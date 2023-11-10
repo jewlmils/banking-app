@@ -1,0 +1,76 @@
+/* Styles for .buyload-container */
+.buyload-container {
+    text-align: center;
+  padding: 1.25rem;
+  background-color: $sideBarColor;
+  border-radius: 0.625rem;
+  width: 80%;
+  max-width: 400px; 
+  margin: 0 auto;
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
+  
+  /* Styles for h2 inside .buyload-container */
+  .buyload-container h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: #333;
+    margin-bottom: 1.25rem;
+  }
+  
+  .buyload-container label {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #666;
+  }
+
+  /* Styles for .input-section */
+  .buyload-container .input-section {
+    margin: 0.625rem 0;
+  }
+  
+  /* Styles for labels inside .input-section */
+  .buyload-container .input-section label {
+    display: block;
+    margin-bottom: 0.3125rem; 
+  }
+  
+  /* Styles for input fields inside .input-section */
+  .buyload-container .input-section input {
+    width: 80%;
+    padding: 0.625rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3125rem;
+    background-color: $pageColor;
+  }
+  
+  /* Styles for .purchase-btn */
+  .buyload-container .purchase-btn {
+    background-color: #00a26d;
+    color: #fff;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 0.3125rem; 
+    margin: 0 auto;
+    width: 50%;
+    font-size: clamp(0.6rem, 2vw, 1rem);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buyload-container .purchase-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .buyload-container .purchase-btn:hover {
+    background-color: #00a26d;
+  }
+  
+  /* Styles for the transaction status paragraph */
+  .buyload-container p {
+    margin-top: 0.625rem; 
+    font-size: clamp(0.5rem, 1vw, 1rem);
+    color: $primaryColor;
+  }
