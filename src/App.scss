@@ -65,6 +65,19 @@ a {
   overflow: auto;
 }
 
+.content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
 .content-container {
   height: 80vh;
   width: 80vw;
@@ -79,8 +92,8 @@ a {
 @import "partials/login";
 @import "partials/budget";
 @import "partials/goals";
-@import "partials/sendmoney";
 @import "partials/buyload";
+@import "partials/sendmoney";
 @import "partials/transactPage";
 @import "partials/pageNotFound";
 @import "partials/landingpage";

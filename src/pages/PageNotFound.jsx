@@ -11,7 +11,7 @@ export function PageNotFound() {
         <img
           className="page-not-found"
           src="src/assets/image/page-not-found.png"
-          alt=""
+          alt="page-not-found-img"
         />
       </div>
     </div>

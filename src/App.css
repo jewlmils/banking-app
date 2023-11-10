@@ -232,6 +232,20 @@ a {
   overflow: auto;
 }
 
+.content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .content-container {
   height: 80vh;
   width: 80vw;
@@ -262,6 +276,7 @@ a {
   flex-direction: column;
   color: white;
   padding-left: 2.2vw;
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
 }
 .overview-customer .card-container .card-account-number {
   padding-top: clamp(3rem, 1.571rem + 3.81vw, 5rem);
@@ -301,6 +316,7 @@ a {
   width: clamp(15rem, 4.286rem + 28.571vw, 30rem);
   border-radius: 2rem;
   background-color: #ffffff;
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
 }
 .overview-customer .currency-container .currency__equals {
   color: #00a26d;
@@ -373,11 +389,12 @@ a {
   text-align: center;
   padding: 1rem;
   font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+  font-weight: bold;
+  color: #00a26d;
 }
 .overview-admin .stats-container .deposit-container h2 {
   padding: 1rem;
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
-  color: #00a26d;
 }
 .overview-admin .stats-container .clients-container {
   display: flex;
@@ -395,11 +412,12 @@ a {
   text-align: center;
   padding: 1rem;
   font-size: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+  font-weight: bold;
+  color: #00a26d;
 }
 .overview-admin .stats-container .clients-container h2 {
   padding: 1rem;
   font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
-  color: #00a26d;
 }
 .overview-admin .currency-container {
   height: 80vh;
@@ -1223,72 +1241,6 @@ input.btn-create {
     padding: 0.2rem;
   }
 }
-.send-money {
-  text-align: center;
-  padding: 1.25rem; /* 20px / 16px = 1.25rem */
-  background-color: #ffffff;
-  border-radius: 0.625rem; /* 10px / 16px = 0.625rem */
-  width: 80%; /* Adjust the width as needed */
-  max-width: 400px; /* Add a maximum width to limit the size */
-  margin: 0 auto; /* Center the container horizontally */
-  height: 300px; /* Adjust the height as needed */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.send-money h2 {
-  font-size: clamp(1.5rem, 5vw, 2rem); /* Adjusted values using rem units */
-  color: #333;
-  margin-bottom: 1.25rem; /* 20px converted to rem */
-}
-
-.send-money .input-section {
-  margin: 0.625rem 0;
-}
-
-.send-money .input-section input {
-  width: 80%;
-  padding: 0.625rem; /* 10px / 16px = 0.625rem */
-  border: 1px solid #ccc;
-  border-radius: 0.3125rem; /* 5px / 16px = 0.3125rem */
-  background-color: #e8e8e8;
-}
-
-.send-money .input-section label {
-  font-size: clamp(1rem, 3vw, 1.5rem); /* Adjusted values using rem units */
-  color: #555;
-  display: block;
-  margin-bottom: 0.3125rem;
-}
-
-.send-money button {
-  background-color: #00a26d;
-  color: #fff;
-  padding: 0.625rem 1.25rem; /* 10px 20px converted to rem */
-  border: none;
-  border-radius: 0.3125rem; /* 5px converted to rem */
-  margin: 0 auto;
-  width: 50%;
-  font-size: clamp(0.6rem, 2vw, 1rem);
-  cursor: pointer;
-}
-
-.send-money .purchase-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.send-money .purchase-btn:hover {
-  background-color: #00a26d;
-}
-
-.send-money p {
-  margin-top: 0.625rem; /* 10px converted to rem */
-  font-size: clamp(0.5rem, 1vw, 1rem); /* Adjusted values using rem units */
-  color: #00a26d;
-}
-
 /* Styles for .buyload-container */
 .buyload-container {
   text-align: center;
@@ -1361,6 +1313,72 @@ input.btn-create {
 
 /* Styles for the transaction status paragraph */
 .buyload-container p {
+  margin-top: 0.625rem; /* 10px converted to rem */
+  font-size: clamp(0.5rem, 1vw, 1rem); /* Adjusted values using rem units */
+  color: #00a26d;
+}
+
+.send-money {
+  text-align: center;
+  padding: 1.25rem; /* 20px / 16px = 1.25rem */
+  background-color: #ffffff;
+  border-radius: 0.625rem; /* 10px / 16px = 0.625rem */
+  width: 80%; /* Adjust the width as needed */
+  max-width: 400px; /* Add a maximum width to limit the size */
+  margin: 0 auto; /* Center the container horizontally */
+  height: 300px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.send-money h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem); /* Adjusted values using rem units */
+  color: #333;
+  margin-bottom: 1.25rem; /* 20px converted to rem */
+}
+
+.send-money .input-section {
+  margin: 0.625rem 0;
+}
+
+.send-money .input-section input {
+  width: 80%;
+  padding: 0.625rem; /* 10px / 16px = 0.625rem */
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem; /* 5px / 16px = 0.3125rem */
+  background-color: #e8e8e8;
+}
+
+.send-money .input-section label {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* Adjusted values using rem units */
+  color: #555;
+  display: block;
+  margin-bottom: 0.3125rem;
+}
+
+.send-money button {
+  background-color: #00a26d;
+  color: #fff;
+  padding: 0.625rem 1.25rem; /* 10px 20px converted to rem */
+  border: none;
+  border-radius: 0.3125rem; /* 5px converted to rem */
+  margin: 0 auto;
+  width: 50%;
+  font-size: clamp(0.6rem, 2vw, 1rem);
+  cursor: pointer;
+}
+
+.send-money .purchase-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.send-money .purchase-btn:hover {
+  background-color: #00a26d;
+}
+
+.send-money p {
   margin-top: 0.625rem; /* 10px converted to rem */
   font-size: clamp(0.5rem, 1vw, 1rem); /* Adjusted values using rem units */
   color: #00a26d;
