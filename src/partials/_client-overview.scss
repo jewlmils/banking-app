@@ -56,7 +56,7 @@
             @include center;
             height:25rem;
             width:clamp(15rem, 4.286rem + 28.571vw, 30rem);
-            border-radius: 2rem;
+            border-radius: 1rem;
             background-color: $sideBarColor;
             box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
         }
