@@ -26,11 +26,13 @@
                 text-align: center;
                 padding: 1rem;
                font-size: $largeFont;
+               font-weight: bold;
+               color: $primaryColor;
             }
             h2{
                 padding: 1rem;
                 font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
-                color:$primaryColor;
+                
     
             }
         }
@@ -48,11 +50,14 @@
                 text-align: center;
                 padding: 1rem;
                 font-size: $largeFont;
+                font-weight: bold;
+                color: $primaryColor;
+                
             }
             h2{
                 padding: 1rem;
                 font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
-                color:$primaryColor;
+               
             }
         }
     }
@@ -87,6 +92,7 @@
             color:$primaryColor;
             font-family: $fontStyle;
             font-weight:600;
+            
         }
         .currency-input{
             border: none;
