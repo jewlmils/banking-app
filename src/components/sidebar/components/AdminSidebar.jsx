@@ -1,5 +1,5 @@
 import { CustomLink } from "./CustomLink";
-import {Layout,UserPlus,Contact,PiggyBank,Banknote,Send,DollarSign} from "lucide-react";
+import {Layout,UserPlus,Contact,PiggyBank,Banknote,Send} from "lucide-react";
 
 export function AdminSidebar() {
     return (
@@ -21,9 +21,6 @@ export function AdminSidebar() {
         </CustomLink>
         <CustomLink to="/send-money">
           <Send className="sidebar-icon" /> Send Money
-        </CustomLink>
-        <CustomLink to="/currency">
-          <DollarSign className="sidebar-icon" /> Currency
         </CustomLink>
       </ul>
     );
