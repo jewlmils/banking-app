@@ -13,16 +13,26 @@
 //     box-shadow: 20px, 30px, 50px 25px #333333;
 // }
 
+.transact_container {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
 #transact_form{
-    width: 90%;
-    position: relative;
-    margin: 30px auto 0 auto;
+    width: 80%;
+    margin: 30px auto 30px auto;
 }
 
 .transact_page{
-    font-size: 30px;
-    color: #000001;
     text-transform: uppercase;
+    font-size: 40px;
+    padding-bottom: 1rem;
+    font-weight: bold;
+    color: #00a26d;
 }
 
 .transact_btn{
@@ -34,11 +44,12 @@
     color: white;
     text-transform: uppercase;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .notif{
+    font-weight: bold;
     position: relative;
-    margin: auto;
     width: 100%;
     text-align: center;
     color: #000001;
@@ -66,12 +77,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
     grid-gap: 20px 30px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 1rem;
+    margin-bottom: 30px;
 }
 
 .transact_amount{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: 100%;
 }
 
