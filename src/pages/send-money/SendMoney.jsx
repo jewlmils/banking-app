@@ -1,55 +1,46 @@
-import React, { useState , useEffect} from 'react';
-
+import React, { useState } from 'react';
 
 export function SendMoney() {
   // State variables
   const [recipient, setRecipient] = useState('');
   const [amount, setAmount] = useState('');
   const [transactionStatus, setTransactionStatus] = useState('');
-  const[ userData, setUserData]= useState(JSON.parse(localStorage.getItem("userData")))
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem("userData")))
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  useEffect(()=>{
-    setUserData(JSON.parse(localStorage.getItem("userData")))
-  },[currentUser.balance])
- 
-
   const handlePurchase = () => {
-  const recipientUser = userData.find((user) => user.accountNumber === recipient);
+    const recipientUser = userData.find((user) => user.accountNumber === recipient);
+    const senderUser = userData.find((user) => user.accountNumber === currentUser.accountNumber);
 
-  if (!recipientUser) {
-    setTransactionStatus('Recipient not found');
-    return;
-  }
+    // Validation: Check if the recipient is the same as the sender
+    if (recipientUser && recipientUser.accountNumber === senderUser.accountNumber) {
+      setTransactionStatus('Cannot send money to yourself');
+      return;
+    }
 
-  if (parseFloat(amount) > 0 && parseFloat(amount) <= parseFloat(currentUser.balance)) {
-    
-    currentUser.balance = parseFloat(currentUser.balance) - parseFloat(amount);
+    if (!recipientUser) {
+      setTransactionStatus('Recipient not found');
+      return;
+    }
 
-   
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    if (parseFloat(amount) > 0 && parseFloat(amount) <= parseFloat(senderUser.balance)) {
 
-    
-    recipientUser.balance = parseFloat(recipientUser.balance) + parseFloat(amount);
+      senderUser.balance = parseFloat(senderUser.balance) - parseFloat(amount);
 
-    
-    const updatedUserData = userData.map((user) =>
-      user.accountNumber === recipient ? recipientUser : user
-    );
+      recipientUser.balance = parseFloat(recipientUser.balance) + parseFloat(amount);
 
-    
-    localStorage.setItem('userData', JSON.stringify(updatedUserData));
+      localStorage.setItem('userData', JSON.stringify(userData));
+      localStorage.setItem('currentUser', JSON.stringify(senderUser));
 
-    setTransactionStatus('Transaction successful');
-  } else {
-    setTransactionStatus('Insufficient balance or invalid amount');
-  }
+      setTransactionStatus('Transaction successful');
+    } else {
+      setTransactionStatus('Insufficient balance or invalid amount');
+    }
 
-  // Clear the input fields after a transaction attempt
-  setRecipient('');
-  setAmount('');
-};
-
+    // Clear the input fields after a transaction attempt
+    setRecipient('');
+    setAmount('');
+  };
 
   const isPurchaseButtonDisabled = recipient.trim() === "" || amount.trim() === "" || amount <= 0;
 
