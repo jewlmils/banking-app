@@ -60,12 +60,12 @@
   }
   
   .buyload-container .purchase-btn:disabled {
-    background-color: #ccc;
+    background-color: #00a26d;
     cursor: not-allowed;
   }
   
   .buyload-container .purchase-btn:hover {
-    background-color: #00a26d;
+    background-color: #ccc;
   }
   
   /* Styles for the transaction status paragraph */

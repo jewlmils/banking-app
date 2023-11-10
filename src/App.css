@@ -692,7 +692,7 @@ form#survey-form {
   flex-direction: column;
   max-width: 800px;
   max-height: 736px;
-  height: 100%;
+  height: 120vh;
   width: 100%;
   gap: 1rem;
   background-color: white;
@@ -1303,12 +1303,12 @@ input.btn-create {
 }
 
 .buyload-container .purchase-btn:disabled {
-  background-color: #ccc;
+  background-color: #00a26d;
   cursor: not-allowed;
 }
 
 .buyload-container .purchase-btn:hover {
-  background-color: #00a26d;
+  background-color: #ccc;
 }
 
 /* Styles for the transaction status paragraph */
@@ -1370,12 +1370,12 @@ input.btn-create {
 }
 
 .send-money .purchase-btn:disabled {
-  background-color: #ccc;
+  background-color: #00a26d;
   cursor: not-allowed;
 }
 
 .send-money .purchase-btn:hover {
-  background-color: #00a26d;
+  background-color: #ccc;
 }
 
 .send-money p {

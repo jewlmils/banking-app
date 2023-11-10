@@ -51,12 +51,12 @@
     }
   
     .send-money .purchase-btn:disabled {
-      background-color: #ccc;
+      background-color: #00a26d;
       cursor: not-allowed;
     }
     
     .send-money .purchase-btn:hover {
-      background-color: #00a26d;
+      background-color: #ccc;
     }
     
     .send-money p {
