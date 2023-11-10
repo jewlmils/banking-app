@@ -1,0 +1,91 @@
+@media (max-width:851px){
+.header{
+    justify-content: space-between;
+    .header__burger-btn{
+        margin-left: 1rem;
+        display: block;
+        height: 3rem;
+        width: 3rem;
+        min-width: 2rem;
+        color:white;
+    }
+    .header__user-container{
+        margin-right:0;
+    }
+}
+
+.sidebar{
+    @include center;
+    width: 10rem;
+    position:fixed;
+    .sidebar-icon{display:none}
+    z-index: 10;
+    box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
+    .sidebar__main{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .custom-link {
+            @include center;
+            width: 15vw;
+            margin-bottom: 0.1rem;
+            margin-top: 0.1rem;
+        }
+        .custom-link:hover {
+            @include center;
+            border-radius: 0 0 0 0;
+            padding-left:0;
+            padding-right: 0;
+            width: 20vw;
+            margin-bottom: 0.1rem;
+            margin-top: 0.1rem;
+        }
+        .active{
+            @include center;
+            border-radius: 0 0 0 0;
+            padding-left:0;
+            padding-right: 0;
+            margin-bottom: 0.1rem;
+            margin-top: 0.1rem;
+            border-radius: 2rem;
+        }
+    }
+   
+}
+
+.content{
+    @include center;
+    width: 100vw;
+    height: auto;
+    .content-container{
+        height:auto;
+    }
+    
+}
+.overview-admin{
+    margin-top: 20vh;
+    flex-direction: column;
+    .stats-container{
+        height:95vh;
+        max-height: 95vh;
+        width:100vw;
+    }
+    .currency-container{
+        
+        height:40vh;
+        width:100vw;
+        .currency-inner-cont{
+            margin-top:5rem;
+        }
+    }
+   
+}
+.overview-customer{
+    margin-top: 20vh;
+    flex-direction: column;
+}
+}
+
+@media (max-width:337px){
+
+}

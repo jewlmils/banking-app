@@ -1,0 +1,87 @@
+@use "partials/reset";
+@import url("https://fonts.cdnfonts.com/css/poppins");
+
+$pageColor: #e8e8e8;
+$headerColor: #00a26d;
+$sideBarColor: #ffffff;
+$contentColor: #e8e8e8;
+$primaryColor: #00a26d;
+$secondaryColor: #000001;
+
+$fontStyle: "Poppins", sans-serif;
+
+
+$sideBarFont:clamp(0.8rem, 0.657rem + 0.381vw, 1rem);
+$xxlargeFont: clamp(2rem, 0.571rem + 3.81vw, 4rem);
+$xlargeFont: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
+$largeFont: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+$mediumFont: clamp(0.5rem, -0.214rem + 1.905vw, 1.5rem);
+$smallFont: 1rem;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body{
+    font-family: $fontStyle;
+    background-color: #edede9;
+    overflow: hidden;
+}
+main {
+  width: 100vw;
+  height: 90vh;
+  display:flex;
+  flex-direction: row;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.body {
+  background-color: $pageColor;
+  font-family: $fontStyle;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+@import "partials/header";
+@import "partials/sidebar";
+
+//content
+.content {
+  // border: 1px solid red;
+  height: 90vh;
+  max-height: 90vh;
+  width: 85vw;
+  @include center;
+  overflow: auto;
+}
+
+.content-container {
+  height: 80vh;
+  width: 80vw;
+  border-radius: 1rem;
+  
+}
+
+@import "partials/client-overview";
+@import "partials/admin-overview";
+@import "partials/accounts";
+@import "partials/createuser";
+@import "partials/login";
+@import "partials/budget";
+@import "partials/goals";
+@import "partials/sendmoney";
+@import "partials/buyload";
+@import "partials/transactPage";
+@import "partials/pageNotFound";
+@import "partials/landingpage";
+@import "partials/mediaQuery";

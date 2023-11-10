@@ -1,0 +1,36 @@
+.header{
+    // border: 1px solid black;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:$headerColor;
+    box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
+    .header__burger-btn{
+        display: none;
+    }
+    img{
+        padding-left: 2rem;
+        width:clamp(7rem, 4.857rem + 5.714vw, 10rem);
+    
+    }
+    .header__user-container{
+        height:fit-content ;
+        width:fit-content;
+        background-color: $primaryColor;
+        margin-right: 1rem;
+        padding-right:1rem ;
+        border-radius: 1rem;
+        font-size: $mediumFont;
+        text-align: right;
+        span{
+            color: $sideBarColor;
+            .header-name{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+//header

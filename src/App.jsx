@@ -1,33 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { PrivateRoutes } from "./components/PrivateRoutes.jsx";
+import { Login } from "./components/Login.jsx";
+import { userData, pageStatus } from "./Data.jsx";
+import { adminRouter, customerRouter } from "./components/Dashboard.jsx";
+import "./App.css";
+import { PageNotFound } from "./pages/PageNotFound.jsx";
+import { LandingPage } from "./pages/LandingPage.jsx";
 
 function App() {
+  const [activeRouter, setActiveRouter] = useState(customerRouter);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    if (!storedUserData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+      localStorage.setItem("pageStatus", JSON.stringify(pageStatus));
+      console.log("userData saved");
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (storedCurrentUser) {
+      setCurrentUser(storedCurrentUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      const user = userData.find((user) => user.email === currentUser.email);
+      setActiveRouter(user.isAdmin ? adminRouter : customerRouter);
+    }
+  }, [currentUser, userData]);
+
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/landing-page" element={<LandingPage/>}/>
+        <Route path="/login" element={<Login onLogin={setCurrentUser} />} />
+        <Route element={<PrivateRoutes />}>{activeRouter}</Route>
+        <Route path="*" element={<PageNotFound/>}/>
+
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
