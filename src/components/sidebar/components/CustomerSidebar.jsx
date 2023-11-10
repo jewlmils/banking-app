@@ -1,5 +1,5 @@
 import { CustomLink } from "./CustomLink";
-import {Layout,Send,DollarSign,TabletSmartphone,Wallet,Goal} from "lucide-react";
+import {Layout,Send,TabletSmartphone,Wallet,Goal} from "lucide-react";
 
 export function CustomerSidebar() {
     return (
@@ -18,9 +18,6 @@ export function CustomerSidebar() {
         </CustomLink>
         <CustomLink to="/goals">
           <Goal className="sidebar-icon" /> Goals
-        </CustomLink>
-        <CustomLink to="/currency">
-          <DollarSign className="sidebar-icon" /> Currency
         </CustomLink>
       </ul>
     );

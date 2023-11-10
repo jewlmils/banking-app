@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { CurrencyRow } from "./CurrencyRow";
-import { Sidebar } from "../../components/sidebar/Sidebar";
-import { Header } from "../../components/Header";
+
 
 export function Currency() {
   const [currencyOptions, setCurrencyOptions] = useState([]);
-  const [fromCurrency, setFromCurrency] = useState("PHP");
-  const [toCurrency, setToCurrency] = useState("USD");
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("PHP");
   const [exchangeRate, setExchangeRate] = useState();
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromFromCurrency] = useState(true);
@@ -44,11 +43,11 @@ export function Currency() {
   const toAmount = amountInFromCurrency
     ? (amount * exchangeRate).toFixed(2)
     : amount;
-
+  console.log(toAmount)
   return (
     <div className="currency-container">
       <div className="currency-inner-cont">
-        <h1>Currency Converter</h1>
+        <h1>Foreign Exchange</h1>
         <CurrencyRow
           currencyOptions={currencyOptions}
           selectedCurrency={fromCurrency}

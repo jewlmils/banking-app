@@ -3,13 +3,14 @@ form#survey-form {
   flex-direction: column;
   max-width: 800px;
   max-height: 736px;
-  height: 100%;
+  height: 120vh;
   width: 100%;
   gap: 1rem;
   background-color: white;
   border-radius: 10px;
   margin: auto;
   padding: 10px;
+  box-shadow: 1px 1px 19px -2px rgba(0, 0, 0, 0.45);
 }
 
 #title-createuser {
@@ -25,12 +26,24 @@ p#description-createuser {
   margin-left: 0.3rem;
 }
 
+.btn-create {
+  /* Other button styles... */
+  background-color: #00a26d; /* Default background color */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  cursor: default; /* Default cursor */
+}
+
+.btn-create:hover {
+  background-color: #008056; /* Darker green on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
 .divider-create {
-  margin: 0.3rem 0;
   border: 0;
   border-top: 1px solid #ccc;
   width: 95%;
-  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 input.btn-create {
@@ -44,6 +57,8 @@ input.btn-create {
 .input-wrapper {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 0.5rem;
 }
 
 .title-container-createuser {
@@ -59,6 +74,25 @@ input.btn-create {
   margin-left: 1.3rem;
 }
 
+.divider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.createuser-select {
+  border-color: #00a26d;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  padding: 0.8em;
+  margin-left: 1.25rem;
+}
+
+input#balance {
+  width: 90%;
+}
+
 .createuser-input {
   width: 95%;
   background-color: white;
@@ -66,7 +100,7 @@ input.btn-create {
   box-sizing: border-box;
   border-radius: 0.2rem;
   border: 1px solid #00a26d;
-  padding: 0.5em;
+  padding: 0.8em;
   margin-bottom: 1.25rem;
   font-size: 0.875rem;
   outline: none;
@@ -78,13 +112,6 @@ input.btn-create {
   margin-bottom: 0.4rem;
 }
 
-.createuser-select {
-  border-color: #00a26d;
-  width: 95%;
-  margin-left: 1.25rem;
-  border-radius: 0.2rem;
-}
-
 input.btn-create {
   width: 95%;
   font-size: 1.2rem;
@@ -92,4 +119,17 @@ input.btn-create {
   background-color: #00a26d;
   color: white;
   margin-left: 1.25rem;
+}
+
+@media screen and (max-width: 488px) {
+  #title-createuser {
+    font-size: 1.6rem;
+  }
+
+  p#description-createuser {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+  }
 }

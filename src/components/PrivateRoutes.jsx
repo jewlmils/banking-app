@@ -19,11 +19,11 @@ export const PrivateRoutes = () => {
         return <><Outlet/></>
       }
       else{
-        return <Navigate to='/login'/>
+        return <Navigate to='/landing-page'/>
       }
     }
     else{
-  return <Navigate to="/login" />;
+  return <Navigate to="/landing-page" />;
     }
 };
 

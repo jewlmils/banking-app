@@ -10,6 +10,8 @@ $secondaryColor: #000001;
 
 $fontStyle: "Poppins", sans-serif;
 
+
+$sideBarFont:clamp(0.8rem, 0.657rem + 0.381vw, 1rem);
 $xxlargeFont: clamp(2rem, 0.571rem + 3.81vw, 4rem);
 $xlargeFont: clamp(1.5rem, 0.429rem + 2.857vw, 3rem);
 $largeFont: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
@@ -26,6 +28,7 @@ $smallFont: 1rem;
 body{
     font-family: $fontStyle;
     background-color: #edede9;
+    overflow: hidden;
 }
 main {
   width: 100vw;
@@ -57,26 +60,41 @@ a {
   // border: 1px solid red;
   height: 90vh;
   max-height: 90vh;
-  width: 80vw;
+  width: 85vw;
   @include center;
   overflow: auto;
 }
 
+.content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: transparent;
+}
 .content-container {
-  // border: 1px solid blue;
   height: 80vh;
-  width: 70vw;
+  width: 80vw;
   border-radius: 1rem;
-  background-color: $contentColor;
+  
 }
 
 @import "partials/client-overview";
 @import "partials/admin-overview";
-@import "partials/currency";
 @import "partials/accounts";
 @import "partials/createuser";
 @import "partials/login";
 @import "partials/budget";
 @import "partials/goals";
+@import "partials/buyload";
+@import "partials/sendmoney";
 @import "partials/transactPage";
+@import "partials/pageNotFound";
+@import "partials/landingpage";
 @import "partials/mediaQuery";

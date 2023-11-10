@@ -1,0 +1,66 @@
+.send-money {
+    text-align: center;
+    padding: 1.25rem; /* 20px / 16px = 1.25rem */
+    background-color: $sideBarColor;
+    border-radius: 0.625rem; /* 10px / 16px = 0.625rem */
+    width: 80%; /* Adjust the width as needed */
+    max-width: 400px; /* Add a maximum width to limit the size */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 300px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    .send-money h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem); /* Adjusted values using rem units */
+      color: #333;
+      margin-bottom: 1.25rem; /* 20px converted to rem */
+    }
+  
+    .send-money .input-section{
+      margin: 0.625rem 0;
+    }
+    
+    .send-money .input-section input {
+      width: 80%;
+      padding: 0.625rem; /* 10px / 16px = 0.625rem */
+      border: 1px solid #ccc;
+      border-radius: 0.3125rem; /* 5px / 16px = 0.3125rem */
+      background-color: $pageColor;
+    }
+    
+    .send-money .input-section label {
+      font-size: clamp(1rem, 3vw, 1.5rem); /* Adjusted values using rem units */
+      color: #555;
+      display: block;
+      margin-bottom: 0.3125rem;
+    }
+    
+    
+    .send-money button {
+      background-color: #00a26d;
+      color: #fff;
+      padding: 0.625rem 1.25rem; /* 10px 20px converted to rem */
+      border: none;
+      border-radius: 0.3125rem; /* 5px converted to rem */
+      margin: 0 auto;
+      width: 50%;
+      font-size: clamp(0.6rem, 2vw, 1rem);
+      cursor: pointer;
+    }
+  
+    .send-money .purchase-btn:disabled {
+      background-color: #00a26d;
+      cursor: not-allowed;
+    }
+    
+    .send-money .purchase-btn:hover {
+      background-color: #ccc;
+    }
+    
+    .send-money p {
+      margin-top: 0.625rem; /* 10px converted to rem */
+      font-size: clamp(0.5rem, 1vw, 1rem); /* Adjusted values using rem units */
+      color: $primaryColor;
+    }

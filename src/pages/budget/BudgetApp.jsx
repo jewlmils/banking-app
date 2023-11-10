@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BudgetModal from "./BudgetModal";
-import { Sidebar } from "../../components/sidebar/Sidebar";
-import { Header } from "../../components/Header";
 import { currentUser } from "../../Data";
-import { json } from "react-router-dom";
-import { FileEdit, Trash2 } from "lucide-react";
+import { FileEdit, Trash2, CheckSquare } from "lucide-react";
 
 function BudgetApp() {
   const [dsc, setDsc] = useState("");
@@ -19,30 +16,12 @@ function BudgetApp() {
   const [user, setUser] = useState(null);
   const userData = JSON.parse(localStorage.getItem("userData"));
 
-  useEffect(() => {
-    localStorage.setItem("expenseList", JSON.stringify(budget));
-  }, [budget]);
-
-  const userFromStorage = userData.find(
-    (userFromStorage) => userFromStorage.email === currentUser.email
-  );
-
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    setUser(currentUser);
-  }, []);
-
-  if (!user) {
-    return null;
-  }
-
   const toggleAddBudgetVisibility = () => {
     setIsAddBudgetVisible(!isAddBudgetVisible);
     setDsc("");
     setCost("");
     setError("");
   };
-
   const addBudget = (e) => {
     e.preventDefault();
     if (dsc.trim() === "" || cost.trim() === "") {
@@ -60,7 +39,9 @@ function BudgetApp() {
     if (editId) {
       // if in edit mode, update the budget item
       const newBudget = budget.map((b) =>
-        b.id === editId ? { id: editId, dsc, cost } : b
+        b.id === editId
+          ? { id: editId, dsc, cost, email: currentUser.email }
+          : b
       );
       setBudget(newBudget);
       setEditId(null);
@@ -104,6 +85,10 @@ function BudgetApp() {
     setBudget(budget.filter((b) => b.id !== id));
   };
 
+  const handleDelete2 = (id) => {
+    setBudget(budget.filter((b) => b.id !== id));
+  };
+
   const updateBalance = (newBalance) => {
     user.balance = newBalance;
     const updatedUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -112,6 +97,23 @@ function BudgetApp() {
     localStorage.setItem("currentUser", JSON.stringify(updatedUser));
     localStorage.setItem("userData", JSON.stringify(userData));
   };
+
+  useEffect(() => {
+    localStorage.setItem("expenseList", JSON.stringify(budget));
+  }, [budget]);
+
+  const userFromStorage = userData.find(
+    (userFromStorage) => userFromStorage.email === currentUser.email
+  );
+
+  useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    setUser(currentUser);
+  }, []);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="budget-page">
@@ -151,42 +153,48 @@ function BudgetApp() {
         addBudget={addBudget}
         error={error}
       />
-      <table className="budget-table">
-        <thead className="budget-table-head">
-          <tr>
-            <th>Description</th>
-            <th>Cost</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody className="budget-table-body">
-          {/* Your comment here */}
-          {budget.map(
-            (b) =>
-              b.email === currentUser.email && (
-                <tr key={b.id} className="budget-li">
-                  <td>{b.dsc}</td>
-                  <td>
-                    {b.cost.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </td>
-                  <td className="button-container">
-                    <FileEdit
-                      onClick={() => handleEdit(b)}
-                      className="budget-action-e"
-                    />
-                    <Trash2
-                      onClick={() => handleDelete(b.id)}
-                      className="budget-action-d"
-                    />
-                  </td>
-                </tr>
-              )
-          )}
-        </tbody>
-      </table>
+      <div className="budget-table-list-container">
+        <table className="budget-table">
+          <thead className="budget-table-wrapper">
+            <tr className="tr-web">
+              <th>Description</th>
+              <th>Cost</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody className="budget-table-body">
+            {/* Your comment here */}
+            {budget.map(
+              (b) =>
+                b.email === currentUser.email && (
+                  <tr key={b.id} className="budget-li">
+                    <td>{b.dsc}</td>
+                    <td>
+                      {b.cost.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </td>
+                    <td className="button-container">
+                      <FileEdit
+                        onClick={() => handleEdit(b)}
+                        className="budget-action-e"
+                      />
+                      <Trash2
+                        onClick={() => handleDelete(b.id)}
+                        className="budget-action-d"
+                      />
+                      <CheckSquare
+                        className="budget-action-c"
+                        onClick={() => handleDelete2(b.id)}
+                      />
+                    </td>
+                  </tr>
+                )
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

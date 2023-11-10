@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Sidebar } from "../../components/sidebar/Sidebar";
-import { Header } from "../../components/Header";
 
 export function BuyLoad() {
   const [recipient, setRecipient] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionStatus, setTransactionStatus] = useState("");
+  const [recipientError, setRecipientError] = useState("");
 
   const handlePurchase = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -34,25 +33,41 @@ export function BuyLoad() {
     setAmount("");
   };
 
-  const isPurchaseButtonDisabled = recipient.trim() === "" || amount <= 0;
+  const isPurchaseButtonDisabled = recipient.trim() === "" || amount <= 0 || recipientError !== "";
+
+  const validateRecipient = (value) => {
+    if (/^09\d{9}$/.test(value)) {
+      setRecipientError(""); // Clear the error message
+    } else {
+      setRecipientError("Enter valid number");
+    }
+  };
+  const handleRecipientBlur = () => {
+    // Hide the error message when the input field loses focus
+    if (recipientError) {
+      setRecipientError("");
+    }
+  };
 
   return (
-    <div className="container">
-      <h1>Eload</h1>
+    <div className="buyload-container">
       <h2>Purchase Load</h2>
       <div className="input-section">
         <label htmlFor="recipient">Recipient</label>
         <input
-          type="number"
+          type="text"
           id="recipient"
-          placeholder="Enter phone number"
-          in="0"
-          max="99999999999"
-          pattern="[0-9]{11}"
+          placeholder="Enter 11-digit phone number"
+          maxLength="11"
           required
           value={recipient}
-          onChange={(e) => setRecipient(e.target.value)}
+          onChange={(e) => {
+            setRecipient(e.target.value);
+            validateRecipient(e.target.value);
+          }}
+          onBlur={handleRecipientBlur} // Add onBlur event to hide the error message
         />
+        {recipientError && <p className="error-message">{recipientError}</p>}
       </div>
       <div className="input-section">
         <label htmlFor="amount">Amount</label>
@@ -74,4 +89,4 @@ export function BuyLoad() {
       {transactionStatus && <p>{transactionStatus}</p>}
     </div>
   );
-}
+};

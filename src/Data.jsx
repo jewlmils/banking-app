@@ -71,9 +71,7 @@ export const userData = [
   },
 ];
 
-
 export const pageStatus = false;
-
 
 export const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
