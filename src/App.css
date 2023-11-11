@@ -844,7 +844,7 @@ input.btn-create {
   height: auto;
 }
 .split-screen .right {
-  background-image: url("src/assets/image/login-image.png");
+  background-image: url("./assets/image/login-image.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 1rem;
