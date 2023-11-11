@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import image2 from '../assets/image/full green logo-01.png' 
 
 export let email = null;
 
@@ -54,7 +55,7 @@ function Login() {
         <div className="login-page">
           <img
             className="login-logo"
-            src="src/assets/image/full green logo-01.png"
+            src={image2}
           />
           <h1>Welcome Back!</h1>
           <p>Please enter your details</p>

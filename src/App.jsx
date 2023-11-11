@@ -14,7 +14,7 @@ import { LandingPage } from "./pages/LandingPage.jsx";
 
 function App() {
   const [activeRouter, setActiveRouter] = useState(customerRouter);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     const storedUserData = localStorage.getItem("userData");
@@ -43,10 +43,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/landing-page" element={<LandingPage/>}/>
-        <Route path="/login" element={<Login onLogin={setCurrentUser} />} />
+        <Route path="/login" element={<Login />} />
         <Route element={<PrivateRoutes />}>{activeRouter}</Route>
         <Route path="*" element={<PageNotFound/>}/>
-
       </Routes>
     </Router>
   );

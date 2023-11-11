@@ -1,3 +1,5 @@
+import image2 from '../assets/image/page-not-found.png'
+
 export function PageNotFound() {
   return (
     <div className="page-not-found-container">
@@ -10,7 +12,7 @@ export function PageNotFound() {
       <div className="pnf-img-container">
         <img
           className="page-not-found"
-          src="src/assets/image/page-not-found.png"
+          src={image2}
           alt="page-not-found-img"
         />
       </div>
