@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
+import image2 from '../assets/image/iba-logo.png'
 
 export function Header({ toggleSidebar }) {
   const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -14,7 +15,7 @@ export function Header({ toggleSidebar }) {
       <Menu className="header__burger-btn" onClick={toggleSidebar} />
       <img
         className="header__logo"
-        src="src/assets/image/iba-logo.png"
+        src={image2}
         alt="IBA-logo"
       />
       <div className="header__user-container">

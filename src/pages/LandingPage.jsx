@@ -1,9 +1,11 @@
+import image2 from '../assets/image/iba-logo.png'
+
 export function LandingPage() {
   return (
     <div className="lp-body">
       <div className="lp-navbar">
         <div>
-          <img className="lp-logo" src="src/assets/image/iba-logo.png" alt="" />
+          <img className="lp-logo" src={image2} alt="" />
         </div>
         <nav className="lp-nav-list">
           <a className="nav-link">Service</a>
